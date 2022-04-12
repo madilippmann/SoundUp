@@ -13,9 +13,6 @@ class Artist(db.Model):
     audio_url_1 = db.Column(db.varchar(255), nullable=True)
     audio_url_2 = db.Column(db.varchar(255), nullable=True)
     audio_url_3 = db.Column(db.varchar(255), nullable=True)
-    confirmed = db.Column(db.Boolean, nullable=False)
-    hashed_password = db.Column(db.String(255), nullable=False)
-
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
