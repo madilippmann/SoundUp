@@ -23,7 +23,7 @@ def seed_artists():
         name='King Pink',
         bio=bio1,
         rate=400.00,
-        profile_image_url='',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-zwadlo-nj0vGyFB2nY-unsplash.jpg',
         audio_url_1='',
         audio_url_2='',
         audio_url_3=''
@@ -33,7 +33,7 @@ def seed_artists():
         name='Little September',
         bio=bio2,
         rate=355.00,
-        profile_image_url='',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/abstral-official-fnYHoNUJUNQ-unsplash.jpg',
         audio_url_1='',
         audio_url_2='',
         audio_url_3=''
@@ -43,38 +43,52 @@ def seed_artists():
         name='Flight of the Blue Lions',
         bio=bio3,
         rate=1200.00,
-        profile_image_url='',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/marco-mons-DIXT8Z9p-Sg-unsplash.jpg',
         audio_url_1='',
         audio_url_2='',
         audio_url_3=''
     )
 
     artist_4 = Artist(
-        name='Sami Dee Bright',
+        name='Sam Dee Bright',
         bio=bio4,
-        rate=100.00
+        rate=175.00,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-zwadlo-nj0vGyFB2nY-unsplash.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Nocturne+in+B+flat+minor%2C+Op.+9+no.+1.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Arabesque+No.+1.+Andantino+con+moto.mp3',
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Ballade+no.+1+in+G+minor%2C+Op.+23.mp3'
     )
 
     artist_5 = Artist(
         name='Taylor Blade',
         bio=bio5,
-        rate=145.00,
-        profile_image_url='',
+        rate=105.00,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jakayla-toney-_SUo0bFBMRc-unsplash.jpg',
         audio_url_1='',
         audio_url_2='',
         audio_url_3=''
     )
 
-    artost_6 = Artist(
+    artist_6 = Artist(
         name='Drew Apollo',
         bio=bio6,
         rate=75.00,
-        profile_image_url='',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-owen-c-NBiJrhwdM-unsplash.jpg',
         audio_url_1='',
         audio_url_2='',
         audio_url_3=''
     )
 
+
+    artist_7 = Artist(
+        name='The Lost Quartet',
+        bio=bio7,
+        rate=800,
+        profile_image_url='',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/I.+Allegro+ma+non+troppo.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/String+Quartet+no.+2+in+D+Major+-+I.+Allegro+moderato.mp3',
+        audio_url_3='TODO'
+        )
     db.session.add(artist_1)
     db.session.add(artist_2)
     db.session.add(artist_3)
