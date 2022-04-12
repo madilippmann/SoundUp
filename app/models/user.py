@@ -9,12 +9,12 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    name = db.Column(db.String(40), nullable=False, unique=True)
-    is_artist = db.Column(db.Boolean)
+    name = db.Column(db.String(40), nullable=False)
+    is_artist = db.Column(db.Boolean, nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    createdAt = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
-    updatedAt = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
     @property
     def password(self):
@@ -30,6 +30,7 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
             'email': self.email
+            'name': self.name,
+            'is_artist': self.is_artist
         }
