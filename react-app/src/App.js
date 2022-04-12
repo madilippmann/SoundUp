@@ -5,16 +5,20 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
+
+// import Messages from './components/Messages';
+// import Home from './components/Home';
+// import Dashboard from './components/Dashboard';
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -34,12 +38,28 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <ProtectedRoute path='/dashboard' exact={true}>
+          <p>In construction</p>
+          <Dashboard />
+        </ProtectedRoute>
+        <ProtectedRoute path='/' exact={true} >
+          <p>In construction</p>
+          {/* <Home /> */}
+        </ProtectedRoute>
+        <ProtectedRoute path='/artists/:artistId' exact={true}>
+          <p>In construction</p>
+          {/* <ArtistPage /> */}
+        </ProtectedRoute>
+        <ProtectedRoute path='/messages' exact={true}>
+          <p>In construction</p>
+          {/* <Messages /> */}
+        </ProtectedRoute>
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </ProtectedRoute> */}
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
