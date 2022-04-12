@@ -9,7 +9,7 @@ Hosted on Heroku: [SoundUp](https://soundup-app.herokuapp.com/)
 Inspired by OpenTable, SoundUp is a platform where users can hire musicians.
 
 ## Index
-| [Features List](https://github.com/madilippmann/SoundUp/wiki/features-list) | [Database Schema](https://github.com/madilippmann/SoundUp/wiki/database-schema) | [Backend API Routes](https://github.com/madilippmann/SoundUp/wiki/backend-api-routes) | [Frontend Routes](https://github.com/madilippmann/SoundUp/wiki/frontend-routes) | [Redux Store](https://github.com/madilippmann/SoundUp/wiki/redux-store) | [User Stories](https://github.com/madilippmann/SoundUp/wiki/user-stories) | [Wireframes](https://github.com/madilippmann/SoundUp/wiki/wireframes) |
+| [Features List](https://github.com/madilippmann/SoundUp/wiki/features-list) | [Database Schema](https://github.com/madilippmann/SoundUp/wiki/database-schema) | [Backend API Routes](https://github.com/madilippmann/SoundUp/wiki/backend-api-routes) | [Frontend Routes](https://github.com/madilippmann/SoundUp/wiki/frontend-routes) | [Redux Store](https://github.com/madilippmann/SoundUp/wiki/redux-store-state) | [User Stories](https://github.com/madilippmann/SoundUp/wiki/user-stories) | [Wireframes](https://github.com/madilippmann/SoundUp/wiki/wireframes) |
 
 
 
@@ -25,13 +25,13 @@ SoundUp was built using the following technologies:
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" style="width:60px;" />
-<!-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" style="width:60px;" /> -->
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" style="width:60px;" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" style="width:60px;" />
+<!-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" style="width:60px;" /> -->
 
 
 
