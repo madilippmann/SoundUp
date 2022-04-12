@@ -16,6 +16,9 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
+    # bookings = db.relationship('Booking', back_populates='user', casecade='all, delete')
+    # reviews = db.relationship('Review', back_populates='user', cascade='all, delete')
+
     @property
     def password(self):
         return self.hashed_password
@@ -28,6 +31,17 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        return {
+            'id': self.id,
+            'email': self.email
+            'name': self.name,
+            'is_artist': self.is_artist,
+            'bookings': self.bookings.to_dict(),
+            'reviews': self.reviews.to_dict()
+        }
+
+
+    def to_dict_lite(self):
         return {
             'id': self.id,
             'email': self.email
