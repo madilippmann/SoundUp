@@ -31,7 +31,7 @@ class Artist(db.Model):
             'audio_url_3': self.audio_url_3,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            # 'genres': self.genres.to_dict()
+            'genres': self.genres.to_dict_lite()
         }
 
     def to_dict_lite(self):
