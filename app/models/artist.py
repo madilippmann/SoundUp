@@ -16,7 +16,8 @@ class Artist(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
-    # genres = db.relationship('Genre', secondary=artists_genres, back_populates='genres')
+    reviews = db.relationship('Review', back_populates='artist')
+    genres = db.relationship('Genre', secondary=artists_genres, back_populates='artists')
 
     def to_dict(self):
         return {
@@ -31,7 +32,8 @@ class Artist(db.Model):
             'audio_url_3': self.audio_url_3,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'genres': self.genres.to_dict_lite()
+            'genres': self.genres.to_dict_lite(),
+            'reviews': self.reviews.to_dict()
         }
 
     def to_dict_lite(self):
