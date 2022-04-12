@@ -14,8 +14,8 @@ class Booking(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
-    user = db.relationship('User', back_populates='posts')
-    artist = db.relationship('Artist', back_populates='posts')
+    user = db.relationship('User', back_populates='bookings')
+    artist = db.relationship('Artist', back_populates='bookings')
 
     def to_dict(self):
         return {
