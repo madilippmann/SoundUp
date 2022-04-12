@@ -6,7 +6,7 @@ Hosted on Heroku: [SoundUp](https://soundup-app.herokuapp.com/)
 
 ## Description
 
-Inspired by OpenTable, SoundUp is a platform where users can hire musicians.
+Inspired by OpenTable, SoundUp is a platform where users can explore and hire musicians for gigs and events.
 
 ## Index
 | [Features List](https://github.com/madilippmann/SoundUp/wiki/features-list) | [Database Schema](https://github.com/madilippmann/SoundUp/wiki/database-schema) | [Backend API Routes](https://github.com/madilippmann/SoundUp/wiki/backend-api-routes) | [Frontend Routes](https://github.com/madilippmann/SoundUp/wiki/frontend-routes) | [Redux Store](https://github.com/madilippmann/SoundUp/wiki/redux-store-state) | [User Stories](https://github.com/madilippmann/SoundUp/wiki/user-stories) | [Wireframes](https://github.com/madilippmann/SoundUp/wiki/wireframes) |
