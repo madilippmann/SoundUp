@@ -8,9 +8,9 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 
 // import Messages from './components/Messages';
-// import Home from './components/Home';
-// import Dashboard from './components/Dashboard';
-
+import Home from './components/Home';
+import Dashboard from './components/Dashboard';
+import Splash from './components/Splash';
 
 
 function App() {
@@ -32,34 +32,33 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
+        <Route path='/' exact={true}>
+          <Splash />
         </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
+
+        <ProtectedRoute path='/home' exact={true}>
+          <Home />
+        </ProtectedRoute>
+
         <ProtectedRoute path='/dashboard' exact={true}>
-          <p>In construction</p>
           <Dashboard />
         </ProtectedRoute>
+
         <ProtectedRoute path='/' exact={true} >
           <p>In construction</p>
           {/* <Home /> */}
         </ProtectedRoute>
+
         <ProtectedRoute path='/artists/:artistId' exact={true}>
           <p>In construction</p>
           {/* <ArtistPage /> */}
         </ProtectedRoute>
+
         <ProtectedRoute path='/messages' exact={true}>
           <p>In construction</p>
           {/* <Messages /> */}
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
+
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
