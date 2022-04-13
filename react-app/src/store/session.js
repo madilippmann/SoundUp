@@ -2,6 +2,10 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
+const ADD_BOOKING = 'bookings/ADD_BOOKING'
+const DELETE_BOOKING = 'bookings/DELETE_BOOKING'
+
+
 const setUser = (user) => ({
   type: SET_USER,
   user

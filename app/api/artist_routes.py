@@ -4,7 +4,6 @@ from app.models import Artist
 
 artist_routes = Blueprint('artists', __name__)
 
-
 @artist_routes.route('/')
 @login_required
 def artists():
