@@ -1,0 +1,43 @@
+#modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#modal_background {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.635);
+}
+
+#modal_content {
+	height: 640px;
+	width: 1000px;
+	color: black;
+	border-radius: 6px;
+	overflow: hidden;
+
+	background-color: var(--color-white);
+    box-shadow: rgba(49, 49, 49, 0.411) 0px 10px 40px 20px;
+
+	position: relative;
+}
+
+#post-image {
+	cursor: pointer;
+	box-shadow: none;
+	transition: box-shadow .15s ease-in-out, transform .2s ease-in-out;
+}
+
+#post-image:hover {
+	transform: scale(1.004);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

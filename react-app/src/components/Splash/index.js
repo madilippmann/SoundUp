@@ -1,12 +1,9 @@
-import SplashNavBar from "./splashNavBar";
-import SplashBody from "./splashBody";
 
 const Splash = () => {
     return (
-        <>
-            <SplashNavBar />
-            <SplashBody />
-        </>
+        <div>
+            Splash Body
+        </div>
     )
 }
 

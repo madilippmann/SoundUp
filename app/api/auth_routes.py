@@ -23,6 +23,7 @@ def authenticate():
     """
     Authenticates a user.
     """
+    print('\n\n\n\n\n\n\nENTERED\n\n\n\n\n\n\n\n')
     if current_user.is_authenticated:
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
@@ -64,8 +65,7 @@ def sign_up():
     if form.validate_on_submit():
         user = User(
             email=form.data['email'],
-            namename=form.data['name'],
-            is_artist=form.data['is_artist'],
+            name=form.data['name'],
             password=form.data['password']
         )
         db.session.add(user)

@@ -1,11 +1,16 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
+import Modal from '../AuthModal';
+import LoginForm from '../auth/LoginForm';
+import SignUpForm from '../auth/SignUpForm';
+import AuthModalPopup from '../AuthModal/AuthModalPopup';
 
-const NavBar = () => {
-  const sessionUser = useSelector(state => state.session.user);
+const NavBar = ({ sessionUser }) => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
   return (
     <>
@@ -13,23 +18,13 @@ const NavBar = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to='/' exact={true} activeClassName='active'>
-                Home
+              <NavLink to='/home' exact={true} activeClassName='active'>
+                Explore Artists
               </NavLink>
             </li>
             <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/users' exact={true} activeClassName='active'>
-                Users
+              <NavLink to='/dashboard' exact={true} activeClassName='active'>
+                Dashboard
               </NavLink>
             </li>
             <li>
@@ -41,20 +36,29 @@ const NavBar = () => {
 
 
       {!sessionUser &&
-        <nav>
-          <ul>
-            <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+        <>
+          <nav>
+            <ul>
+
+              <li>
+                <button type='button' onClick={() => setShowSignupModal(true)}>
+                  Signup
+                </button>
+                {setShowSignupModal && (
+                  <AuthModalPopup type='signup' />
+                )}
+              </li>
+              <li>
+                <button type='button' onClick={() => setShowLoginModal(true)}>
+                  Login
+                </button>
+                {setShowLoginModal && (
+                  <AuthModalPopup type='login' />
+                )}
+              </li>
+            </ul>
+          </nav>
+        </>
       }
     </>
   );

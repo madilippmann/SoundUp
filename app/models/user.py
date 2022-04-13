@@ -1,4 +1,5 @@
 from .db import db
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
@@ -35,9 +36,9 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'email': self.email,
             'name': self.name,
-            'is_artist': self.is_artist,
-            'bookings': self.bookings.to_dict(),
-            'reviews': self.reviews.to_dict()
+            # # 'artist_id': self.artist_id,
+            # 'bookings': self.bookings.to_dict(),
+            # 'reviews': self.reviews.to_dict()
         }
 
 
@@ -46,5 +47,5 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'email': self.email,
             'name': self.name,
-            'is_artist': self.is_artist
+            # 'artist_id': self.artist_id,
         }

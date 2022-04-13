@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -16,11 +16,13 @@ import Splash from './components/Splash';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
       setLoaded(true);
+      console.log('SESSION USER: ', sessionUser)
     })();
   }, [dispatch]);
 
@@ -30,23 +32,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar sessionUser={sessionUser} />
       <Switch>
-        <Route path='/' exact={true}>
+        <Route path='/auth' exact={true}>
           <Splash />
         </Route>
 
-        <ProtectedRoute path='/home' exact={true}>
+        <ProtectedRoute path='/' exact={true}>
           <Home />
         </ProtectedRoute>
 
         <ProtectedRoute path='/dashboard' exact={true}>
           <Dashboard />
-        </ProtectedRoute>
-
-        <ProtectedRoute path='/' exact={true} >
-          <p>In construction</p>
-          {/* <Home /> */}
         </ProtectedRoute>
 
         <ProtectedRoute path='/artists/:artistId' exact={true}>
