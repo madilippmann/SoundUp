@@ -44,16 +44,16 @@ const NavBar = ({ sessionUser }) => {
                 <button type='button' onClick={() => setShowSignupModal(true)}>
                   Signup
                 </button>
-                {setShowSignupModal && (
-                  <AuthModalPopup type='signup' />
+                {showSignupModal && (
+                  <AuthModalPopup type='signup' setShowModal={setShowSignupModal} showModal={showSignupModal} />
                 )}
               </li>
               <li>
-                <button type='button' onClick={() => setShowLoginModal(true)}>
+                <button type='button' onClick={() => { setShowLoginModal(true) }}>
                   Login
                 </button>
-                {setShowLoginModal && (
-                  <AuthModalPopup type='login' />
+                {showLoginModal && (
+                  <AuthModalPopup type='login' setShowModal={setShowLoginModal} showModal={showLoginModal} />
                 )}
               </li>
             </ul>

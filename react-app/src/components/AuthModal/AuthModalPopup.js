@@ -6,9 +6,10 @@ import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 
 
-const AuthModalPopup = ({ type }) => {
-    const [showModal, setShowModal] = useState(false);
+const AuthModalPopup = ({ type, setShowModal, showModal }) => {
+    // const [showModal, setShowModal] = useState(false);
 
+    // useEffect(() => {}, [])
     useEffect(() => {
         const root = document.getElementById('root');
         // const navbar = document.getElementById('navbar');

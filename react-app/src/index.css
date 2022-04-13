@@ -1,1 +1,8 @@
 /* TODO Add site wide styles */
+
+
+
+
+.blur {
+    filter: blur(4px);
+}
