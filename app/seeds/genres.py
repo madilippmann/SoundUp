@@ -29,6 +29,9 @@ def seed_genres():
     genre_23 = Genre(name='Reggae')
     genre_24 = Genre(name='Jazz')
     genre_25 = Genre(name='Experimental')
+    genre_26 = Genre(name='Alternative')
+    genre_27 = Genre(name='Grunge')
+    genre_28 = Genre(name='Piano')
 
     db.session.add(genre_1)
     db.session.add(genre_2)

@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
-    bookings = db.relationship('Booking', back_populates='user', casecade='all, delete')
+    bookings = db.relationship('Booking', back_populates='user', cascade='all, delete')
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete')
 
     @property
@@ -33,7 +33,7 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'email': self.email
+            'email': self.email,
             'name': self.name,
             'is_artist': self.is_artist,
             'bookings': self.bookings.to_dict(),
@@ -44,7 +44,7 @@ class User(db.Model, UserMixin):
     def to_dict_lite(self):
         return {
             'id': self.id,
-            'email': self.email
+            'email': self.email,
             'name': self.name,
             'is_artist': self.is_artist
         }

@@ -20,6 +20,7 @@ bio7 = 'Integer cursus dui nec turpis varius, nec aliquam justo venenatis. Curab
 
 def seed_artists():
     artist_1 = Artist(
+        # Electronic, DJ, Funk
         name='King Pink',
         bio=bio1,
         rate=400.00,
@@ -30,6 +31,7 @@ def seed_artists():
     )
 
     artist_2 = Artist(
+        # Rock, Alternative, Punk
         name='Little September',
         bio=bio2,
         rate=355.00,
@@ -38,7 +40,7 @@ def seed_artists():
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Little+Shoes.mp3',
         audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Harmony.mp3'
     )
-
+    # Electronic, Alternative, Rock, Experimental
     artist_3 = Artist(
         name='Flight of the Blue Lions',
         bio=bio3,
@@ -50,6 +52,7 @@ def seed_artists():
     )
 
     artist_4 = Artist(
+        # Piano, Classical
         name='Sam Dee Bright',
         bio=bio4,
         rate=175.00,
@@ -60,6 +63,7 @@ def seed_artists():
     )
 
     artist_5 = Artist(
+        # Pop, Singer/Songwriter
         name='Taylor Blade',
         bio=bio5,
         rate=105.00,
@@ -68,17 +72,19 @@ def seed_artists():
     )
 
     artist_6 = Artist(
+        # Indie, Folk, Singer/Songwriter
         name='Drew Apollo',
         bio=bio6,
         rate=75.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-owen-c-NBiJrhwdM-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Astronaut.mp3',
-        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Highway+Fever.mp3'
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Highway+Fever.mp3',
         audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+A+Small+Town+on+Pluto+(Family+Vacation).mp3',
     )
 
 
     artist_7 = Artist(
+        # Classical, String Quartet
         name='The Lost Quartet',
         bio=bio7,
         rate=800,
@@ -93,6 +99,7 @@ def seed_artists():
     db.session.add(artist_4)
     db.session.add(artist_5)
     db.session.add(artist_6)
+    db.session.add(artist_7)
 
     db.session.commit()
 

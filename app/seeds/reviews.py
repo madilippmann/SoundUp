@@ -6,7 +6,7 @@ def seed_reviews():
     review_1 = Review(
         user_id=1,
         artist_id=5,
-        comment='Aut quasi aperiam ex molestiae quae a quia veniam eum amet quia? Et officiis doloribus est delectus Quis et voluptatum voluptate id quas galisum aut aliquam nulla. Ut quis incidunt aut iure provident ut voluptatem earum et nesciunt consectetur ex blanditiis saepe. Est quibusdam quia aut accusamus corrupti eum voluptas perferendis in dolores nobis.',
+        comment='Aut quasi aperiam ex molestiae quae a quia veniam eum amet quia? Et officiis doloribus.',
         rating=5
     )
     review_2 = Review(
@@ -18,7 +18,7 @@ def seed_reviews():
     review_3 = Review(
         user_id=1,
         artist_id=1,
-        comment='Laudantium exercitationem et corrupti itaque est dignissimos iste est molestias ratione et eligendi voluptatem et aliquam repudiandae qui accusamus ullam. Ut voluptatum laborum sit voluptas harum vel alias ullam ut incidunt earum qui alias quis qui neque nostrum quo natus impedit.',
+        comment='Laudantium exercitationem et corrupti itaque est dignissimos iste est molestias ratione et eligendi voluptatem et aliquam repudiandae qui accusamus ullam. Ut voluptatum laborum sit voluptas harum vel alias ullam ut incidunt earum qui alias quis.',
         rating=3
     )
     review_4 = Review(
@@ -30,7 +30,7 @@ def seed_reviews():
     review_5 = Review(
         user_id=2,
         artist_id=5,
-        comment='Cum iure voluptas ut rerum consequuntur praesentium reprehenderit. Id maiores tempora ex nihil internos qui eligendi sunt aut quia cumque similique velit qui ullam blanditiis et itaque quisquam. Ut exercitationem adipisci aut eaque voluptas sed rerum quia qui nulla repellendus sed sint iste.',
+        comment='Cum iure voluptas ut rerum consequuntur praesentium reprehenderit. Id maiores tempora ex nihil internos qui eligendi sunt aut quia cumque similique velit qui ullam blanditiis et itaque quisquam. Ut exercitationem adipisci aut eaque voluptas sed rerum.',
         rating=5
     )
     review_6 = Review(
@@ -48,7 +48,7 @@ def seed_reviews():
     review_8 = Review(
         user_id=3,
         artist_id=2,
-        comment='Aut omnis cupiditate est temporibus ullam et omnis voluptas qui autem perspiciatis! Eum blanditiis unde At dolores temporibus eum quidem nobis sit illo sequi. Id rerum vitae et impedit deleniti sit similique necessitatibus. Eos explicabo autem vel dolores obcaecati sed expedita sequi et cupiditate deleniti aut eius dolorum id molestiae minus 33 galisum aperiam.',
+        comment='Aut omnis cupiditate est temporibus ullam et omnis voluptas qui autem perspiciatis! Eum blanditiis unde At dolores temporibus eum quidem nobis sit illo sequi. Id rerum vitae et impedit deleniti sit similique necessitatibus.',
         rating=4
     )
     review_9 = Review(

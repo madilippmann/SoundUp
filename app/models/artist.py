@@ -1,4 +1,5 @@
 from .db import db
+from .artists_genres import artists_genres
 from sqlalchemy.sql import func
 
 
@@ -9,22 +10,28 @@ class Artist(db.Model):
     name = db.Column(db.String(40), nullable=False)
     bio = db.Column(db.Text, nullable=True)
     rate = db.Column(db.Numeric(8, 2))
-    profile_image_url = db.Column(db.varchar(255), nullable=False)
-    audio_url_1 = db.Column(db.varchar(255), nullable=True)
-    audio_url_2 = db.Column(db.varchar(255), nullable=True)
-    audio_url_3 = db.Column(db.varchar(255), nullable=True)
+    profile_image_url = db.Column(db.String(255), nullable=False)
+    audio_url_1 = db.Column(db.String(255), nullable=True)
+    audio_url_2 = db.Column(db.String(255), nullable=True)
+    audio_url_3 = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
     reviews = db.relationship('Review', back_populates='artist')
-    genres = db.relationship('Genre', secondary=artists_genres, back_populates='artists')
+    bookings = db.relationship('Booking', back_populates='artist')
+
+    genres = db.relationship(
+        'Genre',
+        secondary=artists_genres,
+        back_populates='artists'
+    )
 
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name
+            'name': self.name,
             'bio': self.bio,
-            'rate': self.rate
+            'rate': self.rate,
             'date': self.date,
             'profile_image_url': self.profile_image_url,
             'audio_url_1': self.audio_url_1,
@@ -39,9 +46,9 @@ class Artist(db.Model):
     def to_dict_lite(self):
         return {
             'id': self.id,
-            'name': self.name
+            'name': self.name,
             'bio': self.bio,
-            'rate': self.rate
+            'rate': self.rate,
             'date': self.date,
             'profile_image_url': self.profile_image_url,
             'created_at': self.created_at,

@@ -1,4 +1,5 @@
 from .db import db
+from .artists_genres import artists_genres
 from sqlalchemy.sql import func
 
 
@@ -10,7 +11,11 @@ class Genre(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = db.Column(db.DateTime(timezone=True), server_onupdate=func.now(), server_default=func.now())
 
-    artists = db.relationship('Artist', secondary=artists_genres, back_populates='genres')
+    artists = db.relationship(
+        'Artist',
+        secondary=artists_genres,
+        back_populates='genres'
+    )
 
     def to_dict(self):
         return {

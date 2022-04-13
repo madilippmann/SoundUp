@@ -20,7 +20,7 @@ class Booking(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'user_id': self.user_id
+            'user_id': self.user_id,
             'artist_id': self.artist_id,
             'date': self.date,
             'description': self.description,
@@ -34,7 +34,7 @@ class Booking(db.Model):
     def to_dict_lite(self):
         return {
             'id': self.id,
-            'user_id': self.user_id
+            'user_id': self.user_id,
             'artist_id': self.artist_id,
             'date': self.date,
             'description': self.description,
