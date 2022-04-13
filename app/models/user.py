@@ -32,8 +32,8 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
-        bookings = [booking.to_dict() for booking in self.bookings]
-        reviews = [review.to_dict() for review in self.reviews]
+        bookings = [booking.to_dict_lite() for booking in self.bookings]
+        reviews = [review.to_dict_user() for review in self.reviews]
 
         return {
             'id': self.id,

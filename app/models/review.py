@@ -27,3 +27,13 @@ class Review(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }
+
+    def to_dict_user(self):
+
+        return {
+            'id': self.id,
+            'artist_id': self.artist_id,
+            'comment': self.comment,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+        }

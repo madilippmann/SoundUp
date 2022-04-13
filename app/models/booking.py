@@ -31,10 +31,11 @@ class Booking(db.Model):
             'updated_at': self.updated_at,
         }
 
+
+
     def to_dict_lite(self):
         return {
             'id': self.id,
-            'user_id': self.user_id,
             'artist_id': self.artist_id,
             'date': self.date,
             'description': self.description,
