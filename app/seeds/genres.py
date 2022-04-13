@@ -58,6 +58,9 @@ def seed_genres():
     db.session.add(genre_23)
     db.session.add(genre_24)
     db.session.add(genre_25)
+    db.session.add(genre_26)
+    db.session.add(genre_27)
+    db.session.add(genre_28)
 
     db.session.commit()
 
