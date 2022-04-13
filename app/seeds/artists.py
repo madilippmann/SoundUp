@@ -18,15 +18,14 @@ bio6 = 'Phasellus malesuada, eros et gravida fermentum, sem sem consectetur tort
 # Adds a demo user, you can add other users here if you want
 
 def seed_artists():
-    # TODO TODO TODO TODO TODO
     artist_1 = Artist(
         name='King Pink',
         bio=bio1,
         rate=400.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-zwadlo-nj0vGyFB2nY-unsplash.jpg',
-        audio_url_1='',
-        audio_url_2='',
-        audio_url_3=''
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy-abstract-beat-11254.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/sexy-fashion-beats-simulate-11176.mp3',
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/chill-abstract-intention-12099.mp3'
     )
 
     artist_2 = Artist(
@@ -34,9 +33,9 @@ def seed_artists():
         bio=bio2,
         rate=355.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/abstral-official-fnYHoNUJUNQ-unsplash.jpg',
-        audio_url_1='',
-        audio_url_2='',
-        audio_url_3=''
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Sitting+In+Your+Head.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Little+Shoes.mp3',
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Harmony.mp3'
     )
 
     artist_3 = Artist(
@@ -44,9 +43,9 @@ def seed_artists():
         bio=bio3,
         rate=1200.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/marco-mons-DIXT8Z9p-Sg-unsplash.jpg',
-        audio_url_1='',
-        audio_url_2='',
-        audio_url_3=''
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+Post+Yes.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+Saint+Wave.mp3',
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+The+Army+Of+You.mp3'
     )
 
     artist_4 = Artist(
@@ -64,9 +63,7 @@ def seed_artists():
         bio=bio5,
         rate=105.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jakayla-toney-_SUo0bFBMRc-unsplash.jpg',
-        audio_url_1='',
-        audio_url_2='',
-        audio_url_3=''
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Jenna+Jay+-+Someone+Real+-+Jenna+Jay.mp3',
     )
 
     artist_6 = Artist(
@@ -74,9 +71,9 @@ def seed_artists():
         bio=bio6,
         rate=75.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-owen-c-NBiJrhwdM-unsplash.jpg',
-        audio_url_1='',
-        audio_url_2='',
-        audio_url_3=''
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Astronaut.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Highway+Fever.mp3'
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+A+Small+Town+on+Pluto+(Family+Vacation).mp3',
     )
 
 
@@ -87,7 +84,6 @@ def seed_artists():
         profile_image_url='',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/I.+Allegro+ma+non+troppo.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/String+Quartet+no.+2+in+D+Major+-+I.+Allegro+moderato.mp3',
-        audio_url_3='TODO'
         )
     db.session.add(artist_1)
     db.session.add(artist_2)
