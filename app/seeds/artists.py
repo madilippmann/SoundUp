@@ -15,7 +15,8 @@ bio5 = '''Integer vitae placerat tortor. Donec molestie dolor finibus velit phar
 Fusce sapien dolor, elementum at nibh venenatis, sodales auctor est. Proin ultricies porta sodales. Duis lobortis lorem in aliquam laoreet. Donec vitae erat nec libero auctor imperdiet. Nulla tempus leo vitae diam mollis, sed fermentum dolor suscipit. Vestibulum fringilla velit et turpis pulvinar sagittis. Vestibulum vestibulum ultricies nisl eu ullamcorper. Phasellus commodo felis sed mollis auctor. Phasellus luctus ac risus eget consectetur. Donec pulvinar ac quam eu accumsan.'''
 
 bio6 = 'Phasellus malesuada, eros et gravida fermentum, sem sem consectetur tortor, hendrerit efficitur magna odio ut lorem. Aliquam in lacus et arcu convallis iaculis at in dui. Pellentesque blandit fringilla est. Donec vitae dapibus purus, vel scelerisque dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer ut ultricies nulla. Nulla ac nibh mi. Pellentesque a pulvinar odio. Donec vitae accumsan ante. Fusce vestibulum condimentum justo sed gravida. Suspendisse aliquet velit nec nibh aliquam faucibus. Sed convallis, ipsum volutpat consequat bibendum, enim felis dictum massa, non condimentum ante ex ut orci. Integer a augue eget massa suscipit malesuada. In dapibus, lacus a scelerisque vestibulum, sem elit finibus mi, a finibus ex leo id lorem. Integer varius mattis elit, ullamcorper lacinia tellus condimentum non. Phasellus tempus, justo porttitor ornare accumsan, sapien magna iaculis est, et sagittis nunc libero a tellus.'
-# Adds a demo user, you can add other users here if you want
+
+bio7 = 'Integer cursus dui nec turpis varius, nec aliquam justo venenatis. Curabitur semper eget ipsum nec eleifend. Etiam sollicitudin risus vel augue maximus, vitae congue sem faucibus. Sed sit amet felis at mi fermentum commodo non sed sapien. Cras venenatis consectetur neque viverra ornare.'
 
 def seed_artists():
     artist_1 = Artist(
@@ -84,7 +85,8 @@ def seed_artists():
         profile_image_url='',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/I.+Allegro+ma+non+troppo.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/String+Quartet+no.+2+in+D+Major+-+I.+Allegro+moderato.mp3',
-        )
+    )
+
     db.session.add(artist_1)
     db.session.add(artist_2)
     db.session.add(artist_3)

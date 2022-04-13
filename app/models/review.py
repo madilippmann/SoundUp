@@ -8,7 +8,6 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'), nullable=False)
-    title = db.Column(db.String(50), nullable=False)
     comment = db.Column(db.String(255), nullable=True)
     rating = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
@@ -22,7 +21,6 @@ class Review(db.Model):
             'id': self.id,
             'user_id': self.user_id
             'artist_id': self.artist_id,
-            'title': self.title,
             'comment': self.comment,
             'date': self.date,
             'user': self.user.to_dict_lite(),
