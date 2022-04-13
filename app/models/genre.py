@@ -18,6 +18,7 @@ class Genre(db.Model):
     )
 
     def to_dict(self):
+        artists = [artist.to_dict_lite() for artist in self.artists]
         return {
             'id': self.id,
             'name': self.name,

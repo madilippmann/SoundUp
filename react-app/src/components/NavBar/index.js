@@ -1,14 +1,16 @@
 
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
 import Modal from '../AuthModal';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 import AuthModalPopup from '../AuthModal/AuthModalPopup';
 
-const NavBar = ({ sessionUser }) => {
+const NavBar = () => {
+  // const dispatch = useDispatch()
+  const sessionUser = useSelector(state => state.session.user)
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
 
@@ -18,7 +20,7 @@ const NavBar = ({ sessionUser }) => {
         <nav>
           <ul>
             <li>
-              <NavLink to='/home' exact={true} activeClassName='active'>
+              <NavLink to='/' exact={true} activeClassName='active'>
                 Explore Artists
               </NavLink>
             </li>
@@ -39,7 +41,6 @@ const NavBar = ({ sessionUser }) => {
         <>
           <nav>
             <ul>
-
               <li>
                 <button type='button' onClick={() => setShowSignupModal(true)}>
                   Signup

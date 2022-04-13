@@ -2,6 +2,7 @@ from .db import db
 from .artists_genres import artists_genres
 from sqlalchemy.sql import func
 
+import simplejson as json
 
 class Artist(db.Model):
     __tablename__ = 'artists'
@@ -27,12 +28,13 @@ class Artist(db.Model):
     )
 
     def to_dict(self):
+        genres = [genre.to_dict_lite() for genre in self.genres]
+        reviews = [review.to_dict() for review in self.reviews]
         return {
             'id': self.id,
             'name': self.name,
             'bio': self.bio,
-            'rate': self.rate,
-            'date': self.date,
+            'rate': json.dumps(self.rate, use_decimal=True),
             'profile_image_url': self.profile_image_url,
             'audio_url_1': self.audio_url_1,
             'audio_url_2': self.audio_url_2,
@@ -48,8 +50,7 @@ class Artist(db.Model):
             'id': self.id,
             'name': self.name,
             'bio': self.bio,
-            'rate': self.rate,
-            'date': self.date,
+            'rate': json.dumps(self.rate, use_decimal=True),
             'profile_image_url': self.profile_image_url,
             'created_at': self.created_at,
             'updated_at': self.updated_at,

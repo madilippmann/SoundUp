@@ -17,12 +17,12 @@ class Review(db.Model):
     artist = db.relationship('Artist', back_populates='reviews')
 
     def to_dict(self):
+
         return {
             'id': self.id,
             'user_id': self.user_id,
             'artist_id': self.artist_id,
             'comment': self.comment,
-            'date': self.date,
             'user': self.user.to_dict_lite(),
             'created_at': self.created_at,
             'updated_at': self.updated_at,

@@ -16,13 +16,13 @@ import Splash from './components/Splash';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user)
+  // const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
       setLoaded(true);
-      console.log('SESSION USER: ', sessionUser)
+
     })();
   }, [dispatch]);
 
@@ -31,13 +31,13 @@ function App() {
   }
 
   return (
+
     <BrowserRouter>
-      <NavBar sessionUser={sessionUser} />
+      <NavBar />
       <Switch>
         <Route path='/auth' exact={true}>
           <Splash />
         </Route>
-
         <ProtectedRoute path='/' exact={true}>
           <Home />
         </ProtectedRoute>
@@ -59,6 +59,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );
