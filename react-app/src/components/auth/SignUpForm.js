@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({ setShowModal }) => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -20,6 +21,10 @@ const SignUpForm = () => {
         setErrors(data)
       }
     }
+
+    setShowModal(() => false)
+    return history.push('/')
+
   };
 
   const updateUsername = (e) => {

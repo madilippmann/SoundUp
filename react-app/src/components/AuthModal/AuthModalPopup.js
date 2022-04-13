@@ -49,13 +49,13 @@ const AuthModalPopup = ({ type, setShowModal, showModal }) => {
         <>
             {type === 'login' && (
                 <Modal closeModal={() => setShowModal(false)}>
-                    <LoginForm />
+                    <LoginForm setShowModal={setShowModal} />
                 </Modal>
             )}
 
             {type === 'signup' && (
                 <Modal closeModal={() => setShowModal(false)} >
-                    <SignUpForm />
+                    <SignUpForm setShowModal={setShowModal} />
                 </Modal>
             )}
         </>

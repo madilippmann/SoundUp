@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './AuthModal.css'
+import './AuthModal.css';
+
 const Modal = ({ children, closeModal }) => {
 
     return ReactDOM.createPortal(
