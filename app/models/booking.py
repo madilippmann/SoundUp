@@ -8,7 +8,8 @@ class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'), nullable=False)
-    date = db.Column(db.Date, nullable=False)
+    startDateTime = db.Column(db.DateTime, nullable=False)
+    endDateTime = db.Column(db.DateTime, nullable=False)
     description = db.Column(db.Text, nullable=True)
     confirmed = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
@@ -22,7 +23,8 @@ class Booking(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'artist_id': self.artist_id,
-            'date': self.date,
+            'startDateTime': self.startDateTime,
+            'endDateTime': self.endDateTime,
             'description': self.description,
             'confirmed': self.confirmed,
             'user': self.user.to_dict_lite(),
@@ -37,7 +39,8 @@ class Booking(db.Model):
         return {
             'id': self.id,
             'artist_id': self.artist_id,
-            'date': self.date,
+            'startDateTime': self.startDateTime,
+            'endDateTime': self.endDateTime,
             'description': self.description,
             'confirmed': self.confirmed,
             'created_at': self.created_at,

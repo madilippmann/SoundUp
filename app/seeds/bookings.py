@@ -8,42 +8,48 @@ def seed_bookings():
         user_id=1,
         artist_id=5,
         description='Pellentesque id nibh tortor id aliquet lectus proin. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Facilisis sed odio morbi quis commodo odio aenean. Arcu dictum varius duis at consectetur lorem donec. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Mauris pellentesque pulvinar pellentesque habitant. Dui accumsan sit amet nulla facilisi morbi tempus iaculis urna. Gravida rutrum quisque non tellus orci ac. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor. Eget est lorem ipsum dolor sit amet consectetur. Scelerisque purus semper eget duis at tellus at urna condimentum. Etiam tempor orci eu lobortis elementum nibh.',
-        date=datetime(2022, 11, 28, 16, 30),
+        startDateTime=datetime(2022, 11, 28, 16, 30),
+        endDateTime=datetime(2022, 11, 28, 17, 45),
         confirmed=True
     )
     booking_2 = Booking(
         user_id=1,
         artist_id=2,
         description='Nunc faucibus a pellentesque sit amet. Lacinia quis vel eros donec ac. ',
-        date=datetime(2022, 7, 2, 18),
+        startDateTime=datetime(2022, 7, 2, 18),
+        endDateTime=datetime(2022, 7, 2, 19, 15),
         confirmed=True
     )
     booking_3 = Booking(
         user_id=1,
         artist_id=4,
         description='Tincidunt vitae semper quis lectus nulla. Nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque. ',
-        date=datetime(2022, 9, 5, 13),
+        startDateTime=datetime(2022, 9, 5, 13),
+        endDateTime=datetime(2022, 9, 5, 16),
         confirmed=True
     )
     booking_4 = Booking(
         user_id=1,
         artist_id=4,
         description='Tincidunt vitae semper quis lectus nulla. Nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque. ',
-        date=datetime(2022, 9, 6, 13),
+        startDateTime=datetime(2022, 9, 6, 13),
+        endDateTime=datetime(2022, 9, 6, 14),
         confirmed=True
     )
     booking_5 = Booking(
         user_id=1,
         artist_id=1,
         description='Mauris a diam maecenas sed enim. Sodales neque sodales ut etiam sit amet nisl purus in. Sem nulla pharetra diam sit.',
-        date=datetime(2022, 10, 15, 16, 30),
+        startDateTime=datetime(2022, 10, 15, 16, 30),
+        endDateTime=datetime(2022, 10, 15, 18, 30),
         confirmed=True
     )
     booking_6 = Booking(
         user_id=1,
         artist_id=6,
         description='Nisi vitae suscipit tellus mauris a.',
-        date=datetime(2021, 12, 10, 15, 45),
+        startDateTime=datetime(2021, 12, 10, 15, 0),
+        endDateTime=datetime(2021, 12, 10, 15, 45),
         confirmed=True
     )
 

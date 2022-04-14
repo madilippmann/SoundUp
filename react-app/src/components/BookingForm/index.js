@@ -4,6 +4,8 @@ import * as artistsActions from '../../store/artists.js';
 
 const BookingForm = ({ artist }) => {
     const [date, setDate] = useState();
+    const [startTime, setStartTime] = useState();
+    const [endTime, setEndTime] = useState();
     const [description, setDescription] = useState('');
 
     const [showErrors, setShowErrors] = useState(false);
@@ -39,13 +41,44 @@ const BookingForm = ({ artist }) => {
             )}
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor='date'>Date</label>
+                {/* <label htmlFor='date'>Date</label>
                 <input
                     name='date'
                     id='date'
                     type='datetime-local'
-                    min={`${now.getFullYear()}-${now.getMonth()}=${now.getDay() + 1}`}
+                    min={`${now.getFullYear()}-${now.getMonth()}-${now.getDay() + 1}`}
                     onChange={(e) => setDate(() => e.target.value)}
+                    value={date}
+                /> */}
+
+
+                <label htmlFor='date'>Date</label>
+                <input
+                    name='date'
+                    id='date'
+                    type='date'
+                    min={`${now.getFullYear()}-${now.getMonth()}-${now.getDay() + 1}`}
+                    onChange={(e) => setDate(() => e.target.value)}
+                    value={date}
+                />
+                <label htmlFor='startTime'>Start Time</label>
+                <input
+                    name='startTime'
+                    id='startTime'
+                    type='time'
+                    // max={`${now.getFullYear()}-${now.getMonth()}=${now.getDay() + 1}`}
+                    onChange={(e) => setStartTime(() => e.target.value)}
+                    value={date}
+                />
+
+
+                <label htmlFor='endTime'>End Time</label>
+                <input
+                    name='endTime'
+                    id='endTime'
+                    type='time'
+                    // min={`${now.getFullYear()}-${now.getMonth()}=${now.getDay() + 1}`}
+                    onChange={(e) => setEndTime(() => e.target.value)}
                     value={date}
                 />
 
