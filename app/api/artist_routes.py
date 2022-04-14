@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
-from app.models import Artist, Review
+from app.models import db, Artist, Review
 from app.forms import ReviewForm
 
 artist_routes = Blueprint('artists', __name__)
@@ -45,11 +45,12 @@ def create_review(artist_id):
             "user_id": session['_user_id'],
             "artist_id": artist_id,
             "rating": int(form.data["rating"]),
-            "comment": form.data["description"],
+            "comment": form.data["comment"],
         }
         review = Review(**data)
         db.session.add(review)
         db.session.commit()
+        print('\n\n\n\n\n\n', review, '\n\n\n\n\n')
         return jsonify(review.to_dict())
 
 

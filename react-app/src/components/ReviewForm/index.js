@@ -18,7 +18,7 @@ const ReviewForm = ({ artist }) => {
     }, [rating, comment]);
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         if (validationErrors.length) return setShowErrors(true);
@@ -27,24 +27,23 @@ const ReviewForm = ({ artist }) => {
             rating,
             comment
         }
-
-        // const review = await dispatch(artistsActions.createReview(data))
-
+        console.log('ARTIST ID: ', artist.id)
         dispatch(artistsActions.createReview(review, artist.id))
-            .then(async review => {
-                // dispatch(hideLoading());
-                // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                // return history.push(`/`);
-                return
-            })
-            .catch(async (res) => {
-                console.log(res);
-                const data = await res.json();
-                if (data && data.errors) {
-                    setValidationErrors(data.errors);
-                    setShowErrors(true);
-                }
-            });
+
+        // .then(async review => {
+        //     // dispatch(hideLoading());
+        //     // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        //     // return history.push(`/`);
+        //     return
+        // })
+        // .catch(async (res) => {
+        //     console.log(res);
+        //     const data = await res.json();
+        //     if (data && data.errors) {
+        //         setValidationErrors(data.errors);
+        //         setShowErrors(true);
+        //     }
+        // });
     }
 
     return (

@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
-from app.models import Booking
+from app.models import db, Booking
 from app.forms import BookingForm
 
 booking_routes = Blueprint('bookings', __name__)

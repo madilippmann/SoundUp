@@ -12,6 +12,7 @@ function Artist() {
 
   const { artistId } = useParams();
   const artist = useSelector(state => state.artists[artistId])
+  // const reviews = useSelector(state => state.artists[artistId].reviews)
   const [isLoaded, setIsLoaded] = useState(false)
 
 
@@ -34,12 +35,12 @@ function Artist() {
 
       <div>
         <h3>Book Artist</h3>
-        <BookingForm artist={artist}/>
+        <BookingForm artist={artist} />
       </div>
 
       <div>
         <h3>Create New Review</h3>
-        <ReviewForm artist={artist}/>
+        <ReviewForm artist={artist} />
 
         <div>
           <h3>Reviews</h3>

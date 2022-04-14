@@ -1,4 +1,4 @@
-import { normalizeArtists } from "./utils"
+import { normalizeArtists, normalizeArr } from "./utils"
 
 // ACTION VARIABLES ***************************************
 const LOAD_ARTISTS = 'artists/LOAD_ARTISTS'
@@ -79,6 +79,7 @@ export const createReview = (review, artistId) => async (dispatch) => {
     if (res.ok) {
         const review = await res.json();
         dispatch(addReview(review));
+        console.log('REVIEW: ', review)
         return review;
     }
 };
@@ -120,7 +121,7 @@ const artistsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case LOAD_ARTIST: {
-            return { [action.artist.id]: action.artist }
+            return normalizeArtists([action.artist])
         }
 
         case LOAD_ARTISTS: {
@@ -129,11 +130,12 @@ const artistsReducer = (state = {}, action) => {
 
         case ADD_REVIEW: {
             return {
-                ...state,
-                [action.review.arist_id]: {
+                [action.review.artist_id]: {
                     ...state[action.review.artist_id],
+                    // genres: normalizeArr(state[action.review.artist_id].genres),
+                    // reviews: [...normalizeArr(state[action.review.artist_id].reviews), action.review]
                     genres: [...state[action.review.artist_id].genres],
-                    reviews: [...state[action.review.artists_id].reviews, action.review],
+                    reviews: [...state[action.review.artist_id].reviews, action.review],
                 }
             }
         }
@@ -142,26 +144,27 @@ const artistsReducer = (state = {}, action) => {
             const reviewIndex = state[action.review.artist_id].reviews.findIndex((review) => review.id === action.review.id)
             state[action.review.artist_id].reviews[reviewIndex] = action.review
 
-            newState = {
+            return {
                 ...state,
                 [action.review.arist_id]: {
                     ...state[action.review.artist_id],
                     genres: [...state[action.review.artist_id].genres],
-                    reviews: [...state[action.review.artists_id].reviews]
+                    reviews: [...state[action.review.artist_id].reviews]
                 }
             }
+
         }
 
         case DELETE_REVIEW: {
             const reviewIndex = state[action.review.artist_id].reviews.findIndex((review) => review.id === action.review.id)
             state[action.review.artist_id].reviews.splice(reviewIndex, 1)
 
-            newState = {
+            return {
                 ...state,
                 [action.review.arist_id]: {
                     ...state[action.review.artist_id],
                     genres: [...state[action.review.artist_id].genres],
-                    reviews: [...state[action.review.artists_id].reviews]
+                    reviews: [...state[action.review.artist_id].reviews]
                 }
             }
         }
