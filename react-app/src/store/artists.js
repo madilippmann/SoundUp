@@ -117,9 +117,9 @@ const artistsReducer = (state = {}, action) => {
         }
 
         case UPDATE_REVIEW: {
-
             const reviewIndex = state[action.review.artist_id].reviews.findIndex((review) => review.id === action.review.id)
             state[action.review.artist_id].reviews[reviewIndex] = action.review
+
             newState = {
                 ...state,
                 [action.review.arist_id]: {
