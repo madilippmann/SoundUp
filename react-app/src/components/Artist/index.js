@@ -9,38 +9,41 @@ import BookingForm from '../BookingForm/index.js';
 import Reviews from './Reviews.js';
 
 function Artist() {
-  const dispatch = useDispatch();
-  const { artistId } = useParams();
-  const artist = useSelector(state => state.artists[artistId])
-  // const reviews = useSelector(state => state.artists[artistId].reviews)
-  const [isLoaded, setIsLoaded] = useState(false)
+	const dispatch = useDispatch();
+	const { artistId } = useParams();
+	console.log('ARTIST ID: ', artistId)
+	const artist = useSelector(state => state.artists[artistId])
+	// const reviews = useSelector(state => state.artists[artistId].reviews)
+	const [isLoaded, setIsLoaded] = useState(false)
 
 
-  useEffect(() => {
-    (async () => {
-      await dispatch(artistsActions.fetchArtist(artistId))
-      setIsLoaded(() => true)
-    })();
-  }, [dispatch]);
+	useEffect(() => {
+		(async () => {
+			await dispatch(artistsActions.fetchArtist(artistId))
+			setIsLoaded(() => true)
+		})();
 
-  return !isLoaded ? null : (
-    <div>
-      <div>
-        <ul>
-          <li>{artist.name}</li>
-          <li>${artist.rate}</li>
-          <li>{artist.bio}</li>
-        </ul>
-      </div>
+	}, [dispatch]);
 
-      <div>
-        <h3>Book Artist</h3>
-        <BookingForm artist={artist} />
-      </div>
 
-      <Reviews artist={artist} />
+	return !isLoaded ? null : (
+		<div>
+			<div>
+				<ul>
+					<li>{artist.name}</li>
+					<li>${artist.rate}</li>
+					<li>{artist.bio}</li>
+				</ul>
+			</div>
 
-    </div >
-  );
+			<div>
+				<h3>Book Artist</h3>
+				<BookingForm artist={artist} />
+			</div>
+
+			<Reviews artist={artist} />
+
+		</div >
+	);
 }
 export default Artist;

@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import * as artistsActions from '../../store/artists.js'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import ReviewForm from '../ReviewForm';
 
 const ReviewCard = ({ review }) => {
+    const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
     const [editReview, setEditReview] = useState(false)
 
-
+    const deleteReview = async () => {
+        await dispatch(artistsActions.removeReview(review.id))
+    }
 
     return (
         <div>
@@ -19,7 +25,7 @@ const ReviewCard = ({ review }) => {
                     <button type='button' onClick={() => setEditReview(true)}>
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </button>
-                    <button>
+                    <button type='button' onClick={deleteReview}>
                         <FontAwesomeIcon icon={faTrashCan} />
                     </button>
                 </div>

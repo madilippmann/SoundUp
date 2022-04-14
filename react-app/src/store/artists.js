@@ -110,6 +110,7 @@ export const removeReview = (reviewId) => async (dispatch) => {
 
     if (res.ok) {
         const review = await res.json();
+        console.log('REVIEW FROM THUNK: ', review)
         dispatch(deleteReview(review));
         return review;
     }
@@ -121,6 +122,7 @@ const artistsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case LOAD_ARTIST: {
+            console.log(action.artist)
             return { ...normalizeArtists([action.artist]) }
         }
 
@@ -157,14 +159,17 @@ const artistsReducer = (state = {}, action) => {
             const reviewIndex = state[action.review.artist_id].reviews.findIndex((review) => review.id === action.review.id)
             state[action.review.artist_id].reviews.splice(reviewIndex, 1)
 
-            return {
-                ...state,
-                [action.review.arist_id]: {
+            newState = {
+                [action.review.artist_id]: {
                     ...state[action.review.artist_id],
                     genres: [...state[action.review.artist_id].genres],
                     reviews: [...state[action.review.artist_id].reviews]
                 }
             }
+
+            console.log('NEW STATE ARTIST IDs: ', action.review.artist_id)
+            console.log('NEW STATE: ', newState)
+            return newState
         }
 
         default: {

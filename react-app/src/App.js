@@ -14,54 +14,54 @@ import Splash from './components/Splash';
 import Artist from './components/Artist'
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
-  const dispatch = useDispatch();
-  // const sessionUser = useSelector(state => state.session.user)
+	const [loaded, setLoaded] = useState(false);
+	const dispatch = useDispatch();
+	// const sessionUser = useSelector(state => state.session.user)
 
-  useEffect(() => {
-    (async () => {
-      await dispatch(authenticate());
-      setLoaded(true);
+	useEffect(() => {
+		(async () => {
+			await dispatch(authenticate());
+			setLoaded(true);
 
-    })();
-  }, [dispatch]);
+		})();
+	}, [dispatch]);
 
-  if (!loaded) {
-    return null;
-  }
+	if (!loaded) {
+		return null;
+	}
 
-  return (
+	return (
 
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route path='/auth' exact={true}>
-          <Splash />
-        </Route>
-        <ProtectedRoute path='/' exact={true}>
-          <Home />
-        </ProtectedRoute>
+		<BrowserRouter>
+			<NavBar />
+			<Switch>
+				<Route path='/auth' exact={true}>
+					<Splash />
+				</Route>
+				<ProtectedRoute path='/' exact={true}>
+					<Home />
+				</ProtectedRoute>
 
-        <ProtectedRoute path='/dashboard' exact={true}>
-          <Dashboard />
-        </ProtectedRoute>
+				<ProtectedRoute path='/dashboard' exact={true}>
+					<Dashboard />
+				</ProtectedRoute>
 
-        <ProtectedRoute path='/artists/:artistId' exact={true}>
-          <Artist />
-        </ProtectedRoute>
+				<ProtectedRoute path='/artists/:artistId' exact={true}>
+					<Artist />
+				</ProtectedRoute>
 
-        <ProtectedRoute path='/messages' exact={true}>
-          <p>In construction</p>
-          {/* <Messages /> */}
-        </ProtectedRoute>
+				<ProtectedRoute path='/messages' exact={true}>
+					<p>In construction</p>
+					{/* <Messages /> */}
+				</ProtectedRoute>
 
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+				<ProtectedRoute path='/' exact={true} >
+					<h1>My Home Page</h1>
+				</ProtectedRoute>
 
-      </Switch>
-    </BrowserRouter>
-  );
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
 export default App;
