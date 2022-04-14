@@ -1,26 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateTimeField
+from wtforms import StringField, DateTimeField, IntegerField
 from wtforms.validators import DataRequired
-from datetime import datetime
+# from datetime import datetime
 
-today = datetime.today()
-
-
+# today = datetime.today()
 class BookingForm(FlaskForm):
-    startDateTime = DateTimeField(
-        'startDateTime',
-        validators=[
-            DataRequired(),
-            # DateRange(
-            #     min=datetime(today.year, today.month, today.day)
-            # )
-        ])
-
-    print(startDateTime)
-    endDateTime = DateTimeField(
-        'endDateTime',
-        validators=[
-            DataRequired()
-            # DateRange()
-        ])
+    artist_id = IntegerField('artist_id', validators=[DataRequired()])
+    start_date_time = StringField('start_date_time', validators=[DataRequired()])
+    end_date_time = StringField('end_date_time', validators=[DataRequired()])
     description = StringField('description')

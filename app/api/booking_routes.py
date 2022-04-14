@@ -2,8 +2,19 @@ from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
 from app.models import db, Booking
 from app.forms import BookingForm
-
 booking_routes = Blueprint('bookings', __name__)
+from datetime import datetime
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 
 @booking_routes.route('/')
 @login_required
@@ -27,22 +38,26 @@ def get_booking(booking_id):
 def create_booking():
     booking = request.get_json()
     form = BookingForm()
-
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    dateFormat = "%Y/%m/%d %H:%M:%S.%f"
     if form.validate_on_submit():
         data = {
             "user_id": session['_user_id'],
             "artist_id": form.data["artist_id"],
-            "date": form.data["date"],
+            "start_date_time": datetime.fromisoformat(form.data["start_date_time"][:-1]),
+            "end_date_time": datetime.fromisoformat(form.data["end_date_time"][:-1]),
             "description": form.data["description"],
             "confirmed": True
         }
+
+        print('\n\n\n\n\n', data, '\n\n\n\n')
         booking = Booking(**data)
         db.session.add(booking)
         db.session.commit()
         return jsonify(booking.to_dict())
 
+    print('\n\n\n\n\n', validation_errors_to_error_messages(form.errors), '\n\n\n\n')
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
