@@ -110,7 +110,6 @@ export const removeReview = (reviewId) => async (dispatch) => {
 
     if (res.ok) {
         const review = await res.json();
-        console.log('REVIEW FROM THUNK: ', review)
         dispatch(deleteReview(review));
         return review;
     }
@@ -167,8 +166,6 @@ const artistsReducer = (state = {}, action) => {
                 }
             }
 
-            console.log('NEW STATE ARTIST IDs: ', action.review.artist_id)
-            console.log('NEW STATE: ', newState)
             return newState
         }
 

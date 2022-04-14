@@ -44,13 +44,12 @@ def create_review(artist_id):
         data = {
             "user_id": session['_user_id'],
             "artist_id": artist_id,
-            "rating": int(form.data["rating"]),
+            "rating": form.data["rating"],
             "comment": form.data["comment"],
         }
         review = Review(**data)
         db.session.add(review)
         db.session.commit()
-        print('\n\n\n\n\n\n', review, '\n\n\n\n\n')
         return jsonify(review.to_dict())
 
 

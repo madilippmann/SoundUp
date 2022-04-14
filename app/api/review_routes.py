@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
-from app.models import Review
+from app.models import db, Review
 from app.forms import ReviewForm
 
 review_routes = Blueprint('reviews', __name__)
@@ -13,7 +13,6 @@ def update_review(review_id):
     form = ReviewForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         review = Review.query.get(review_id)
         review.rating = form['rating'].data
@@ -29,9 +28,9 @@ def update_review(review_id):
 def delete_review(review_id):
     review = Review.query.get(review_id)
 
-    if review.to_dict()['userId'] == int(session['_user_id']):
+    if review.to_dict()['user_id'] == int(session['_user_id']):
         db.session.delete(review)
         db.session.commit()
-        return jsonify(review_id)
+        return jsonify(review.to_dict())
     else:
         return jsonify('invalid'), 401

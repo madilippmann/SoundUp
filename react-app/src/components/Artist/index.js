@@ -11,7 +11,6 @@ import Reviews from './Reviews.js';
 function Artist() {
 	const dispatch = useDispatch();
 	const { artistId } = useParams();
-	console.log('ARTIST ID: ', artistId)
 	const artist = useSelector(state => state.artists[artistId])
 	// const reviews = useSelector(state => state.artists[artistId].reviews)
 	const [isLoaded, setIsLoaded] = useState(false)
