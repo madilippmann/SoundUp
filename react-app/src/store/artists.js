@@ -67,8 +67,8 @@ export const fetchArtist = (artistId) => async (dispatch) => {
     }
 };
 
-export const createReview = (review) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/`, {
+export const createReview = (review, artistId) => async (dispatch) => {
+    const res = await fetch(`/api/artists/${artistId}/reviews/`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

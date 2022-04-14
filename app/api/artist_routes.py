@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import Artist, Review
 from app.forms import ReviewForm
@@ -44,7 +44,7 @@ def create_review(artist_id):
         data = {
             "user_id": session['_user_id'],
             "artist_id": artist_id,
-            "rating": form.data["date"],
+            "rating": int(form.data["rating"]),
             "comment": form.data["description"],
         }
         review = Review(**data)

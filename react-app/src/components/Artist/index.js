@@ -14,17 +14,12 @@ function Artist() {
   const artist = useSelector(state => state.artists[artistId])
   const [isLoaded, setIsLoaded] = useState(false)
 
-  useEffect(() => { console.log('ARTIST') }, [])
 
   useEffect(() => {
     (async () => {
       await dispatch(artistsActions.fetchArtist(artistId))
-      console.log('ARTIST: ', artist)
-
       setIsLoaded(() => true)
     })();
-    console.log('ARTIST: ', artist)
-
   }, [dispatch]);
 
   return !isLoaded ? null : (
@@ -32,25 +27,25 @@ function Artist() {
       <div>
         <ul>
           <li>{artist.name}</li>
-          <li>{artist.rate}</li>
+          <li>${artist.rate}</li>
           <li>{artist.bio}</li>
         </ul>
       </div>
 
       <div>
         <h3>Book Artist</h3>
-        <BookingForm />
+        <BookingForm artist={artist}/>
       </div>
 
       <div>
         <h3>Create New Review</h3>
-        <ReviewForm />
+        <ReviewForm artist={artist}/>
 
         <div>
           <h3>Reviews</h3>
           <ul>
             {artist.reviews.map(review => (
-              <div>
+              <div key={review.id}>
                 <p>{review.user.name}</p>
                 <p>{review.rating}</p>
                 <p>{review.comment}</p>
