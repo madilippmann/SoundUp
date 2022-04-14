@@ -9,6 +9,8 @@ const BookingForm = () => {
 
     }
 
+    const now = new Date();
+
     return (
         <form onSubmit={handleSubmit}>
             <label for='date'>Rating</label>
@@ -16,17 +18,16 @@ const BookingForm = () => {
                 name='date'
                 id='date'
                 type='datetime-local'
-                min={new Date.now()}
+                min={`${now.getFullYear()}-${now.getMonth()}=${now.getDay() + 1}`}
                 onChange={(e) => setDate(() => e.target.value)}
                 value={date}
             />
 
             <label for='description'>Description</label>
-            <input
+            <textarea
                 name='description'
                 id='description'
-                type='datetime-local'
-                min={new Date.now()}
+                type='text'
                 onChange={(e) => setDescription(() => e.target.value)}
                 value={description}
             />
