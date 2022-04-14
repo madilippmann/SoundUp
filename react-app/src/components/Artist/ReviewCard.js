@@ -16,7 +16,7 @@ const ReviewCard = ({ review }) => {
             {/* <FontAwesomeIcon icon="fa-solid fa-ellipsis" /> */}
             {sessionUser.id === review.user.id &&
                 <div>
-                    <button type='button' onClick={() => setEditReview((prev) => !prev)}>
+                    <button type='button' onClick={() => setEditReview(true)}>
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </button>
                     <button>
@@ -32,7 +32,7 @@ const ReviewCard = ({ review }) => {
                     <p>{review.comment}</p>
                 </div>
                 :
-                <ReviewForm review={review} type='edit' />
+                <ReviewForm review={review} type='edit' setEditReview={setEditReview} />
             }
 
         </div>
