@@ -32,7 +32,7 @@ const ReviewCard = ({ review }) => {
                     <p>{review.comment}</p>
                 </div>
                 :
-                <ReviewForm review={review} />
+                <ReviewForm review={review} type='edit' />
             }
 
         </div>

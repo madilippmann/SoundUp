@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import * as artistsActions from '../../store/artists.js';
 
-const ReviewForm = ({ artistId, review }) => {
+const ReviewForm = ({ artistId, review, type }) => {
     const dispatch = useDispatch();
     const [rating, setRating] = useState(review ? review.rating : 1);
     const [comment, setComment] = useState(review ? review.comment : '');
@@ -23,12 +23,21 @@ const ReviewForm = ({ artistId, review }) => {
 
         if (validationErrors.length) return setShowErrors(true);
 
-        const review = {
-            rating,
-            comment
-        }
 
-        dispatch(artistsActions.createReview(review, artistId))
+        if (type === 'edit') {
+            review.rating = rating
+            review.comment = comment
+
+            dispatch(artistsActions.editReview(review))
+
+        } else {
+            const review = {
+                rating,
+                comment
+            }
+
+            dispatch(artistsActions.createReview(review, artistId))
+        }
     }
 
     return (
