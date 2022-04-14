@@ -72,6 +72,7 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                     value={comment}
                 />
                 <button>Submit</button>
+                {type === 'edit' && <button type='button' onClick={() => setEditReview(() => false)}>Cancel</button>}
             </form>
         </>
     );
