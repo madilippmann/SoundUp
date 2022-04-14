@@ -34,15 +34,15 @@ class Artist(db.Model):
             'id': self.id,
             'name': self.name,
             'bio': self.bio,
-            # 'rate': json.dumps(self.rate, use_decimal=True),
+            'rate': json.dumps(self.rate, use_decimal=True),
             'profile_image_url': self.profile_image_url,
             'audio_url_1': self.audio_url_1,
             'audio_url_2': self.audio_url_2,
             'audio_url_3': self.audio_url_3,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            # 'genres': genres,
-            # 'reviews': reviews
+            'genres': genres,
+            'reviews': reviews
         }
 
     def to_dict_lite(self):
@@ -50,7 +50,7 @@ class Artist(db.Model):
             'id': self.id,
             'name': self.name,
             'bio': self.bio,
-            # 'rate': json.dumps(self.rate, use_decimal=True),
+            'rate': json.dumps(self.rate, use_decimal=True),
             'profile_image_url': self.profile_image_url,
             'created_at': self.created_at,
             'updated_at': self.updated_at,

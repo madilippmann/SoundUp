@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 import * as artistsActions from '../../store/artists'
 
 const Home = () => {
@@ -16,7 +17,16 @@ const Home = () => {
 
     return !isLoaded ? null : (
         <div>
-            Home
+            <ul>
+                {artists?.map((artist) => {
+                    return (
+                        <li key={artist.id}>
+                            <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
+                        </li>
+                    )
+                })}
+
+            </ul>
         </div>
     );
 }
