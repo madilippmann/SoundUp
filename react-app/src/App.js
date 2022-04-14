@@ -11,7 +11,7 @@ import { authenticate } from './store/session';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Splash from './components/Splash';
-
+import Artist from './components/Artist'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,8 +47,7 @@ function App() {
         </ProtectedRoute>
 
         <ProtectedRoute path='/artists/:artistId' exact={true}>
-          <p>In construction</p>
-          {/* <ArtistPage /> */}
+          <Artist />
         </ProtectedRoute>
 
         <ProtectedRoute path='/messages' exact={true}>

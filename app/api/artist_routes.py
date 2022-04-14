@@ -20,7 +20,7 @@ def get_artists():
 def get_artist(artistId):
     artist = Artist.query.get(artistId)
 
-    return jsonify(artists.to_dict())
+    return jsonify(artist.to_dict())
 
 
 # REVIEWS

@@ -1,6 +1,8 @@
+import { normalizeArtists } from "./utils"
 
 // ACTION VARIABLES ***************************************
 const LOAD_ARTISTS = 'artists/LOAD_ARTISTS'
+const LOAD_ARTIST = 'artists/LOAD_ARTIST'
 
 const ADD_REVIEW = 'artists/ADD_REVIEW'
 const DELETE_REVIEW = 'artists/DELETE_REVIEW'
@@ -13,6 +15,13 @@ const loadArtists = (artists) => {
     return {
         type: LOAD_ARTISTS,
         artists
+    }
+}
+
+const loadArtist = (artist) => {
+    return {
+        type: LOAD_ARTIST,
+        artist
     }
 }
 
@@ -48,6 +57,15 @@ export const fetchArtists = () => async (dispatch) => {
     }
 };
 
+export const fetchArtist = (artistId) => async (dispatch) => {
+    const res = await fetch(`/api/artists/${artistId}/`);
+
+    if (res.ok) {
+        const artist = await res.json();
+        dispatch(loadArtist(artist));
+        return artist;
+    }
+};
 
 export const createReview = (review) => async (dispatch) => {
     const res = await fetch(`/api/reviews/`, {
@@ -101,8 +119,12 @@ const artistsReducer = (state = {}, action) => {
     let newState = {}
 
     switch (action.type) {
+        case LOAD_ARTIST: {
+            return { [action.artist.id]: action.artist }
+        }
+
         case LOAD_ARTISTS: {
-            return action.artists
+            return normalizeArtists(action.artists)
         };
 
         case ADD_REVIEW: {
