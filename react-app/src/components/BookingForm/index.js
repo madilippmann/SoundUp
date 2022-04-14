@@ -39,7 +39,7 @@ const BookingForm = ({ artist }) => {
             )}
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor='date'>Rating</label>
+                <label htmlFor='date'>Date</label>
                 <input
                     name='date'
                     id='date'

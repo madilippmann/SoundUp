@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp, login } from '../../store/session';
 
 const SignUpForm = ({ setShowModal }) => {
   const history = useHistory();
@@ -45,6 +45,11 @@ const SignUpForm = ({ setShowModal }) => {
 
   if (user) {
     return <Redirect to='/' />;
+  }
+
+
+  const demoLogin = async () => {
+    await dispatch(login('demo@aa.io', 'password'));
   }
 
   return (
@@ -94,6 +99,9 @@ const SignUpForm = ({ setShowModal }) => {
         </div>
         <button type='submit'>Sign Up</button>
       </form>
+      <div>
+        <button type='button' onClick={demoLogin}>Sign in with demo</button>
+      </div>
     </div>
   );
 };
