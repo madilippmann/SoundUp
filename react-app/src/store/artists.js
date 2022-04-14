@@ -121,19 +121,17 @@ const artistsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case LOAD_ARTIST: {
-            return normalizeArtists([action.artist])
+            return { ...normalizeArtists([action.artist]) }
         }
 
         case LOAD_ARTISTS: {
-            return normalizeArtists(action.artists)
+            return { ...normalizeArtists(action.artists) }
         };
 
         case ADD_REVIEW: {
             return {
                 [action.review.artist_id]: {
                     ...state[action.review.artist_id],
-                    // genres: normalizeArr(state[action.review.artist_id].genres),
-                    // reviews: [...normalizeArr(state[action.review.artist_id].reviews), action.review]
                     genres: [...state[action.review.artist_id].genres],
                     reviews: [...state[action.review.artist_id].reviews, action.review],
                 }

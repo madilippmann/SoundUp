@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import * as artistsActions from '../../store/artists.js'
 
-import ReviewForm from '../ReviewForm/index.js';
 import BookingForm from '../BookingForm/index.js';
+
+import Reviews from './Reviews.js';
 
 function Artist() {
   const dispatch = useDispatch();
-
   const { artistId } = useParams();
   const artist = useSelector(state => state.artists[artistId])
   // const reviews = useSelector(state => state.artists[artistId].reviews)
@@ -38,24 +38,9 @@ function Artist() {
         <BookingForm artist={artist} />
       </div>
 
-      <div>
-        <h3>Create New Review</h3>
-        <ReviewForm artist={artist} />
+      <Reviews artist={artist} />
 
-        <div>
-          <h3>Reviews</h3>
-          <ul>
-            {artist.reviews.map(review => (
-              <div key={review.id}>
-                <p>{review.user.name}</p>
-                <p>{review.rating}</p>
-                <p>{review.comment}</p>
-              </div>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+    </div >
   );
 }
 export default Artist;

@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 
 import * as artistsActions from '../../store/artists.js';
 
-const ReviewForm = ({ artist }) => {
+const ReviewForm = ({ artistId, review }) => {
     const dispatch = useDispatch();
-    const [rating, setRating] = useState(1);
-    const [comment, setComment] = useState('');
+    const [rating, setRating] = useState(review ? review.rating : 1);
+    const [comment, setComment] = useState(review ? review.comment : '');
     const [showErrors, setShowErrors] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
 
@@ -27,23 +27,8 @@ const ReviewForm = ({ artist }) => {
             rating,
             comment
         }
-        console.log('ARTIST ID: ', artist.id)
-        dispatch(artistsActions.createReview(review, artist.id))
 
-        // .then(async review => {
-        //     // dispatch(hideLoading());
-        //     // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-        //     // return history.push(`/`);
-        //     return
-        // })
-        // .catch(async (res) => {
-        //     console.log(res);
-        //     const data = await res.json();
-        //     if (data && data.errors) {
-        //         setValidationErrors(data.errors);
-        //         setShowErrors(true);
-        //     }
-        // });
+        dispatch(artistsActions.createReview(review, artistId))
     }
 
     return (
