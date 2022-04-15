@@ -36,27 +36,39 @@ function App() {
 			<NavBar />
 			<Switch>
 				<Route path='/auth' exact={true}>
-					<Splash />
+					<div className='body'>
+						<Splash />
+					</div>
 				</Route>
 				<ProtectedRoute path='/' exact={true}>
-					<Home />
+					<div className='body'>
+						<Home />
+					</div>
 				</ProtectedRoute>
 
 				<ProtectedRoute path='/dashboard' exact={true}>
-					<Dashboard />
+					<div className='body'>
+						<Dashboard />
+					</div>
 				</ProtectedRoute>
 
 				<ProtectedRoute path='/artists/:artistId' exact={true}>
-					<Artist />
+					<div className='body'>
+						<Artist />
+					</div>
 				</ProtectedRoute>
 
 				<ProtectedRoute path='/messages' exact={true}>
-					<p>In construction</p>
+					<div className='body'>
+						<p>In construction</p>
+					</div>
 					{/* <Messages /> */}
 				</ProtectedRoute>
 
 				<ProtectedRoute path='/' exact={true} >
-					<h1>My Home Page</h1>
+					<div className='body'>
+						<h1>My Home Page</h1>
+					</div>
 				</ProtectedRoute>
 
 			</Switch>

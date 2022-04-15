@@ -1,8 +1,40 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
 
 
+body {
+    max-width: 1300px;
+    min-height: 75vh;
+    margin: auto;
+    margin-top: 70px;
+    background-color: rgb(247, 247, 247);
+    color: black;
+
+}
+
+
+.body {
+    background-color: rgb(255, 255, 255);
+
+}
 
 .blur {
     filter: blur(4px);
+}
+
+
+.no-styling-button {
+    background-color: transparent;
+    border: none;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: none;
 }
