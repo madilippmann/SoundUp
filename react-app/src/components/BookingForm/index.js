@@ -97,6 +97,10 @@ const BookingForm = ({ parent }) => {
             // parent.end_date_time = endDateTime
             // parent.description = description
             res = await dispatch(userActions.editBooking(booking))
+            history.push('/dashboard')
+            // FIX FIX FIX navigate to other modal page rather than refreshing
+
+            window.location.reload(false)
         } else {
             const booking = {
                 artist_id: parent.id,
@@ -106,12 +110,13 @@ const BookingForm = ({ parent }) => {
             }
 
             res = await dispatch(userActions.createBooking(booking))
-        }
-        if (res) {
-            setDate(() => undefined)
-            setStartTime(() => undefined)
-            setEndTime(() => undefined)
-            return history.push('/dashboard')
+
+            if (res) {
+                setDate(() => undefined)
+                setStartTime(() => undefined)
+                setEndTime(() => undefined)
+                return history.push('/dashboard')
+            }
         }
 
         validationErrors.push('An error occured. Please try again.')

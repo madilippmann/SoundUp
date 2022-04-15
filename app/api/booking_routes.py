@@ -72,8 +72,8 @@ def update_booking(booking_id):
     if form.validate_on_submit():
 
         booking = Booking.query.get(booking_id)
-        booking.start_date_time = form['start_date_time'].data
-        booking.end_date_time = form['end_date_time'].data
+        booking.start_date_time = datetime.fromtimestamp(form['start_date_time'].data / 1000)
+        booking.end_date_time = datetime.fromtimestamp(form['end_date_time'].data / 1000)
         booking.description = form['description'].data
 
         db.session.commit()
