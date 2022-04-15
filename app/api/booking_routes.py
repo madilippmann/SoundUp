@@ -40,18 +40,15 @@ def create_booking():
     form = BookingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    dateFormat = "%Y/%m/%d %H:%M:%S.%f"
     if form.validate_on_submit():
         data = {
             "user_id": session['_user_id'],
             "artist_id": form.data["artist_id"],
-            "start_date_time": datetime.fromisoformat(form.data["start_date_time"][:-1]),
-            "end_date_time": datetime.fromisoformat(form.data["end_date_time"][:-1]),
+            "start_date_time": datetime.fromtimestamp(form.data["start_date_time"] / 1000),
+            "end_date_time": datetime.fromtimestamp(form.data["end_date_time"] / 1000),
             "description": form.data["description"],
             "confirmed": True
         }
-
-        print('\n\n\n\n\n', data, '\n\n\n\n')
         booking = Booking(**data)
         db.session.add(booking)
         db.session.commit()

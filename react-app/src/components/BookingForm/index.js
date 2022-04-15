@@ -47,24 +47,21 @@ const BookingForm = ({ artist }) => {
 
         const startDateTime = new Date(`${date} ${startTime}`)
         const endDateTime = new Date(`${date} ${endTime}`)
-        console.log(artist.id)
+        console.log(Date.parse(startDateTime), Date.parse(endDateTime))
         const booking = {
             artist_id: artist.id,
-            start_date_time: startDateTime,
-            end_date_time: endDateTime,
+            start_date_time: Date.parse(startDateTime),
+            end_date_time: Date.parse(endDateTime),
             description,
         }
 
 
         const res = await dispatch(sessionActions.createBooking(booking))
         if (res) {
-            const data = await res.json()
-            if (data) {
-                setDate(() => null)
-                setStartTime(() => null)
-                setEndTime(() => null)
-            }
-
+            setDate(() => undefined)
+            setStartTime(() => undefined)
+            setEndTime(() => undefined)
+            return
         }
 
         validationErrors.push('An error occured. Please try again.')
