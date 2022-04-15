@@ -85,7 +85,7 @@ def update_booking(booking_id):
 def delete_booking(booking_id):
     booking = Booking.query.get(booking_id)
 
-    if booking.to_dict()['userId'] == int(session['_user_id']):
+    if booking.to_dict()['user_id'] == int(session['_user_id']):
         db.session.delete(booking)
         db.session.commit()
         return jsonify(booking_id)
