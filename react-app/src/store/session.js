@@ -63,7 +63,6 @@ export const login = (email, password) => async (dispatch) => {
 		})
 	});
 
-
 	if (res.ok) {
 		const data = await res.json();
 		dispatch(setUser(data))
