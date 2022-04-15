@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { } from '../../utils.js'
 
 import * as userActions from '../../store/session.js';
 
@@ -25,37 +24,27 @@ const BookingForm = ({ parent }) => {
 
         const year = date.getFullYear()
         const month = date.getMonth() > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
-        let day = dateTime.split(' ')[1]
-        // day = day > 9 ? `${day}` : `0${day}`;
+        const day = dateTime.split(' ')[1]
 
-        console.log(`Month: ${month} Day: ${day}`)
         return `${year}-${month}-${day}`
-
     }
 
     const extractTime = (dateTime) => {
         const date = new Date(dateTime);
         const hours = date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`;
         const minutes = date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`
-        // console.log('HOUR: ', hours)
-        // console.log('MINUTES: ', minutes)
+
         return `${hours}:${minutes}`
 
     }
 
     useEffect(() => {
         if (parent.start_date_time) {
-            console.log('From backend: ', parent.start_date_time)
             setDate(() => extractDate(parent.start_date_time))
             setStartTime(() => extractTime(parent.start_date_time))
             setEndTime(() => extractTime(parent.end_date_time))
         }
     }, [])
-
-    useEffect(() => {
-        // console.log('DATE: ', date)
-        // console.log('DATE: ', typeof date)
-    }, [date])
 
     useEffect(() => {
         const startDateTime = new Date(`${date} ${startTime}`)
@@ -92,15 +81,32 @@ const BookingForm = ({ parent }) => {
         const startDateTime = new Date(`${date} ${startTime}`)
         const endDateTime = new Date(`${date} ${endTime}`)
         console.log(Date.parse(startDateTime), Date.parse(endDateTime))
-        const booking = {
-            artist_id: parent.id,
-            start_date_time: Date.parse(startDateTime),
-            end_date_time: Date.parse(endDateTime),
-            description,
+
+        let res;
+
+        if (parent.start_date_time) {
+            const booking = {
+                id: parent.id,
+                artist_id: parent.id,
+                start_date_time: Date.parse(startDateTime),
+                end_date_time: Date.parse(endDateTime),
+                description,
+            }
+
+            // parent.start_date_time = startDateTime
+            // parent.end_date_time = endDateTime
+            // parent.description = description
+            res = await dispatch(userActions.editBooking(booking))
+        } else {
+            const booking = {
+                artist_id: parent.id,
+                start_date_time: Date.parse(startDateTime),
+                end_date_time: Date.parse(endDateTime),
+                description,
+            }
+
+            res = await dispatch(userActions.createBooking(booking))
         }
-
-
-        const res = await dispatch(userActions.createBooking(booking))
         if (res) {
             setDate(() => undefined)
             setStartTime(() => undefined)

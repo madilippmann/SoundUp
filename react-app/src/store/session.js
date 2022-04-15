@@ -52,7 +52,7 @@ export const authenticate = () => async (dispatch) => {
 }
 
 export const login = (email, password) => async (dispatch) => {
-	const res = await fetch('/api/auth/login', {
+	const res = await fetch('/api/auth/login/', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export const login = (email, password) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-	const res = await fetch('/api/auth/logout', {
+	const res = await fetch('/api/auth/logout/', {
 		headers: {
 			'Content-Type': 'application/json',
 		}
@@ -93,7 +93,7 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (username, email, password) => async (dispatch) => {
-	const res = await fetch('/api/auth/signup', {
+	const res = await fetch('/api/auth/signup/', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ export const createBooking = (booking) => async (dispatch) => {
 };
 
 export const editBooking = (booking) => async (dispatch) => {
-	const res = await fetch(`/api/bookings/${booking.id}`, {
+	const res = await fetch(`/api/bookings/${booking.id}/`, {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ export const editBooking = (booking) => async (dispatch) => {
 };
 
 export const removeBooking = (booking) => async (dispatch) => {
-	const res = await fetch(`/api/bookings/${booking.id}`, {
+	const res = await fetch(`/api/bookings/${booking.id}/`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json',

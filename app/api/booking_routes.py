@@ -62,14 +62,18 @@ def create_booking():
 @booking_routes.route('/<int:booking_id>/', methods=['PUT'])
 @login_required
 def update_booking(booking_id):
+    print('\n\n\n\n\n\nentered\n\n\n\n\n\n')
     booking = request.get_json()
     form = BookingForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('\n\n\n\n\n\n', isinstance(form['start_date_time'].data, int),'\n\n\n\n\n\n')
 
     if form.validate_on_submit():
-        booking = Booking.query.get()
-        booking.date = form['date'].data
+
+        booking = Booking.query.get(booking_id)
+        booking.start_date_time = form['start_date_time'].data
+        booking.end_date_time = form['end_date_time'].data
         booking.description = form['description'].data
 
         db.session.commit()
