@@ -43,6 +43,7 @@ class Booking(db.Model):
             'end_date_time': self.end_date_time,
             'description': self.description,
             'confirmed': self.confirmed,
+            'artist': self.artist.to_dict_lite(),
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }
