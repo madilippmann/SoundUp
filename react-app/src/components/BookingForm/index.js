@@ -18,6 +18,7 @@ const BookingForm = ({ parent }) => {
 
     const extractDate = (dateTime) => {
         const date = new Date(dateTime)
+        console.log('Converted Date: ', date)
         const year = date.getFullYear()
         const month = date.getMonth() > 9 ? date.getMonth() : `0${date.getMonth()}`
         const day = date.getDay() > 9 ? date.getDay() : `0${date.getDay()}`
@@ -26,11 +27,18 @@ const BookingForm = ({ parent }) => {
     }
 
     const extractTime = (dateTime) => {
+        const date = new Date(dateTime);
+        const hours = date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`;
+        const minutes = date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`
+        console.log('HOUR: ', hours)
+        console.log('MINUTES: ', minutes)
+        return `${hours}:${minutes}`
 
     }
 
     useEffect(() => {
         if (parent.start_date_time) {
+            console.log('From backend: ', parent.start_date_time)
             setDate(() => extractDate(parent.start_date_time))
             setStartTime(() => extractTime(parent.start_date_time))
             setEndTime(() => extractTime(parent.end_date_time))
@@ -38,8 +46,8 @@ const BookingForm = ({ parent }) => {
     }, [])
 
     useEffect(() => {
-        console.log('DATE: ', date)
-        console.log('DATE: ', typeof date)
+        // console.log('DATE: ', date)
+        // console.log('DATE: ', typeof date)
     }, [date])
 
     useEffect(() => {
@@ -153,6 +161,8 @@ const BookingForm = ({ parent }) => {
 
                 <button>Book Artist</button>
             </form>
+            {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
+            {parent.start_date_time && <button type='button' >Cancel</button>}
         </>
     );
 }
