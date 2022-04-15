@@ -77,7 +77,7 @@
 
 .nav-icon {
     font-size: 20px;
-    text-justify: center;
+
 }
 
 a {
@@ -88,6 +88,10 @@ a:visited {
     color: black;
 }
 
+
+.nav-title {
+
+}
 
 
 
