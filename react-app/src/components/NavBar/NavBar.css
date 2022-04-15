@@ -73,6 +73,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: color .14s ease-in-out;
+}
+
+.nav-icon__container:hover {
+    color: #E33700;
 }
 
 .nav-icon {
