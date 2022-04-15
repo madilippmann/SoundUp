@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './AuthModal.css';
+import './Modal.css';
 
 const Modal = ({ children, closeModal }) => {
 

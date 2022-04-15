@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
-import Modal from '../AuthModal';
-import LoginForm from '../auth/LoginForm';
-import SignUpForm from '../auth/SignUpForm';
 import AuthModalPopup from '../AuthModal/AuthModalPopup';
 
 const NavBar = () => {

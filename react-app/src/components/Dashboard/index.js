@@ -1,11 +1,12 @@
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import BookingCard from './BookingCard';
 import * as userActions from '../../store/session'
 
-const Dashboard = () => {
-    const dispatch = useDispatch();
 
+const Dashboard = () => {
     const sessionUser = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -15,6 +16,7 @@ const Dashboard = () => {
     //         setIsLoaded(() => true)
     //     })()
     // }, [dispatch])
+
 
     return (
         <div>
@@ -26,13 +28,7 @@ const Dashboard = () => {
                 <ul>
                     {sessionUser.bookings.map(booking => (
                         <li>
-
-                            <div key={booking.id}>
-                                <p>{booking.artist_id}</p>
-                                <p>{booking.start_date_time}</p>
-                                <p>{booking.end_date_time}</p>
-                                <p>{booking.description}</p>
-                            </div>
+                            <BookingCard booking={booking} />
                         </li>
                     ))}
                 </ul>
