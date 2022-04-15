@@ -37,7 +37,7 @@ function Artist() {
 
 			<div>
 				<h3>Book Artist</h3>
-				<BookingForm artist={artist} />
+				<BookingForm parent={artist} />
 			</div>
 
 			<Reviews artist={artist} />

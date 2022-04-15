@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session.js';
 
-const BookingForm = ({ artist }) => {
+const BookingForm = ({ parent }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -14,6 +14,33 @@ const BookingForm = ({ artist }) => {
 
     const [showErrors, setShowErrors] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
+
+
+    const extractDate = (dateTime) => {
+        const date = new Date(dateTime)
+        const year = date.getFullYear()
+        const month = date.getMonth() > 9 ? date.getMonth() : `0${date.getMonth()}`
+        const day = date.getDay() > 9 ? date.getDay() : `0${date.getDay()}`
+        return `${year}-${month}-${day}`
+
+    }
+
+    const extractTime = (dateTime) => {
+
+    }
+
+    useEffect(() => {
+        if (parent.start_date_time) {
+            setDate(() => extractDate(parent.start_date_time))
+            setStartTime(() => extractTime(parent.start_date_time))
+            setEndTime(() => extractTime(parent.end_date_time))
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log('DATE: ', date)
+        console.log('DATE: ', typeof date)
+    }, [date])
 
     useEffect(() => {
         const startDateTime = new Date(`${date} ${startTime}`)
@@ -51,7 +78,7 @@ const BookingForm = ({ artist }) => {
         const endDateTime = new Date(`${date} ${endTime}`)
         console.log(Date.parse(startDateTime), Date.parse(endDateTime))
         const booking = {
-            artist_id: artist.id,
+            artist_id: parent.id,
             start_date_time: Date.parse(startDateTime),
             end_date_time: Date.parse(endDateTime),
             description,
