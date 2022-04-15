@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session.js';
 
 const BookingForm = ({ artist }) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const [date, setDate] = useState();
     const [startTime, setStartTime] = useState();
     const [endTime, setEndTime] = useState();
@@ -18,8 +21,7 @@ const BookingForm = ({ artist }) => {
 
         const errors = [];
         // TODO TODO TODO TODO TODO
-        // console.log('Start Time: ', Date.parse(endDateTime))
-        // console.log('End Time: ', Date.parse(startDateTime))
+
         if (!date) {
             errors.push('Please enter valid date.')
         }
@@ -61,7 +63,7 @@ const BookingForm = ({ artist }) => {
             setDate(() => undefined)
             setStartTime(() => undefined)
             setEndTime(() => undefined)
-            return
+            return history.push('/dashboard')
         }
 
         validationErrors.push('An error occured. Please try again.')
