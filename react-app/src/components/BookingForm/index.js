@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import * as sessionActions from '../../store/session.js';
+
+import { } from '../../utils.js'
+
+import * as userActions from '../../store/session.js';
 
 const BookingForm = ({ parent }) => {
     const dispatch = useDispatch();
@@ -16,12 +19,16 @@ const BookingForm = ({ parent }) => {
     const [validationErrors, setValidationErrors] = useState([]);
 
 
+
     const extractDate = (dateTime) => {
-        const date = new Date(dateTime)
-        console.log('Converted Date: ', date)
+        let date = new Date(dateTime)
+
         const year = date.getFullYear()
-        const month = date.getMonth() > 9 ? date.getMonth() : `0${date.getMonth()}`
-        const day = date.getDay() > 9 ? date.getDay() : `0${date.getDay()}`
+        const month = date.getMonth() > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
+        let day = dateTime.split(' ')[1]
+        // day = day > 9 ? `${day}` : `0${day}`;
+
+        console.log(`Month: ${month} Day: ${day}`)
         return `${year}-${month}-${day}`
 
     }
@@ -30,8 +37,8 @@ const BookingForm = ({ parent }) => {
         const date = new Date(dateTime);
         const hours = date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`;
         const minutes = date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`
-        console.log('HOUR: ', hours)
-        console.log('MINUTES: ', minutes)
+        // console.log('HOUR: ', hours)
+        // console.log('MINUTES: ', minutes)
         return `${hours}:${minutes}`
 
     }
@@ -93,7 +100,7 @@ const BookingForm = ({ parent }) => {
         }
 
 
-        const res = await dispatch(sessionActions.createBooking(booking))
+        const res = await dispatch(userActions.createBooking(booking))
         if (res) {
             setDate(() => undefined)
             setStartTime(() => undefined)
