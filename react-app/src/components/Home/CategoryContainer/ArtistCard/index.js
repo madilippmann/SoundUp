@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import GenresContainer from './GenresContainer';
 import './ArtistCard.css'
 
 import fiveStars from '../../../../static/ratings/5-stars.png';
@@ -40,18 +42,17 @@ const ArtistCard = ({ artist }) => {
 
                 <div id='artist___info-container'>
                     <h4 id='artist__card-title'>{artist.name}</h4>
+
                     <div className='ratings__container'>
-
                         <img id='rating__image' src={getRatingImage(artist.average_rating)} alt='five star rating' />
-                        {/* {artist.average_rating} */}
-
-
                         {artist.reviews_length === 1 ? <span>{artist.reviews_length} review </span> : <span>{artist.reviews_length} reviews</span>}
-
-
-
                     </div>
+
                     <p>${artist.rate} / hour</p>
+
+                    <div id='genre__container'>
+                        <GenresContainer genres={artist.genres} />
+                    </div>
                 </div>
             </div>
         </Link>

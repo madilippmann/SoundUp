@@ -13,6 +13,7 @@
 
 #category__container {
     height: 311px;
+    height: 325px;
     display: flex;
     align-items: flex-end;
     gap: 15px;
@@ -20,5 +21,11 @@
     overflow-y: hidden;
     overflow-x: auto;
 
-    /* flex-direction: ; */
+}
+
+
+
+#category__container::-webkit-scrollbar {
+    color: transparent;
+    width: 0px;
 }
