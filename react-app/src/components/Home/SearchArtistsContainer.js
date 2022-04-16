@@ -27,6 +27,7 @@ const SearchArtistsContainer = () => {
                     <div className='flex-row' id='time__search-input' >
                         <FontAwesomeIcon icon={faClock} />
                         <select
+                            id='select-time'
                             className='input-no-style'
                             type='select'
                         >

@@ -28,6 +28,8 @@
 }
 
 
+
+
 #date-time__search-input {
     display: flex;
     gap: 20px;
@@ -73,6 +75,7 @@ button.search__button:hover {
     border: none;
     outline: none;
     height: 100%;
+    padding-left: 10px;
 }
 
 
@@ -95,13 +98,26 @@ input[type='date']::-webkit-calendar-picker-indicator {
     width: 20px;
     height: 20px;
     background-size: 100%;
-    margin-top: 0px;
+    margin-top: -4px;
     margin-left: 25px;
   }
 
 
-  .flex-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
+  select#select-time {
+    appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+    background-position: calc(100%) center !important;
+    background: url(https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-32.png) no-repeat;
+    background-size: 30%;
+
+    padding: 8px 30px 8px 0px;
   }
+
+
+.flex-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
