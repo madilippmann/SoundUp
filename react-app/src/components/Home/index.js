@@ -14,6 +14,7 @@ const Home = () => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const categories = ['Trending Artists', 'Folk', 'Electronic / DJ', 'Classical']
+    const genres = ['all', 'folk', 'electronic', 'classical']
 
     useEffect(() => {
         (async () => {
