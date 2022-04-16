@@ -6,8 +6,6 @@ import './CategoryContainer.css'
 
 const CategoryContainer = ({ category, artists }) => {
 
-    useEffect(() => { console.log('Category Container: ', artists) }, [])
-
     return (
         <div>
             <h2 className='category__title'>{category}</h2>

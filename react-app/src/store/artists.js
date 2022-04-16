@@ -79,7 +79,6 @@ export const createReview = (review, artistId) => async (dispatch) => {
     if (res.ok) {
         const review = await res.json();
         dispatch(addReview(review));
-        console.log('REVIEW: ', review)
         return review;
     }
 };
@@ -121,7 +120,6 @@ const artistsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case LOAD_ARTIST: {
-            console.log(action.artist)
             return { ...normalizeArtists([action.artist]) }
         }
 

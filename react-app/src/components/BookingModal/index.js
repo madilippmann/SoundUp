@@ -15,7 +15,6 @@ const BookingModal = ({ booking, setShowModal }) => {
     const [editBooking, setEditBooking] = useState(false);
 
     const deleteBooking = async () => {
-        console.log(booking)
         await dispatch(userActions.removeBooking(booking))
     }
 

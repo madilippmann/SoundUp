@@ -80,7 +80,6 @@ const BookingForm = ({ parent }) => {
 
         const startDateTime = new Date(`${date} ${startTime}`)
         const endDateTime = new Date(`${date} ${endTime}`)
-        console.log(Date.parse(startDateTime), Date.parse(endDateTime))
 
         let res;
 

@@ -9,7 +9,7 @@ import { times } from '../../../utils.js'
 const SearchArtistsContainer = () => {
 
     const onChange = (date) => {
-        console.log(date.toString());
+        // TODO
     };
 
     return (

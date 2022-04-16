@@ -14,9 +14,10 @@ import twoStars from '../../../../static/ratings/2-stars.png';
 import oneHalfStars from '../../../../static/ratings/1.5-stars.png';
 import oneStar from '../../../../static/ratings/1-star.png';
 import halfStar from '../../../../static/ratings/0.5-stars.png';
-import noRatings from '../../../../static/ratings/no-ratings.png'
+import noRatings from '../../../../static/ratings/no-ratings.png';
+
+
 const ArtistCard = ({ artist }) => {
-    useEffect(() => { console.log('Artist Card: ', artist) }, [])
 
     const getRatingImage = (rating) => {
         if (rating == 5) { return fiveStars }

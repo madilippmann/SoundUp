@@ -21,6 +21,7 @@ class Artist(db.Model):
     reviews = db.relationship('Review', back_populates='artist')
     bookings = db.relationship('Booking', back_populates='artist')
 
+
     genres = db.relationship(
         'Genre',
         secondary=artists_genres,
@@ -41,6 +42,8 @@ class Artist(db.Model):
             'audio_url_3': self.audio_url_3,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'reviews_length': len(self.reviews),
+            'average_rating': self.average_rating(),
             'genres': genres,
             'reviews': reviews
         }
@@ -51,7 +54,22 @@ class Artist(db.Model):
             'name': self.name,
             'bio': self.bio,
             'rate': json.dumps(self.rate, use_decimal=True),
+            'reviews_length': len(self.reviews),
+            'average_rating': self.average_rating(),
             'profile_image_url': self.profile_image_url,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }
+
+
+    def average_rating(self):
+        sum = 0
+
+        if len(self.reviews):
+            for review in self.reviews:
+                print(review.rating)
+                sum += review.rating
+
+            return str(round(sum / len(self.reviews), 1))
+
+        else: return 'No reviews'

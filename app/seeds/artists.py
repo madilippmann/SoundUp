@@ -24,7 +24,7 @@ def seed_artists():
         name='King Pink',
         bio=bio1,
         rate=400.00,
-        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-zwadlo-nj0vGyFB2nY-unsplash.jpg',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/colin-lloyd-vYC19vdQe00-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy-abstract-beat-11254.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/sexy-fashion-beats-simulate-11176.mp3',
         audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/chill-abstract-intention-12099.mp3'
@@ -76,7 +76,7 @@ def seed_artists():
         name='Drew Apollo',
         bio=bio6,
         rate=75.00,
-        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-owen-c-NBiJrhwdM-unsplash.jpg',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/ben-collins-Fr2iwKpsi-Y-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Astronaut.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Highway+Fever.mp3',
         audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+A+Small+Town+on+Pluto+(Family+Vacation).mp3',
@@ -88,7 +88,7 @@ def seed_artists():
         name='The Lost Quartet',
         bio=bio7,
         rate=800,
-        profile_image_url='',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/johanna-vogt-H7kVzJgum3M-unsplash+(1).jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/I.+Allegro+ma+non+troppo.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/String+Quartet+no.+2+in+D+Major+-+I.+Allegro+moderato.mp3',
     )
