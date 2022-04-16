@@ -1,9 +1,11 @@
 
 const GenresContainer = ({ genres }) => {
     return (
-        <div>
-            Genre
-        </div>
+        <>
+            {genres.map(genre => (
+                <div key={genre.id} className='genre__name'>{genre.name}</div>
+            ))}
+        </>
     );
 }
 

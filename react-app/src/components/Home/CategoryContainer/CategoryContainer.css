@@ -24,8 +24,26 @@
 }
 
 
-
 #category__container::-webkit-scrollbar {
     color: transparent;
     width: 0px;
+}
+
+
+#artist__rate {
+    margin: 5px 0 10px 0;
+}
+
+#genre__container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.genre__name {
+    font-size: 12px;
+    background-color: rgb(230, 230, 230);
+    padding: 7px;
+    border-radius: 4px;
+    width: min-content;
 }

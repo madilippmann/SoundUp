@@ -48,7 +48,7 @@ const ArtistCard = ({ artist }) => {
                         {artist.reviews_length === 1 ? <span>{artist.reviews_length} review </span> : <span>{artist.reviews_length} reviews</span>}
                     </div>
 
-                    <p>${artist.rate} / hour</p>
+                    <p id='artist__rate'>${artist.rate} / hour</p>
 
                     <div id='genre__container'>
                         <GenresContainer genres={artist.genres} />
