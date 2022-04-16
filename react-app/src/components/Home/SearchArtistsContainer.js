@@ -41,7 +41,11 @@ const SearchArtistsContainer = () => {
                     <input className='input-no-style' />
                 </div>
 
-                <button className='search-disabled search__button' type='button' id='search__button'>Let's go</button>
+                <button
+                    type='button'
+                    title='feature under construction'
+                    className='search-disabled search__button'
+                    id='search__button'>Let's go</button>
             </div>
         </div>
     );
