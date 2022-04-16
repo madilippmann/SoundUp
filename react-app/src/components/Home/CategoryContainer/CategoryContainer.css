@@ -1,0 +1,15 @@
+.category__title {
+    color: rgb(70, 70, 70);
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+
+#category__outer-container {
+    padding-top: 10px;
+}
+
+
+#category__container {
+    height: 306px;
+}

@@ -34,12 +34,13 @@ const Home = () => {
                 <SearchArtistsContainer />
             </div>
 
-
-            {categories.map((category, i) => (
-                <div key={i}>
-                    <CategoryContainer category={category} artists={categorizedArtists[genres[i]]} />
-                </div>
-            ))}
+            <div className='category__container'>
+                {categories.map((category, i) => (
+                    <div key={i}>
+                        <CategoryContainer category={category} artists={categorizedArtists[genres[i]]} />
+                    </div>
+                ))}
+            </div>
 
         </div>
     );

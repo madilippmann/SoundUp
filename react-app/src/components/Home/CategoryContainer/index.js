@@ -8,8 +8,12 @@ const CategoryContainer = ({ category, artists }) => {
 
     return (
         <div>
-            <h1>{category}</h1>
-            {artists.map(artist => <div key={artist.id}>{artist.name}</div>)}
+            <h2 className='category__title'>{category}</h2>
+            <div id='category__outer-container'>
+                <div id='category__container'>
+                    {artists.map(artist => <div key={artist.id}>{artist.name}</div>)}
+                </div>
+            </div>
         </div>
     );
 }
