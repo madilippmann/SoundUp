@@ -1,5 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+// import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons';
+
+
 import ArtistCard from './ArtistCard';
 
 import './CategoryContainer.css'
@@ -13,18 +18,8 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
         setScrollEnd(() => outerContainerRef.current.scrollWidth + 1 >= container.current.scrollWidth)
     }, [])
 
-    useEffect(() => {
-        console.log('OUTER REF: ', outerContainerRef.current.scrollWidth)
-        console.log('INNER REF: ', container.current.scrollWidth)
+    const scroll = (shift) => { container.current.scrollLeft += shift }
 
-        console.log(outerContainerRef.current.scrollWidth + 1 >= container.current.scrollWidth)
-    }, [scrollPosition])
-
-    const scroll = (shift) => {
-        console.log('entered', shift)
-        container.current.scrollLeft += shift
-        console.log('BEFORE: ', container.current.scrollLeft)
-    }
     const handleScroll = () => {
         setScrollPosition(() => container.current.scrollLeft);
 
@@ -33,9 +28,6 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
         } else {
             setScrollEnd(() => false);
         }
-
-        console.log('Scroll position: ', scrollPosition)
-
     }
 
 
@@ -44,25 +36,33 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
             <h2 className='category__title'>{category}</h2>
             <div id='category__outer-container'>
                 {scrollPosition !== 0 &&
-                    <button
-                        type='button'
-                        onClick={() => scroll(-250)}
-                        id='scroll-left__button'
-                    >
-                        left
-                    </button>
+                    <div className='scroll__button' id='scroll-right__button-container'>
+
+                        <button
+                            type='button'
+                            onClick={() => scroll(-250)}
+                            id='scroll-left__button'
+                        >
+                            <FontAwesomeIcon icon={faAngleLeft} />
+                        </button>
+
+                    </div>
                 }
+
                 <div ref={container} onScroll={handleScroll} className='category__container' id={category}>
                     {artists.map(artist => <div key={artist.id}><ArtistCard artist={artist} /></div>)}
                 </div>
+
                 {!scrollEnd &&
-                    <button
-                        type='button'
-                        onClick={() => scroll(250)}
-                        id='scroll-right__button'
-                    >
-                        right
-                    </button>
+                    <div className='scroll__button' id='scroll-right__button-container'>
+                        <button
+                            type='button'
+                            onClick={() => scroll(250)}
+                            id='scroll-right__button'
+                        >
+                            <FontAwesomeIcon icon={faAngleRight} />
+                        </button>
+                    </div>
                 }
             </div>
         </div>
