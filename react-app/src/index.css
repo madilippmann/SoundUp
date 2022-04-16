@@ -21,7 +21,8 @@ body {
 
 .body {
     background-color: rgb(255, 255, 255);
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
+    height: 100%;
 
 }
 

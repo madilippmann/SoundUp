@@ -2,18 +2,14 @@ import { useEffect, useState } from 'react';
 
 import './CategoryContainer.css'
 
-const CategoryContainer = ({ category, genre, artists }) => {
+const CategoryContainer = ({ category, artists }) => {
 
 
-    useEffect(() => {
-        console.log('Genre: ', genre)
-        console.log('Arists: ', artists)
-
-    }, [])
 
     return (
         <div>
             <h1>{category}</h1>
+            {artists.map(artist => <div key={artist.id}>{artist.name}</div>)}
         </div>
     );
 }

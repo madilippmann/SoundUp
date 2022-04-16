@@ -14,22 +14,22 @@ export const times = [
 export const categorizeArtists = (artists) => {
 
     const sortedArtists = {
+        all: [...Object.values(artists)],
         electronic: [],
         folk: [],
         classical: []
     }
 
     Object.values(artists).forEach(artist => {
-        if (artist.genres.find(artistGenre => artistGenre === 'electronic')) {
+        if (artist.genres.find(artistGenre => artistGenre.name === 'Electronic')) {
             sortedArtists.electronic.push(artist)
-        } else if (artist.genres.find(artistGenre => artistGenre === 'folk')) {
+        } else if (artist.genres.find(artistGenre => artistGenre.name === 'Folk')) {
             sortedArtists.folk.push(artist)
-        } else if (artist.genres.find(artistGenre => artistGenre === 'classical')) {
+        } else if (artist.genres.find(artistGenre => artistGenre.name === 'Classical')) {
             sortedArtists.classical.push(artist)
         }
     })
 
-    // console.log('Sorted Artists: ', sortedArtists)
     return sortedArtists
 
 }

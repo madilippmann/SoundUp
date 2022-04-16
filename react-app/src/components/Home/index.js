@@ -18,17 +18,14 @@ const Home = () => {
     const categories = ['Trending Artists', 'Folk', 'Electronic / DJ', 'Classical']
     const genres = ['all', 'folk', 'electronic', 'classical']
 
-    const [categorizedArtists, setCategorizedArtists] = useState(categorizeArtists(artists))
+    const [categorizedArtists, setCategorizedArtists] = useState()
 
-    useEffect(() => {
-        console.log('Categorized Artists: ', categorizedArtists)
-    }, [])
     useEffect(() => {
         (async () => {
             await dispatch(artistsActions.fetchArtists())
+            setCategorizedArtists(() => categorizeArtists(artists))
             setIsLoaded(() => true)
         })()
-        console.log('artists', artists)
     }, [dispatch])
 
     return !isLoaded ? null : (
@@ -40,20 +37,10 @@ const Home = () => {
 
             {categories.map((category, i) => (
                 <div key={i}>
-                    <CategoryContainer category={category} artists={artists} genre={genres[i]} />
+                    <CategoryContainer category={category} artists={categorizedArtists[genres[i]]} />
                 </div>
             ))}
 
-            <ul>
-                {Object.values(artists)?.map((artist) => {
-                    return (
-                        <li key={artist.id}>
-                            <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
-                        </li>
-                    )
-                })}
-
-            </ul>
         </div>
     );
 }
