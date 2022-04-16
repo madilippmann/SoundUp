@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
+
+import SearchArtistsContainer from "./SearchArtistsContainer";
 import * as artistsActions from '../../store/artists'
+
+import './Home.css'
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -18,6 +22,9 @@ const Home = () => {
 
     return !isLoaded ? null : (
         <div>
+            <div>
+                <SearchArtistsContainer />
+            </div>
             <ul>
                 {Object.values(artists)?.map((artist) => {
                     return (

@@ -1,13 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
-import * as userActions from '../../store/session'
 import Modal from '../Modal';
 import BookingModal from '.';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-
 
 const BookingModalPopup = ({ booking, showModal, setShowModal }) => {
 
