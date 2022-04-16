@@ -1,7 +1,7 @@
 
 import './ArtistCard.css'
 
-const ArtistCard = () => {
+const ArtistCard = ({ artist }) => {
     return (
         <div>
             Artist Card

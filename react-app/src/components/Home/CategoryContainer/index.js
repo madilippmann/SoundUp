@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { filterArtists } from '../../../utils'
 import './CategoryContainer.css'
 
 const CategoryContainer = ({ category, genre, artists }) => {
 
-    const [categoryArtists, setCategoryArtists] = useState(filterArtists(genre, artists))
+
+    useEffect(() => {
+        console.log('Genre: ', genre)
+        console.log('Arists: ', artists)
+
+    }, [])
 
     return (
         <div>

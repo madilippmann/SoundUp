@@ -6,6 +6,8 @@ import SearchArtistsContainer from "./SearchArtistsContainer";
 import CategoryContainer from "./CategoryContainer";
 import * as artistsActions from '../../store/artists'
 
+import { categorizeArtists } from "../../utils";
+
 import './Home.css'
 
 const Home = () => {
@@ -16,6 +18,11 @@ const Home = () => {
     const categories = ['Trending Artists', 'Folk', 'Electronic / DJ', 'Classical']
     const genres = ['all', 'folk', 'electronic', 'classical']
 
+    const [categorizedArtists, setCategorizedArtists] = useState(categorizeArtists(artists))
+
+    useEffect(() => {
+        console.log('Categorized Artists: ', categorizedArtists)
+    }, [])
     useEffect(() => {
         (async () => {
             await dispatch(artistsActions.fetchArtists())
@@ -31,7 +38,12 @@ const Home = () => {
             </div>
 
 
-            {categories.map(category => <CategoryContainer category={category} artists={artists} />)}
+            {categories.map((category, i) => (
+                <div key={i}>
+                    <CategoryContainer category={category} artists={artists} genre={genres[i]} />
+                </div>
+            ))}
+
             <ul>
                 {Object.values(artists)?.map((artist) => {
                     return (
