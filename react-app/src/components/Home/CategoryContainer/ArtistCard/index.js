@@ -12,7 +12,9 @@ const ArtistCard = ({ artist }) => {
                     <img src={artist.profile_image_url} alt={`${artist.name}'s profile picture`} />
                 </div>
 
-                Artist Card
+                <div>
+                    <p>{artist.name}</p>
+                </div>
             </div>
         </Link>
     );

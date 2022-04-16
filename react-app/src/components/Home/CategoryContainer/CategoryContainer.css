@@ -12,8 +12,9 @@
 
 
 #category__container {
-    height: 306px;
+    height: 311px;
     display: flex;
+    align-items: flex-end;
     gap: 15px;
     width: inherit;
     overflow-y: hidden;
