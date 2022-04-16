@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,8 @@ import './Home.css'
 
 const Home = () => {
     const dispatch = useDispatch()
+    const outerContainer = useRef(null)
+
     const artists = useSelector(state => state.artists)
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -38,10 +40,10 @@ const Home = () => {
                 <SearchArtistsContainer />
             </div>
 
-            <div className='category__container'>
+            <div className='category__outer-container' ref={outerContainer}>
                 {categories.map((category, i) => (
                     <div key={i}>
-                        <CategoryContainer category={category} artists={categorizedArtists[genres[i]]} />
+                        <CategoryContainer category={category} artists={categorizedArtists[genres[i]]} outerContainerRef={outerContainer} />
                     </div>
                 ))}
             </div>

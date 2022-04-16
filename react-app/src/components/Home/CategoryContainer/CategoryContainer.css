@@ -11,7 +11,7 @@
 }
 
 
-#category__container {
+.category__container {
     height: 311px;
     height: 325px;
     display: flex;
@@ -24,7 +24,7 @@
 }
 
 
-#category__container::-webkit-scrollbar {
+.category__container::-webkit-scrollbar {
     color: transparent;
     width: 0px;
 }
