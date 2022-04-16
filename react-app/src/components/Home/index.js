@@ -23,10 +23,14 @@ const Home = () => {
     useEffect(() => {
         (async () => {
             await dispatch(artistsActions.fetchArtists())
-            setCategorizedArtists(() => categorizeArtists(artists))
             setIsLoaded(() => true)
         })()
     }, [dispatch])
+
+
+    useEffect(() => {
+        setCategorizedArtists(() => categorizeArtists(artists))
+    }, [artists])
 
     return !isLoaded ? null : (
         <div>

@@ -6,10 +6,18 @@
 
 
 #category__outer-container {
-    padding-top: 10px;
+    padding-bottom: 8px;
+    width: inherit;
 }
 
 
 #category__container {
     height: 306px;
+    display: flex;
+    gap: 15px;
+    width: inherit;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    /* flex-direction: ; */
 }
