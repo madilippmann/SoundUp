@@ -40,7 +40,7 @@ const SearchArtistsContainer = () => {
 
                 <div id='genre__search-input' className='input__backdrop'>
                     <FontAwesomeIcon icon={faSearch} />
-                    <input className='input-no-style' />
+                    <input className='input-no-style' placeholder='Artist or Genre' />
                 </div>
 
                 <button

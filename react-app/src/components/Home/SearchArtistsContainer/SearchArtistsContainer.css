@@ -45,6 +45,8 @@
 }
 
 .input__backdrop {
+    /* TODO TODO TODO Remove after feature is implemented */
+    cursor: not-allowed;
     background-color: white;
     padding: 10px;
     border-radius: 4px;
@@ -77,6 +79,8 @@ button.search__button:hover {
     outline: none;
     height: 100%;
     padding-left: 10px;
+    /* TODO TODO TODO Remove after feature is implemented */
+    cursor: not-allowed;
 }
 
 
