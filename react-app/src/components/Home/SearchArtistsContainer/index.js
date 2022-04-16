@@ -2,8 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons';
 
+import './SearchArtistsContainer.css'
 
-import { times } from '../../utils.js'
+import { times } from '../../../utils.js'
+
 const SearchArtistsContainer = () => {
 
     const onChange = (date) => {
@@ -43,7 +45,7 @@ const SearchArtistsContainer = () => {
 
                 <button
                     type='button'
-                    title='feature under construction'
+                    title='        ⚠️ feature under construction'
                     className='search-disabled search__button'
                     id='search__button'>Let's go</button>
             </div>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 import SearchArtistsContainer from "./SearchArtistsContainer";
+import CategoryContainer from "./CategoryContainer";
 import * as artistsActions from '../../store/artists'
 
 import './Home.css'
@@ -11,6 +12,8 @@ const Home = () => {
     const dispatch = useDispatch()
     const artists = useSelector(state => state.artists)
     const [isLoaded, setIsLoaded] = useState(false)
+
+    const categories = ['Trending Artists', 'Folk', 'Electronic / DJ', 'Classical']
 
     useEffect(() => {
         (async () => {
@@ -25,6 +28,9 @@ const Home = () => {
             <div>
                 <SearchArtistsContainer />
             </div>
+
+
+            {categories.map(category => <CategoryContainer category={category} artists={artists} />)}
             <ul>
                 {Object.values(artists)?.map((artist) => {
                     return (
