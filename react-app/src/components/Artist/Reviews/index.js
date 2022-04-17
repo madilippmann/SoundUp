@@ -10,7 +10,6 @@ const Reviews = ({ artist }) => {
     return (
         <div>
             <div id='reviews__add'>
-                <h3 id='reviews__title'>Create New Review</h3>
                 <ReviewForm artistId={artist.id} review={null} />
             </div>
 

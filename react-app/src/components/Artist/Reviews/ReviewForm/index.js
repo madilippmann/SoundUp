@@ -7,7 +7,7 @@ import * as artistsActions from '../../../../store/artists'
 
 const ReviewForm = ({ artistId, review, type, setEditReview }) => {
     const dispatch = useDispatch();
-    const [rating, setRating] = useState(review ? review.rating : 1);
+    const [rating, setRating] = useState(review ? review.rating : 0);
     const [comment, setComment] = useState(review ? review.comment : '');
     const [showErrors, setShowErrors] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
@@ -44,7 +44,9 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
     }
 
     return (
-        <>
+        <div id='new-review__container'>
+            <h3 id='reviews__title'>Add New Review</h3>
+
             {!showErrors ? null : (
                 <div className='error-container'>
                     {validationErrors.map(err => (
@@ -53,9 +55,12 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='rating'>Rating</label>
-                <input
+            <form id='review__form' onSubmit={handleSubmit}>
+                <div id='rating__container'>
+                    <label htmlFor='rating'>Rating</label>
+                    <RatingPicker rating={rating} setRating={setRating} />
+                </div>
+                {/* <input
                     type='number'
                     name='rating'
                     id='rating'
@@ -63,22 +68,22 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                     max={5}
                     onChange={(e) => setRating(() => e.target.value)}
                     value={rating}
-                />
-                <RatingPicker setRating={setRating} />
+                /> */}
 
-
-                <label htmlFor='comment'>Comment</label>
-                <input
-                    type='text'
-                    name='comment'
-                    id='comment'
-                    onChange={(e) => setComment(() => e.target.value)}
-                    value={comment}
-                />
+                <div id='comment__container'>
+                    <label htmlFor='comment'>Comment</label>
+                    <input
+                        type='text'
+                        name='comment'
+                        id='comment'
+                        onChange={(e) => setComment(() => e.target.value)}
+                        value={comment}
+                    />
+                </div>
                 <button>Submit</button>
                 {type === 'edit' && <button type='button' onClick={() => setEditReview(() => false)}>Cancel</button>}
             </form>
-        </>
+        </div>
     );
 }
 

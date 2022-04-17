@@ -1,15 +1,17 @@
 #booking__container {
     margin: 25px;
-    margin-top: calc(25px + 50px);
+    /* margin-top: calc(25px + 50px); */
     padding: 25px;
     background-color: rgb(227,55,0);
     color: white;
     border-radius: 6px;
     height: min-content;
+    position: fixed;
 
     box-shadow: rgba(149, 157, 165, 0.8) 0px 8px 24px;
 
 }
+
 
 #booking__title {
     margin-top: 0;
@@ -78,3 +80,10 @@
     color: white;
     background-color: transparent;
 }
+
+
+#rating__container {
+    display: flex;
+}
+
+#comment__container {}

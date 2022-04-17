@@ -1,4 +1,25 @@
 #reviews__add {
-    border-top: 1px solid rgba(104, 104, 104, 0.258);
-    padding-top: 15px;
+}
+
+#review__form  > *{
+        margin: 15px 0;
+}
+
+#new-review__container {
+}
+
+
+#reviews__title {
+    padding-top: 40px;
+    border-bottom: 1px solid rgba(104, 104, 104, 0.258);
+    padding-bottom: 15px;
+}
+
+
+
+
+#reviews__list > h3 {
+    padding-top: 40px;
+    border-bottom: 1px solid rgba(104, 104, 104, 0.258);
+    padding-bottom: 15px;
 }

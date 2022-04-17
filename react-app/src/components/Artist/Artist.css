@@ -1,4 +1,4 @@
-.home.body {
+.artist.body {
     padding-bottom: 50px;
 }
 
@@ -6,6 +6,24 @@
     display: flex;
     margin: auto;
     width: 95%;
+}
+
+#artist-page__container h1 {
+    font-size: 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(227, 57, 0, 0.4);
+    border-bottom: 1px solid rgba(227, 57, 0, 0.4);
+    /* padding: 20px;  */
+}
+
+#artist-page__container h1::first-letter {
+    font-size: 120%;
+    color: rgba(227, 57, 0, 1);
+  }
+
+#artist-page__container h3{
+    font-size: 25px;
+    font-weight: 600;
 }
 
 #artist-page__left {
@@ -38,6 +56,11 @@
 #artist__bio {
     padding: 5px 0 10px 0;
     font-weight: 300;
+}
+
+#artist__bio > h3 {
+    border-bottom: 1px solid rgba(104, 104, 104, 0.258);
+    padding-bottom: 15px;
 }
 
 #artist-image-and-audio__container {

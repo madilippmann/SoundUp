@@ -4,26 +4,13 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './RatingPicker.css'
 import { useEffect, useRef } from 'react';
 
-const RatingPicker = ({ setRating }) => {
+const RatingPicker = ({ rating, setRating }) => {
 
     const one = document.getElementById('one-star')
     const two = document.getElementById('two-stars')
     const three = document.getElementById('three-stars')
     const four = document.getElementById('four-stars')
     const five = document.getElementById('five-stars')
-
-    const changeRating = () => {
-
-    }
-
-
-    useEffect(() => {
-
-        // const hoverOne = document.body.addEventListener("mouseover", onClickOutside);
-        // return () => document.removeEventListener("mouseover", onClickOutside);
-
-
-    }, [])
 
     const addRatingColor = (n) => {
         one.style.color = 'grey'
