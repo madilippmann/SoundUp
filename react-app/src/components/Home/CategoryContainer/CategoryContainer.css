@@ -8,6 +8,8 @@
 #category__outer-container {
     padding-bottom: 8px;
     width: inherit;
+    display: flex;
+    position: relative;
 }
 
 
@@ -74,4 +76,19 @@
 
 .scroll__button:hover {
     border: 2px solid rgba(227,55,0,1);
+}
+
+
+#scroll-right__button-container, #scroll-left__button-container {
+    position: absolute;
+    bottom: 153px;
+    z-index: 5;
+}
+
+#scroll-left__button-container {
+    left: -20px;
+}
+
+#scroll-right__button-container {
+    right: -20px;
 }

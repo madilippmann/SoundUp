@@ -36,7 +36,7 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
             <h2 className='category__title'>{category}</h2>
             <div id='category__outer-container'>
                 {scrollPosition !== 0 &&
-                    <div className='scroll__button' id='scroll-right__button-container'>
+                    <div className='scroll__button' id='scroll-left__button-container'>
 
                         <button
                             type='button'

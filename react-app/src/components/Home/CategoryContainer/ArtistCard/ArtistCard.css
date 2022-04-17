@@ -10,7 +10,7 @@
 #artist__card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 10px 10px -10px rgba(0,0,0,0.35);
-    z-index: 10;
+    /* z-index: 10; */
 }
 
 #artist__image img {
