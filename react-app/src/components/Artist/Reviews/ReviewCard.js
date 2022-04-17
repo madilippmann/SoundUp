@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as artistsActions from '../../store/artists.js'
+import * as artistsActions from '../../../store/artists'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-import ReviewForm from '../ReviewForm';
+import ReviewForm from './ReviewForm';
 
 const ReviewCard = ({ review }) => {
     const dispatch = useDispatch()

@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as userActions from '../../store/session'
-import Modal from '../Modal';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
-import BookingForm from '../BookingForm';
+
+import BookingForm from '../Artist/BookingForm/index.js';
 
 
 const BookingModal = ({ booking, setShowModal }) => {

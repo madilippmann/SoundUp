@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import * as artistsActions from '../../store/artists.js'
 
-import BookingForm from '../BookingForm/index.js';
+import BookingForm from './BookingForm/index.js';
 
-import Reviews from './Reviews.js';
+import Reviews from './Reviews/index.js';
 import './Artist.css'
 import ArtistInfo from './ArtistInfo/index.js';
 

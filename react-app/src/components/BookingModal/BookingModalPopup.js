@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import Modal from '../Modal';
+import Modal from '../Modal'
 import BookingModal from '.';
 
 const BookingModalPopup = ({ booking, showModal, setShowModal }) => {

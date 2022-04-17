@@ -14,6 +14,7 @@ const ArtistInfo = ({ artist }) => {
                     <Audio artist={artist} />
                 </div>
             </div>
+
             <p id='artist__bio'>
                 <h3>Bio</h3>
                 {artist.bio}

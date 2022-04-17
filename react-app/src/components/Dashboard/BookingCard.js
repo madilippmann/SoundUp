@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import BookingModalPopup from '../BookingModal/BookingModalPopup.js';
+import BookingModalPopup from '../BookingModal/BookingModalPopup.js'
 
 const BookingCard = ({ booking }) => {
 

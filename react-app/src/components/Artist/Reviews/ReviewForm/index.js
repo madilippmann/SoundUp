@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import * as artistsActions from '../../store/artists.js';
+import * as artistsActions from '../../../../store/artists'
 
 const ReviewForm = ({ artistId, review, type, setEditReview }) => {
     const dispatch = useDispatch();

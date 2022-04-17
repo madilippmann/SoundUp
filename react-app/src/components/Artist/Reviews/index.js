@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ReviewForm from '../ReviewForm/index.js';
+import ReviewForm from './ReviewForm/index.js';
 import ReviewCard from './ReviewCard.js';
-
 
 
 const Reviews = ({ artist }) => {
