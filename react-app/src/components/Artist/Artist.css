@@ -34,6 +34,7 @@
 
 
 #artist__bio {
+    padding: 5px 0 10px 0;
     font-weight: 300;
 }
 
@@ -45,5 +46,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
+}
+
+
+
+
+.audio__title {
+    margin: 12px 0;
+    /* margin-top: 10px; */
+}
+
+.audio__title__first {
+    margin: 0 0 12px 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .audio__container {
+      display: none;
+    }
+
+    #artist-page__image-container {
+        width: 100%;
+    }
 }
