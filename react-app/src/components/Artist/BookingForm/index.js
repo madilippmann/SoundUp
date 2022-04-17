@@ -135,7 +135,7 @@ const BookingForm = ({ parent }) => {
 
     return (
         <div id='booking__container'>
-            <h3>Book Artist</h3>
+            <h3 id='booking__title'>Book Artist</h3>
 
             {!showErrors ? null : (
                 <div className='error-container'>
@@ -173,7 +173,7 @@ const BookingForm = ({ parent }) => {
                     <div className='flex-row' id='time__search-input' >
                         <FontAwesomeIcon icon={faClock} />
                         <select
-                            id='select-time'
+                            // id='select-time'
                             className='input-no-style'
                             type='select'
                             onChange={(e) => setStartTime(() => e.target.value)}
@@ -191,7 +191,7 @@ const BookingForm = ({ parent }) => {
                     <div className='flex-row' id='time__search-input' >
                         <FontAwesomeIcon icon={faClock} />
                         <select
-                            id='select-time'
+                            // id='select-time'
                             className='input-no-style'
                             type='select'
                             onChange={(e) => setEndTime(() => e.target.value)}
@@ -224,7 +224,7 @@ const BookingForm = ({ parent }) => {
                 {bookingDuration &&
                     <p>Total: {parent.rate * bookingDuration}</p>
                 }
-                <button>Book Artist</button>
+                <button id='booking__button'>Book Artist</button>
             </form>
             {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
             {parent.start_date_time && <button type='button' >Cancel</button>}
