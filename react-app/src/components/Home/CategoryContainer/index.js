@@ -36,17 +36,18 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
             <h2 className='category__title'>{category}</h2>
             <div id='category__outer-container'>
                 {scrollPosition !== 0 &&
-                    <div className='scroll__button' id='scroll-left__button-container'>
+                    // <div  id='scroll-left__button-container'>
 
-                        <button
-                            type='button'
-                            onClick={() => scroll(-250)}
-                            id='scroll-left__button'
-                        >
-                            <FontAwesomeIcon icon={faAngleLeft} />
-                        </button>
+                    <button
+                        type='button'
+                        onClick={() => scroll(-250)}
+                        className='scroll__button'
+                        id='scroll-left__button'
+                    >
+                        <FontAwesomeIcon icon={faAngleLeft} />
+                    </button>
 
-                    </div>
+                    // </div>
                 }
 
                 <div ref={container} onScroll={handleScroll} className='category__container' id={category}>
@@ -54,15 +55,16 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
                 </div>
 
                 {!scrollEnd &&
-                    <div className='scroll__button' id='scroll-right__button-container'>
-                        <button
-                            type='button'
-                            onClick={() => scroll(250)}
-                            id='scroll-right__button'
-                        >
-                            <FontAwesomeIcon icon={faAngleRight} />
-                        </button>
-                    </div>
+                    // <div className='scroll__button' id='scroll-right__button-container'>
+                    <button
+                        type='button'
+                        onClick={() => scroll(250)}
+                        className='scroll__button'
+                        id='scroll-right__button'
+                    >
+                        <FontAwesomeIcon icon={faAngleRight} />
+                    </button>
+                    // </div>
                 }
             </div>
         </div>

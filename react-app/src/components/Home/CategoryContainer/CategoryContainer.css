@@ -54,8 +54,9 @@
 
 
 #scroll-left__button, #scroll-right__button {
-    background-color: transparent;
-    border: none;
+    position: absolute;
+    bottom: 153px;
+    z-index: 5;
 }
 
 .scroll__button {
@@ -79,16 +80,11 @@
 }
 
 
-#scroll-right__button-container, #scroll-left__button-container {
-    position: absolute;
-    bottom: 153px;
-    z-index: 5;
-}
 
-#scroll-left__button-container {
+#scroll-left__button {
     left: -20px;
 }
 
-#scroll-right__button-container {
+#scroll-right__button {
     right: -20px;
 }
