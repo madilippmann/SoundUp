@@ -127,6 +127,8 @@ const BookingForm = ({ parent }) => {
 
     return (
         <>
+            <h3>Book Artist</h3>
+
             {!showErrors ? null : (
                 <div className='error-container'>
                     {validationErrors.map(err => (

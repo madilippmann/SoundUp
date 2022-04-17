@@ -7,6 +7,8 @@ import * as artistsActions from '../../store/artists.js'
 import BookingForm from '../BookingForm/index.js';
 
 import Reviews from './Reviews.js';
+import './Artist.css'
+import ArtistInfo from './ArtistInfo/index.js';
 
 function Artist() {
 	const dispatch = useDispatch();
@@ -26,21 +28,15 @@ function Artist() {
 
 
 	return !isLoaded ? null : (
-		<div>
-			<div>
-				<ul>
-					<li>{artist.name}</li>
-					<li>${artist.rate}</li>
-					<li>{artist.bio}</li>
-				</ul>
+		<div id='artist-page__container'>
+			<div id='artist-page__left'>
+				<ArtistInfo artist={artist} />
+				<Reviews artist={artist} />
 			</div>
 
-			<div>
-				<h3>Book Artist</h3>
+			<div id='artist-page__right'>
 				<BookingForm parent={artist} />
 			</div>
-
-			<Reviews artist={artist} />
 
 		</div >
 	);
