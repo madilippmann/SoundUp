@@ -6,8 +6,7 @@
     color: white;
     border-radius: 6px;
     height: min-content;
-    position: fixed;
-
+    /* position: fixed; */
     box-shadow: rgba(149, 157, 165, 0.8) 0px 8px 24px;
 
 }
@@ -70,7 +69,7 @@
 }
 
 #booking__button:hover {
-    background-color: rgb(71, 71, 164);
+    background-color: rgb(60, 60, 148);
 
 }
 
@@ -80,10 +79,3 @@
     color: white;
     background-color: transparent;
 }
-
-
-#rating__container {
-    display: flex;
-}
-
-#comment__container {}

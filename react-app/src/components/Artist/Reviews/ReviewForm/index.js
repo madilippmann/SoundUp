@@ -20,6 +20,7 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
     }, [rating, comment]);
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -40,6 +41,8 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
             }
 
             dispatch(artistsActions.createReview(review, artistId))
+            setRating(0)
+            setComment('')
         }
     }
 
@@ -56,10 +59,6 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
             )}
 
             <form id='review__form' onSubmit={handleSubmit}>
-                <div id='rating__container'>
-                    <label htmlFor='rating'>Rating</label>
-                    <RatingPicker rating={rating} setRating={setRating} />
-                </div>
                 {/* <input
                     type='number'
                     name='rating'
@@ -69,6 +68,10 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                     onChange={(e) => setRating(() => e.target.value)}
                     value={rating}
                 /> */}
+                <div id='rating__container'>
+                    <label htmlFor='rating'>Rating</label>
+                    <RatingPicker rating={rating} setRating={setRating} />
+                </div>
 
                 <div id='comment__container'>
                     <label htmlFor='comment'>Comment</label>
@@ -76,11 +79,12 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                         type='text'
                         name='comment'
                         id='comment'
+                        placeholder='Start writing comment...'
                         onChange={(e) => setComment(() => e.target.value)}
                         value={comment}
                     />
                 </div>
-                <button>Submit</button>
+                <button id='comment__button'>Submit</button>
                 {type === 'edit' && <button type='button' onClick={() => setEditReview(() => false)}>Cancel</button>}
             </form>
         </div>

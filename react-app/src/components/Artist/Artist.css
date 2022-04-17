@@ -11,8 +11,8 @@
 #artist-page__container h1 {
     font-size: 40px;
     padding: 20px 0;
-    border-top: 1px solid rgba(227, 57, 0, 0.4);
-    border-bottom: 1px solid rgba(227, 57, 0, 0.4);
+    border-top: 5px double rgba(227, 57, 0, 0.2);
+    border-bottom: 5px double rgba(227, 57, 0, 0.2);
     /* padding: 20px;  */
 }
 

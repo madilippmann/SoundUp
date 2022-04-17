@@ -23,3 +23,50 @@
     border-bottom: 1px solid rgba(104, 104, 104, 0.258);
     padding-bottom: 15px;
 }
+
+
+#rating__container > * {
+    /* display: flex; */
+    margin: 10px 0;
+}
+
+#comment__container > * {
+    margin: 5px 0;
+}
+
+#comment__container {
+    display: flex;
+    flex-direction: column;
+}
+
+#comment {
+    height: 50px;
+    width: 50%;
+    border-radius: 2px;
+    border: 1px solid rgb(212, 212, 212);
+    /* display: flex;
+    align-items: flex-start; */
+    padding: 0 10px;
+    text-align: start;
+
+}
+
+#comment:active {
+    outline-color: rgb(82, 82, 169);
+}
+
+
+#comment__button {
+    background-color: rgb(82, 82, 169);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    margin-top: 0;
+    padding: 15px 30px;
+    transition: background-color .15s ease-in-out;
+}
+
+#comment__button:hover {
+    background-color: rgb(60, 60, 148);
+
+}
