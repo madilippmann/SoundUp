@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
+import RatingPicker from './RatingPicker';
+
 import * as artistsActions from '../../../../store/artists'
 
 const ReviewForm = ({ artistId, review, type, setEditReview }) => {
@@ -62,6 +64,8 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                     onChange={(e) => setRating(() => e.target.value)}
                     value={rating}
                 />
+                <RatingPicker setRating={setRating} />
+
 
                 <label htmlFor='comment'>Comment</label>
                 <input

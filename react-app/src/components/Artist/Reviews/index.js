@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReviewForm from './ReviewForm/index.js';
 import ReviewCard from './ReviewCard.js';
 
+import './Reviews.css';
 
 const Reviews = ({ artist }) => {
 
 
     return (
         <div>
-            <h3>Create New Review</h3>
-            <ReviewForm artistId={artist.id} review={null} />
+            <div id='reviews__add'>
+                <h3 id='reviews__title'>Create New Review</h3>
+                <ReviewForm artistId={artist.id} review={null} />
+            </div>
 
-            <div>
+            <div id='reviews__list'>
                 <h3>Reviews</h3>
                 <ul>
                     {artist.reviews.map(review => <ReviewCard review={review} />)}
