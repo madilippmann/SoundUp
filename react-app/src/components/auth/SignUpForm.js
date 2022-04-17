@@ -50,6 +50,9 @@ const SignUpForm = ({ setShowModal }) => {
 
   const demoLogin = async () => {
     await dispatch(login('demo@aa.io', 'password'));
+
+    setShowModal(() => false)
+    return history.push('/')
   }
 
   return (
