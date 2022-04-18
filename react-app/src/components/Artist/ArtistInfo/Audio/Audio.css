@@ -4,8 +4,9 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    background-color: rgb(82, 82, 169);
+    /* background-color: rgb(82, 82, 169); */
     background-color: rgba(82, 82, 169, 0.5);
+    border: 1px solid rgb(224, 224, 224);
     border-radius: 4px;
     padding: 20px 0;
 
@@ -16,12 +17,14 @@
 
 .audio__title {
     margin: 12px 0;
-    color: white;
+    /* color: white; */
+    color: rgb(69, 69, 69);
     /* margin-top: 10px; */
 }
 
 .audio__title__first {
     margin: 0 0 12px 0;
-    color: white;
+    /* color: white; */
+    color: rgb(69, 69, 69);
 
 }

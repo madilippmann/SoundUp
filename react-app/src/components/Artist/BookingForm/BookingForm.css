@@ -7,7 +7,7 @@
     border-radius: 6px;
     height: min-content;
     /* position: fixed; */
-    box-shadow: rgba(149, 157, 165, 0.8) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
 
 }
 
@@ -78,4 +78,15 @@
 #booking__end-time select, #booking__start-time select {
     color: white;
     background-color: transparent;
+}
+
+
+
+.booking.error-container {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.error__list-item {
+    padding: 3px 0;
 }

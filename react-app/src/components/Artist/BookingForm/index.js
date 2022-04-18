@@ -19,6 +19,14 @@ const BookingForm = ({ parent }) => {
     const [date, setDate] = useState(new Date());
     const [startTime, setStartTime] = useState();
     const [endTime, setEndTime] = useState();
+
+    const [parsedStartTime, setParsedStartTime] = useState();
+    const [parsedEndTime, setParsedEndTime] = useState();
+    const [parsedDate, setParsedDate] = useState();
+
+    const [startDateTime, setStartDateTime] = useState();
+    const [endDateTime, setEndDateTime] = useState();
+
     const [description, setDescription] = useState('');
     const [bookingDuration, setBookingDuration] = useState(null);
 
@@ -54,13 +62,18 @@ const BookingForm = ({ parent }) => {
         }
     }, [])
 
+
     useEffect(() => {
+        // DATE
+        console.log('DATE ', date)
+        const adjustedDate = String(date).split(' ').slice(0, 4).join(' ');
+        setParsedDate(() => adjustedDate);
+
+
+        //  START TIME
         let adjustedStartTime;
-        let adjustedEndTime;
-        const adjustedDate = String(date).split(' ').slice(0, 4).join(' ')
 
         if (startTime) {
-
             adjustedStartTime = startTime.split(' ')
 
             if (adjustedStartTime[1] === 'AM') {
@@ -73,8 +86,13 @@ const BookingForm = ({ parent }) => {
 
         }
 
+        setStartDateTime(Date.parse((`${adjustedDate} ${adjustedStartTime}`)))
+
+        // END TIME
+        let adjustedEndTime;
+
         if (endTime) {
-            adjustedEndTime = startTime.split(' ')
+            adjustedEndTime = endTime.split(' ')
 
             if (adjustedEndTime[1] === 'AM') {
                 adjustedEndTime = `0${adjustedEndTime[0]}`
@@ -85,29 +103,37 @@ const BookingForm = ({ parent }) => {
             }
         }
 
-        const startDateTime = new Date(`${adjustedDate} ${startTime}`)
-        const endDateTime = new Date(`${adjustedDate} ${endTime}`)
+        setEndDateTime(Date.parse((`${adjustedDate} ${adjustedEndTime}`)))
+
+
+    }, [date, startTime, endTime])
+
+
+
+
+    useEffect(() => {
 
         const errors = [];
         // TODO TODO TODO TODO TODO
 
-        if (!date) {
-            errors.push('Please enter valid date.')
+        if (!startDateTime) {
+            errors.push('Please enter a valid start time.')
         }
-        if (!startTime) {
-            errors.push('Please enter valid start time.')
-        }
-        if (!endTime) {
-            errors.push('Please enter valid end time.')
+        if (!endDateTime) {
+            errors.push('Please enter a valid end time.')
         }
 
-        if (Date.parse(endDateTime) - Date.parse(startDateTime) <= 0) {
+        if (endDateTime <= startDateTime) {
             errors.push('Invalid time range.')
         }
+        if (Date.parse(new Date()) >= endDateTime) {
+            errors.push('Please select future date.')
+        }
+
 
         console.log(errors)
         setValidationErrors(errors);
-    }, [date, startTime, endTime, description]);
+    }, [parsedDate, endDateTime, startDateTime, description]);
 
 
 
@@ -117,8 +143,6 @@ const BookingForm = ({ parent }) => {
 
         if (validationErrors.length) return setShowErrors(true);
 
-        const startDateTime = new Date(`${date} ${startTime}`)
-        const endDateTime = new Date(`${date} ${endTime}`)
 
         let res;
 
@@ -134,6 +158,7 @@ const BookingForm = ({ parent }) => {
             // parent.start_date_time = startDateTime
             // parent.end_date_time = endDateTime
             // parent.description = description
+
             res = await dispatch(userActions.editBooking(booking))
             history.push('/dashboard')
             // FIX FIX FIX navigate to other modal page rather than refreshing
@@ -168,13 +193,7 @@ const BookingForm = ({ parent }) => {
         <div id='booking__container'>
             <h3 id='booking__title'>Book Artist</h3>
 
-            {!showErrors ? null : (
-                <div className='error-container'>
-                    {validationErrors.map(err => (
-                        <div key={err}>{err}</div>
-                    ))}
-                </div>
-            )}
+
 
             <form onSubmit={handleSubmit}>
 
@@ -211,6 +230,7 @@ const BookingForm = ({ parent }) => {
 
                             value={startTime}
                         >
+                            <option value='' disabled selected>select time</option>
                             {times.map(time => <option value={time}>{time}</option>)}
                         </select>
                     </div>
@@ -229,6 +249,7 @@ const BookingForm = ({ parent }) => {
 
                             value={endTime}
                         >
+                            <option value='' disabled selected>select time</option>
                             {times.map(time => <option value={time}>{time}</option>)}
                         </select>
                     </div>
@@ -255,6 +276,14 @@ const BookingForm = ({ parent }) => {
                 {bookingDuration &&
                     <p>Total: {parent.rate * bookingDuration}</p>
                 }
+
+                {!showErrors ? null : (
+                    <div className='error-container booking'>
+                        {validationErrors.map(err => (
+                            <div key={err} className='error__list-item'>{err}</div>
+                        ))}
+                    </div>
+                )}
                 <button id='booking__button'>Book Artist</button>
             </form>
             {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
