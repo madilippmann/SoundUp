@@ -144,6 +144,7 @@ const BookingForm = ({ parent }) => {
         }
 
 
+
         console.log(errors)
         setValidationErrors(errors);
     }, [parsedDate, endDateTime, startDateTime, description]);
@@ -208,9 +209,6 @@ const BookingForm = ({ parent }) => {
     return (
         <div id='booking__container'>
             <h3 id='booking__title'>Book Artist</h3>
-
-
-
             <form onSubmit={handleSubmit}>
 
                 {/* <label htmlFor='date'>Date</label>
