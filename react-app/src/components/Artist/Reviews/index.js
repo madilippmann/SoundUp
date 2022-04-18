@@ -15,6 +15,7 @@ const Reviews = ({ artist }) => {
 
             <div id='reviews__list'>
                 <h3>Reviews</h3>
+                {!artist.reviews.length && <p style={{ fontStyle: 'italic' }}>No reviews to show</p>}
                 <ul>
                     {artist.reviews.map(review => <ReviewCard review={review} />)}
                 </ul>
