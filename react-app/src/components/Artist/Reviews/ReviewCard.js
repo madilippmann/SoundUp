@@ -86,39 +86,39 @@ const ReviewCard = ({ review }) => {
                 <div key={review.id} id='review__container'>
                     <div id='review__user'>
                         <FontAwesomeIcon icon={faUserCircle} style={{ color: 'grey', fontSize: '35px' }} />
-                        <p>{review.user.name}</p>
+                        <p className='margin-bottom'>{review.user.name}</p>
                         {review.user.reviews_count === 1 ?
-                            <p>{review.user.reviews_count} review</p> :
-                            <p>{review.user.reviews_count} reviews</p>
+                            <p className='margin-bottom margin-top'>{review.user.reviews_count} review</p> :
+                            <p className='margin-bottom margin-top smaller-text'>{review.user.reviews_count} reviews</p>
                         }
                     </div>
 
                     <div id='review__details'>
                         <div id='review-rating-and-date'>
                             <img id='review-card__rating' src={getRatingImage(review.rating)} alt={`${review.rating}-star rating`} />
-                            <p>{formattedDate(review.created_at)}</p>
+                            <p id='review-card__date'>{formattedDate(review.created_at)}</p>
                         </div>
-                        <p>{review.comment}</p>
+                        <p id='review-card__comment'>{review.comment}</p>
                     </div>
 
 
                     {sessionUser.id === review.user.id &&
-                        <div>
-                            <button type='button' onClick={openEditDropdown}>
-                                <FontAwesomeIcon icon={faEllipsis} />
+                        <div className='flex-col'>
+                            <button id='edit-review__button' type='button' onClick={openEditDropdown}>
+                                <FontAwesomeIcon id='edit-review__icon' icon={faEllipsis} />
                             </button>
 
                             {showEditDropdown &&
                                 <div id='edit-review__dropdown'>
                                     <div id='edit-review__options'>
-                                        <button type='button' onClick={() => setEditReview(true)}>
+                                        <button className='edit-delete__buttons' type='button' onClick={() => setEditReview(true)}>
                                             <FontAwesomeIcon icon={faPenToSquare} />
-                                            Edit Review
+                                            <span>Edit Review</span>
                                         </button>
 
-                                        <button type='button' onClick={deleteReview}>
+                                        <button className='edit-delete__buttons' type='button' onClick={deleteReview}>
                                             <FontAwesomeIcon icon={faTrashCan} />
-                                            Delete Review
+                                            <span>Delete Review</span>
                                         </button>
 
                                     </div>

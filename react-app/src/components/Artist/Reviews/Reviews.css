@@ -87,12 +87,13 @@
 }
 
 #review__user {
-    width: 150px;
+    width: 175px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     padding-top: 15px;
+    padding-bottom: 10px;
 }
 #review__details {
     width: 100%;
@@ -107,4 +108,81 @@
 #review-card__rating {
     width: 100px;
     height: 100%;
+}
+
+
+#review-card__comment {
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+
+
+#review-card__date {
+    color:rgba(0, 0, 0, 0.721);
+}
+.margin-bottom {
+    margin-bottom: 5px;
+}
+
+.margin-top {
+    margin-top: 5px;
+}
+
+
+.smaller-text {
+    font-size: 11px;
+}
+
+
+#edit-review__button {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    transition: color .15s ease-in-out;
+    position: absolute;
+}
+
+#edit-review__button:hover {
+    color: rgb(227,55,0);
+}
+
+
+#edit-review__dropdown {
+    background-color: rgb(233, 233, 233);
+    border-radius: 2px;
+    width: 140px;
+    padding: 10px;
+    position: relative;
+    top: 20px;
+
+
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#edit-review__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7px;
+
+}
+
+.edit-delete__buttons:hover {
+    color: rgb(227,55,0);
+}
+
+.edit-delete__buttons {
+    background-color: transparent;
+    border: none;
+}
+
+.edit-delete__buttons > *{
+    margin: 0 2px;
 }
