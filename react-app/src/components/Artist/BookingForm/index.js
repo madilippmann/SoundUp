@@ -55,8 +55,38 @@ const BookingForm = ({ parent }) => {
     }, [])
 
     useEffect(() => {
-        const startDateTime = new Date(`${date} ${startTime}`)
-        const endDateTime = new Date(`${date} ${endTime}`)
+        let adjustedStartTime;
+        let adjustedEndTime;
+        const adjustedDate = String(date).split(' ').slice(0, 4).join(' ')
+
+        if (startTime) {
+
+            adjustedStartTime = startTime.split(' ')
+
+            if (adjustedStartTime[1] === 'AM') {
+                adjustedStartTime = `0${adjustedStartTime[0]}`
+            } else {
+                let [hours, minutes] = adjustedStartTime[0].split(':')
+                hours = Number(hours) + 12
+                adjustedStartTime = `${hours}:${minutes}`
+            }
+
+        }
+
+        if (endTime) {
+            adjustedEndTime = startTime.split(' ')
+
+            if (adjustedEndTime[1] === 'AM') {
+                adjustedEndTime = `0${adjustedEndTime[0]}`
+            } else {
+                let [hours, minutes] = adjustedEndTime[0].split(':')
+                hours = Number(hours) + 12
+                adjustedEndTime = `${hours}:${minutes}`
+            }
+        }
+
+        const startDateTime = new Date(`${adjustedDate} ${startTime}`)
+        const endDateTime = new Date(`${adjustedDate} ${endTime}`)
 
         const errors = [];
         // TODO TODO TODO TODO TODO
@@ -75,6 +105,7 @@ const BookingForm = ({ parent }) => {
             errors.push('Invalid time range.')
         }
 
+        console.log(errors)
         setValidationErrors(errors);
     }, [date, startTime, endTime, description]);
 

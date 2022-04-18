@@ -48,7 +48,9 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
 
     return (
         <div id='new-review__container'>
-            <h3 id='reviews__title'>Add New Review</h3>
+            {type !== 'edit' &&
+                <h3 id='reviews__title'>Add New Review</h3>
+            }
 
             {!showErrors ? null : (
                 <div className='error-container'>
@@ -85,7 +87,7 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                     />
                 </div>
                 <button id='comment__button'>Submit</button>
-                {type === 'edit' && <button type='button' onClick={() => setEditReview(() => false)}>Cancel</button>}
+                {type === 'edit' && <button type='button' id='comment__button' onClick={() => setEditReview(() => false)}>Cancel</button>}
             </form>
         </div>
     );

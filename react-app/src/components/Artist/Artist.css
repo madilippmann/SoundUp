@@ -35,6 +35,7 @@
 #artist-page__right {
     width: 30%;
     display: flex;
+    /* margin-top: 120px; */
     justify-content: flex-end;
 }
 
