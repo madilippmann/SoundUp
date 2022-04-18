@@ -1,0 +1,72 @@
+.dashboard__nav {
+    background-color: rgb(227,55,0);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    box-shadow: 0 0 10px rgb(219, 219, 219);
+
+}
+
+
+.dashboard__nav__buttons {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+
+}
+
+.dashboard__nav__buttons > h3 {
+    font-weight: 400;
+}
+
+
+.dashboard__nav__buttons.true {
+    background-color: transparent;
+    border-bottom: 8px solid white;
+    padding-bottom: 2px;
+}
+
+
+.booking__card {
+    background-color: transparent;
+    border: none;
+}
+
+
+.card__outer-container {
+    width: 85%;
+    margin: auto;
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.card__flex {
+    display: flex;
+    gap: 25px;
+    /* flex-flow: row wrap; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+#booking-confirmed__container {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 10px;
+}
+
+#booking-confirmed__icon {
+    color: rgb(48, 174, 43);
+    font-size: 17px;
+}
+
+#booking-unconfirmed__icon {
+    color: rgb(241, 23, 23);
+    font-size: 17px;
+}

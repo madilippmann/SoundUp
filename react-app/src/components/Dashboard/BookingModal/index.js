@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as userActions from '../../store/session'
+import * as userActions from '../../../store/session'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import BookingForm from '../Artist/BookingForm/index.js';
+import BookingForm from '../../Artist/BookingForm/index.js';
 
 
 const BookingModal = ({ booking, setShowModal }) => {
@@ -35,9 +35,9 @@ const BookingModal = ({ booking, setShowModal }) => {
                         </button>
                     </div>
                     <div key={booking.id}>
-                        <p>{booking.artist_id}</p>
-                        <p>{booking.start_date_time}</p>
-                        <p>{booking.end_date_time}</p>
+                        <p>{booking.artist.name}</p>
+                        <p>{new Date(booking.start_date_time).toLocaleString()}</p>
+                        <p>{new Date(booking.end_date_time).toLocaleString()}</p>
                         <p>{booking.description}</p>
                     </div>
                 </div>
