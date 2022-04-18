@@ -12,8 +12,8 @@ const BookingCard = ({ booking }) => {
             <button type='button' onClick={() => setShowModal(() => true)}>
                 <div key={booking.id}>
                     <p>{booking.artist_id}</p>
-                    <p>{booking.start_date_time}</p>
-                    <p>{booking.end_date_time}</p>
+                    <p>{new Date(booking.start_date_time).toLocaleString()}</p>
+                    <p>{new Date(booking.end_date_time).toLocaleString()}</p>
                 </div>
             </button>
 
