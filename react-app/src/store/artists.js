@@ -132,7 +132,7 @@ const artistsReducer = (state = {}, action) => {
                 [action.review.artist_id]: {
                     ...state[action.review.artist_id],
                     genres: [...state[action.review.artist_id].genres],
-                    reviews: [...state[action.review.artist_id].reviews, action.review],
+                    reviews: [action.review, ...state[action.review.artist_id].reviews],
                 }
             }
         }

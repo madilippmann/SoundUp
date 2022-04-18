@@ -50,5 +50,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'email': self.email,
             'name': self.name,
+            'reviews_count': len(self.reviews)
             # 'artist_id': self.artist_id,
         }

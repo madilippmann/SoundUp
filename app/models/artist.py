@@ -30,7 +30,7 @@ class Artist(db.Model):
 
     def to_dict(self):
         genres = [genre.to_dict_lite() for genre in self.genres]
-        reviews = [review.to_dict() for review in self.reviews]
+        reviews = [review.to_dict() for review in reversed(self.reviews)]
         return {
             'id': self.id,
             'name': self.name,

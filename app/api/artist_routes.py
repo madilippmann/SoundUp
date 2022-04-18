@@ -3,6 +3,8 @@ from flask_login import login_required
 from app.models import db, Artist, Review
 from app.forms import ReviewForm
 
+from sqlalchemy import desc
+
 artist_routes = Blueprint('artists', __name__)
 
 @artist_routes.route('/')
@@ -29,6 +31,7 @@ def get_artist(artistId):
 def get_artist_reviews(artist_id):
     reviews = Review.query.filter(Review.artist_id == artist_id).all()
     reviews = [review.to_dict() for review in reviews]
+
     return jsonify(reviews)
 
 

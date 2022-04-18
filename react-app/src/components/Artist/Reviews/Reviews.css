@@ -1,3 +1,7 @@
+#reviews__list > ul {
+    padding: 0;
+}
+
 #reviews__add {
 }
 
@@ -5,8 +9,6 @@
         margin: 15px 0;
 }
 
-#new-review__container {
-}
 
 
 #reviews__title {
@@ -22,6 +24,7 @@
     padding-top: 40px;
     border-bottom: 1px solid rgba(104, 104, 104, 0.258);
     padding-bottom: 15px;
+    margin-bottom: 0;
 }
 
 
@@ -69,4 +72,39 @@
 #comment__button:hover {
     background-color: rgb(60, 60, 148);
 
+}
+
+
+
+/************************************/
+/* Review                           */
+/************************************/
+
+#review__container {
+    display: flex;
+    border-bottom: 1px solid rgba(104, 104, 104, 0.15);
+    padding: 10px 0;
+}
+
+#review__user {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 15px;
+}
+#review__details {
+    width: 100%;
+}
+
+#review-rating-and-date {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+#review-card__rating {
+    width: 100px;
+    height: 100%;
 }
