@@ -197,7 +197,7 @@ export default function reducer(state = initialState, action) {
 				...state,
 				user: {
 					...state.user,
-					boookings: [...state.user.bookings, action.booking]
+					bookings: [...state.user.bookings, action.booking]
 				}
 			}
 		}
@@ -210,7 +210,7 @@ export default function reducer(state = initialState, action) {
 				...state,
 				user: {
 					...state.user,
-					boookings: [...state.user.bookings]
+					bookings: [...state.user.bookings]
 				}
 			}
 		}
@@ -223,7 +223,7 @@ export default function reducer(state = initialState, action) {
 				...state,
 				user: {
 					...state.user,
-					boookings: [...state.user.bookings]
+					bookings: [...state.user.bookings]
 				}
 			}
 		}
