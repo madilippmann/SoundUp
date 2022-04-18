@@ -133,6 +133,13 @@ export const createBooking = (booking) => async (dispatch) => {
 		const newBooking = await res.json();
 		dispatch(addBooking(newBooking));
 		return newBooking
+	} else {
+		console.log('RES RES RES')
+		console.log(res)
+
+		const errors = await res.json()
+		console.log('ERRORS: ', errors)
+		return errors
 	}
 };
 

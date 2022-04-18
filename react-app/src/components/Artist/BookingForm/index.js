@@ -190,8 +190,15 @@ const BookingForm = ({ parent }) => {
             console.log('Final End Date ', booking.end_date_time, typeof booking.end_date_time)
 
             res = await dispatch(userActions.createBooking(booking))
-
-            if (res) {
+            console.log('RES: ', res)
+            if (res.errors) {
+                res.errors.forEach(error => {
+                    console.log(error.split(' : ')[1])
+                    setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
+                })
+                console.log(validationErrors)
+                return setShowErrors(true)
+            } else {
                 setDate(() => undefined)
                 setStartTime(() => undefined)
                 setEndTime(() => undefined)
@@ -199,8 +206,7 @@ const BookingForm = ({ parent }) => {
             }
         }
 
-        validationErrors.push('An error occured. Please try again.')
-        return setShowErrors(true)
+        // validationErrors.push('An error occured. Please try again.')
 
     }
 

@@ -129,6 +129,7 @@ const artistsReducer = (state = {}, action) => {
 
         case ADD_REVIEW: {
             return {
+                ...state,
                 [action.review.artist_id]: {
                     ...state[action.review.artist_id],
                     genres: [...state[action.review.artist_id].genres],
