@@ -77,7 +77,14 @@ const BookingForm = ({ parent }) => {
             adjustedStartTime = startTime.split(' ')
 
             if (adjustedStartTime[1] === 'AM') {
-                adjustedStartTime = `0${adjustedStartTime[0]}`
+                if (Number(adjustedStartTime[0].split(':')[0]) === 12) {
+                    let [hours, minutes] = adjustedStartTime[0].split(':')
+                    adjustedStartTime = `00:${minutes}`
+                    console.log(adjustedStartTime)
+
+                } else {
+                    adjustedStartTime = `0${adjustedStartTime[0]}`
+                }
             } else {
                 let [hours, minutes] = adjustedStartTime[0].split(':')
                 hours = Number(hours) + 12
@@ -95,7 +102,12 @@ const BookingForm = ({ parent }) => {
             adjustedEndTime = endTime.split(' ')
 
             if (adjustedEndTime[1] === 'AM') {
-                adjustedEndTime = `0${adjustedEndTime[0]}`
+                if (Number(adjustedEndTime[0].split(':')[0]) === 12) {
+                    let [hours, minutes] = adjustedEndTime[0].split(':')
+                    adjustedEndTime = `00:${minutes}`
+                } else {
+                    adjustedEndTime = `0${adjustedEndTime[0]}`
+                }
             } else {
                 let [hours, minutes] = adjustedEndTime[0].split(':')
                 hours = Number(hours) + 12
@@ -107,7 +119,6 @@ const BookingForm = ({ parent }) => {
 
 
     }, [date, startTime, endTime])
-
 
 
 
@@ -124,6 +135,8 @@ const BookingForm = ({ parent }) => {
         }
 
         if (endDateTime <= startDateTime) {
+            console.log('Start ', startDateTime)
+            console.log('End ', endDateTime)
             errors.push('Invalid time range.')
         }
         if (Date.parse(new Date()) >= endDateTime) {
@@ -142,7 +155,6 @@ const BookingForm = ({ parent }) => {
         e.preventDefault()
 
         if (validationErrors.length) return setShowErrors(true);
-
 
         let res;
 
@@ -167,10 +179,14 @@ const BookingForm = ({ parent }) => {
         } else {
             const booking = {
                 artist_id: parent.id,
-                start_date_time: Date.parse(startDateTime),
-                end_date_time: Date.parse(endDateTime),
+                start_date_time: startDateTime,
+                end_date_time: endDateTime,
                 description,
             }
+
+            console.log('BOOKING: ', booking)
+            console.log('Final Start Date ', booking.start_date_time, typeof booking.start_date_time)
+            console.log('Final End Date ', booking.end_date_time, typeof booking.end_date_time)
 
             res = await dispatch(userActions.createBooking(booking))
 
