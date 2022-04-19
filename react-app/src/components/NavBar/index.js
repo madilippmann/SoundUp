@@ -69,11 +69,6 @@ const NavBar = () => {
 			{!sessionUser &&
 				<>
 					<nav className='navbar'>
-
-
-
-					</nav>
-					<nav className='navbar'>
 						<div className='navbar-container'>
 							<div className='nav__left'>
 								<Link to='/'>
@@ -91,6 +86,7 @@ const NavBar = () => {
 							</div>
 
 							<div className="nav__right">
+
 								<div className="nav__buttons">
 									<button
 										type='button'

@@ -10,7 +10,9 @@ import { authenticate } from './store/session';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Splash from './components/Splash';
-import Artist from './components/Artist'
+import Artist from './components/Artist';
+import Footer from './components/Footer';
+
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -65,6 +67,7 @@ function App() {
 				</ProtectedRoute> */}
 
 			</Switch>
+			<Footer />
 		</BrowserRouter>
 	);
 }
