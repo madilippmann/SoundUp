@@ -65,7 +65,6 @@ const BookingForm = ({ parent }) => {
 
     useEffect(() => {
         // DATE
-        console.log('DATE ', date)
         const adjustedDate = String(date).split(' ').slice(0, 4).join(' ');
         setParsedDate(() => adjustedDate);
 
@@ -80,7 +79,6 @@ const BookingForm = ({ parent }) => {
                 if (Number(adjustedStartTime[0].split(':')[0]) === 12) {
                     let [hours, minutes] = adjustedStartTime[0].split(':')
                     adjustedStartTime = `00:${minutes}`
-                    console.log(adjustedStartTime)
 
                 } else {
                     adjustedStartTime = `0${adjustedStartTime[0]}`
@@ -135,17 +133,12 @@ const BookingForm = ({ parent }) => {
         }
 
         if (endDateTime <= startDateTime) {
-            console.log('Start ', startDateTime)
-            console.log('End ', endDateTime)
             errors.push('Invalid time range.')
         }
         if (Date.parse(new Date()) >= endDateTime) {
             errors.push('Please select future date.')
         }
 
-
-
-        console.log(errors)
         setValidationErrors(errors);
     }, [parsedDate, endDateTime, startDateTime, description]);
 
@@ -185,18 +178,12 @@ const BookingForm = ({ parent }) => {
                 description,
             }
 
-            console.log('BOOKING: ', booking)
-            console.log('Final Start Date ', booking.start_date_time, typeof booking.start_date_time)
-            console.log('Final End Date ', booking.end_date_time, typeof booking.end_date_time)
-
             res = await dispatch(userActions.createBooking(booking))
-            console.log('RES: ', res)
             if (res.errors) {
                 res.errors.forEach(error => {
-                    console.log(error.split(' : ')[1])
                     setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
                 })
-                console.log(validationErrors)
+
                 return setShowErrors(true)
             } else {
                 setDate(() => undefined)
@@ -206,7 +193,6 @@ const BookingForm = ({ parent }) => {
             }
         }
 
-        // validationErrors.push('An error occured. Please try again.')
 
     }
 

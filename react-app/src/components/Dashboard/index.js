@@ -60,7 +60,7 @@ const Dashboard = () => {
             {selectedTab === 'upcoming' &&
                 <div className='card__outer-container'>
                     <div className='card__flex'>
-                        {sortedBookings?.upcoming.reverse().map(booking => (
+                        {sortedBookings?.upcoming.map(booking => (
                             <div>
                                 <BookingCard booking={booking} />
                             </div>
@@ -73,7 +73,7 @@ const Dashboard = () => {
             {selectedTab === 'past' &&
                 <div className='card__outer-container'>
                     <div className='card__flex'>
-                        {sortedBookings?.past.reverse().map(booking => (
+                        {sortedBookings?.past.map(booking => (
                             <div>
                                 <BookingCard booking={booking} type={'upcoming'} />
                             </div>

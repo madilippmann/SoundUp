@@ -134,11 +134,7 @@ export const createBooking = (booking) => async (dispatch) => {
 		dispatch(addBooking(newBooking));
 		return newBooking
 	} else {
-		console.log('RES RES RES')
-		console.log(res)
-
 		const errors = await res.json()
-		console.log('ERRORS: ', errors)
 		return errors
 	}
 };
@@ -168,9 +164,9 @@ export const removeBooking = (booking) => async (dispatch) => {
 	});
 
 	if (res.ok) {
-		const newBooking = await res.json();
-		dispatch(deleteBooking(newBooking));
-		return newBooking
+		const deletedBooking = await res.json();
+		dispatch(deleteBooking(deletedBooking));
+		return deletedBooking
 	}
 };
 
@@ -184,7 +180,10 @@ export default function reducer(state = initialState, action) {
 
 	switch (action.type) {
 		case SET_USER: {
-			return { user: action.user }
+			const sessionUser = action.user
+			sessionUser.bookings = [...action.user.bookings]
+
+			return { user: sessionUser }
 		}
 
 		case REMOVE_USER: {
@@ -216,8 +215,14 @@ export default function reducer(state = initialState, action) {
 		}
 
 		case DELETE_BOOKING: {
-			const bookingIndex = state.user.bookings.findIndex((booking) => booking.id === action.booking.id)
+			const bookings = state.user.bookings
+
+			console.log('Includes? ', bookings.find((booking) => booking.id === action.booking))
+			console.log('BOOKING TO DELETE: ', action.booking)
+			const bookingIndex = state.user.bookings.findIndex((booking) => booking.id === action.booking)
+			console.log('Booking Index: ', bookingIndex)
 			state.user.bookings.splice(bookingIndex, 1)
+			console.log('Bookings AFTER: ', state.user.bookings)
 
 			return {
 				...state,

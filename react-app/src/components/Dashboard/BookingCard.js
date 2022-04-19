@@ -32,19 +32,11 @@ const BookingCard = ({ booking, type }) => {
         setStartTime(formatTime(new Date(booking.start_date_time)))
         setEndTime(formatTime(new Date(booking.end_date_time)))
     }, [])
-    // useEffect(() => {
-    //     console.log(Date.parse(booking.created_at) - (1000 * (60 * 5)) < Date.parse(new Date()))
-    //     console.log(Date.parse(booking.created_at))
-    //     console.log(Date.parse(new Date()))
-    // })
+
 
     return (
         <>
-            {/* <div key={booking.id}>
-                <p>{booking.artist_id}</p>
-                <p>{new Date(booking.start_date_time).toLocaleString()}</p>
-                <p>{new Date(booking.end_date_time).toLocaleString()}</p>
-            </div> */}
+
             <button className='booking__card' type='button' onClick={() => setShowModal(() => true)}>
                 <div id='artist__card'>
                     <div id='artist__image'>
@@ -56,9 +48,7 @@ const BookingCard = ({ booking, type }) => {
                             <h4 id='dashboard__booking__title'>{booking.artist.name}</h4>
 
                             <div id='booking__date-and-time'>
-                                {/* <p>Date</p> */}
                                 <p className='less-margin'><span id='booking__date'>Date:</span> {date}</p>
-                                {/* <p>Time</p> */}
                                 <p className='less-margin'><span id='booking__time'>Time:</span> {startTime} - {endTime}</p>
                             </div>
 
