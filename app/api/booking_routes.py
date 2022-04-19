@@ -41,7 +41,6 @@ def create_booking():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print('\n\n\n\n\nSTART TIME ', form.data['start_date_time'], '\n\n\n\n\n')
         data = {
             "user_id": session['_user_id'],
             "artist_id": form.data["artist_id"],
@@ -54,10 +53,8 @@ def create_booking():
         booking = Booking(**data)
         db.session.add(booking)
         db.session.commit()
-        print('\n\n\n\n\nSTART TIME ', booking.start_date_time, '\n\n\n\n\n')
         return jsonify(booking.to_dict())
 
-    print('\n\n\n\n\n', validation_errors_to_error_messages(form.errors), '\n\n\n\n')
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -65,12 +62,10 @@ def create_booking():
 @booking_routes.route('/<int:booking_id>/', methods=['PUT'])
 @login_required
 def update_booking(booking_id):
-    print('\n\n\n\n\n\nentered\n\n\n\n\n\n')
     booking = request.get_json()
     form = BookingForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
-    # print('\n\n\n\n\n\n', isinstance(form['start_date_time'].data, int),'\n\n\n\n\n\n')
 
     if form.validate_on_submit():
 

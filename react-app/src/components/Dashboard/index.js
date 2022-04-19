@@ -12,7 +12,7 @@ const Dashboard = () => {
     const sessionUser = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false);
     const [sortedBookings, setSortedBookings] = useState();
-    const [selectedTab, setSelectedTab] = useState('upcoming')
+    const [selectedTab, setSelectedTab] = useState('upcoming');
 
     useEffect(() => {
         setSortedBookings(() => {

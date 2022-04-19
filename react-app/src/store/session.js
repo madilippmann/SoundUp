@@ -182,6 +182,7 @@ export default function reducer(state = initialState, action) {
 		case SET_USER: {
 			const sessionUser = action.user
 			sessionUser.bookings = [...action.user.bookings]
+			sessionUser.reviews = [...action.user.reviews]
 
 			return { user: sessionUser }
 		}

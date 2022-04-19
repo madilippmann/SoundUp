@@ -67,7 +67,6 @@ class Artist(db.Model):
 
         if len(self.reviews):
             for review in self.reviews:
-                print(review.rating)
                 sum += review.rating
 
             return str(round(sum / len(self.reviews), 1))

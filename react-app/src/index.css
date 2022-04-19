@@ -12,7 +12,6 @@ body {
     max-width: 1300px;
     min-height: 75vh;
     margin: auto;
-    margin-top: 70px;
     background-color: rgb(247, 247, 247);
     color: black;
 
@@ -23,11 +22,12 @@ body {
     background-color: rgb(255, 255, 255);
     min-height: calc(100vh - 70px);
     height: 100%;
+    margin-top: 70px;
 
 }
 
 .blur {
-    filter: blur(4px);
+    /* filter: blur(4px); */
 }
 
 

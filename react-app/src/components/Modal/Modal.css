@@ -1,5 +1,5 @@
 #modal {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -15,18 +15,18 @@
 	right: 0;
 	left: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.635);
+	/* background-color: rgba(255, 255, 255, 1); */
 }
 
 #modal_content {
-	height: 640px;
-	width: 1000px;
+	height: 700px;
+	width: 500px;
 	color: black;
-	border-radius: 6px;
+	border-radius: 4px;
 	overflow: hidden;
 
-	background-color: var(--color-white);
-    box-shadow: rgba(49, 49, 49, 0.411) 0px 10px 40px 20px;
+	background-color: white;
+    box-shadow: rgba(179, 179, 179, 0.411) 0px 5px 30px 15px;
 
 	position: relative;
 }
