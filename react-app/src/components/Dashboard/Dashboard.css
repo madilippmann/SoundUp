@@ -70,3 +70,31 @@
     color: rgb(241, 23, 23);
     font-size: 17px;
 }
+
+div#artist__card div#booking___info-container {
+    padding: 5px 20px 20px 20px;
+
+}
+
+
+#booking__date-and-time {
+    text-align: left;
+    font-size: 14px;
+}
+
+
+#dashboard__booking__title {
+    text-align: left;
+    font-size: 18px;
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#booking__date, #booking__time {
+    font-weight: 700;
+}
+
+.less-margin {
+    margin: 10px 0;
+}

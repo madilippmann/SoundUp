@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import BookingCard from './BookingCard';
+import ReviewCard from './ReviewCard';
 import * as userActions from '../../store/session'
 
 import './Dashboard.css'
@@ -59,7 +60,7 @@ const Dashboard = () => {
             {selectedTab === 'upcoming' &&
                 <div className='card__outer-container'>
                     <div className='card__flex'>
-                        {sortedBookings?.upcoming.map(booking => (
+                        {sortedBookings?.upcoming.reverse().map(booking => (
                             <div>
                                 <BookingCard booking={booking} />
                             </div>
@@ -72,7 +73,7 @@ const Dashboard = () => {
             {selectedTab === 'past' &&
                 <div className='card__outer-container'>
                     <div className='card__flex'>
-                        {sortedBookings?.past.map(booking => (
+                        {sortedBookings?.past.reverse().map(booking => (
                             <div>
                                 <BookingCard booking={booking} type={'upcoming'} />
                             </div>
@@ -85,9 +86,9 @@ const Dashboard = () => {
             {selectedTab === 'reviews' &&
                 <div className='card__outer-container'>
                     <div className='card__flex'>
-                        {sessionUser.reviews.map(booking => (
+                        {sessionUser.reviews.map(review => (
                             <div>
-                                <BookingCard booking={booking} type={'past'} />
+                                <ReviewCard review={review} type={'reviews'} />
                             </div>
                         ))}
                     </div>
