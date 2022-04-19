@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import DatePicker from 'sassy-datepicker';
@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { formatDate, formatTime } from "../../../utils";
 
-const EditBookingForm = ({ parent }) => {
+const EditBookingForm = ({ parent, setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -20,10 +20,7 @@ const EditBookingForm = ({ parent }) => {
     const [startTime, setStartTime] = useState();
     const [endTime, setEndTime] = useState();
 
-    const [parsedStartTime, setParsedStartTime] = useState();
-    const [parsedEndTime, setParsedEndTime] = useState();
     const [parsedDate, setParsedDate] = useState();
-
     const [startDateTime, setStartDateTime] = useState();
     const [endDateTime, setEndDateTime] = useState();
 
@@ -36,10 +33,10 @@ const EditBookingForm = ({ parent }) => {
 
     useEffect(() => {
         if (parent.start_date_time) {
-            console.log('dATE: ', String(new Date(parent.start_date_time)))
             setDate(() => new Date(parent.start_date_time))
             setStartTime(() => formatTime(new Date(parent.start_date_time)))
             setEndTime(() => formatTime(new Date(parent.end_date_time)))
+            setDescription(() => parent.description)
             setIsLoaded(() => true)
         }
 
@@ -98,15 +95,16 @@ const EditBookingForm = ({ parent }) => {
 
         setEndDateTime(Date.parse((`${adjustedDate} ${adjustedEndTime}`)))
 
-
     }, [date, startTime, endTime])
 
+    useEffect(() => {
+        setBookingDuration((endDateTime - startDateTime) / (60 * 60 * 1000))
+    }, [endDateTime, startDateTime])
 
 
     useEffect(() => {
 
         const errors = [];
-        // TODO TODO TODO TODO TODO
 
         if (!startDateTime) {
             errors.push('Please enter a valid start time.')
@@ -139,47 +137,51 @@ const EditBookingForm = ({ parent }) => {
             const booking = {
                 id: parent.id,
                 artist_id: parent.id,
-                start_date_time: Date.parse(startDateTime),
-                end_date_time: Date.parse(endDateTime),
-                description,
-            }
-
-            // parent.start_date_time = startDateTime
-            // parent.end_date_time = endDateTime
-            // parent.description = description
-
-            res = await dispatch(userActions.editBooking(booking))
-            history.push('/dashboard')
-            // FIX FIX FIX navigate to other modal page rather than refreshing
-
-            window.location.reload(false)
-        } else {
-            const booking = {
-                artist_id: parent.id,
                 start_date_time: startDateTime,
                 end_date_time: endDateTime,
                 description,
             }
+            console.log('NEW BOOKING INFO: ', booking)
+            res = await dispatch(userActions.editBooking(booking))
+            console.log(res)
 
-            res = await dispatch(userActions.createBooking(booking))
-            if (res.errors) {
-                res.errors.forEach(error => {
-                    setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
-                })
+            // history.push('/dashboard')
+            // FIX FIX FIX navigate to other modal page rather than refreshing
 
-                return setShowErrors(true)
-            } else {
-                setDate(() => undefined)
-                setStartTime(() => undefined)
-                setEndTime(() => undefined)
-                return history.push('/dashboard')
-            }
+            // window.location.reload(false)
         }
+        // else {
+        //     const booking = {
+        //         artist_id: parent.id,
+        //         start_date_time: startDateTime,
+        //         end_date_time: endDateTime,
+        //         description,
+        //     }
+
+        //     res = await dispatch(userActions.createBooking(booking))
+        //     if (res.errors) {
+        //         res.errors.forEach(error => {
+        //             setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
+        //         })
+
+        //         return setShowErrors(true)
+        //     } else {
+        //         setDate(() => undefined)
+        //         setStartTime(() => undefined)
+        //         setEndTime(() => undefined)
+        //         return history.push('/dashboard')
+        //     }
+        // }
 
 
     }
 
-    const now = new Date();
+
+    const deleteBooking = async () => {
+        if (window.confirm('Are you sure you want to cancel this booking?')) {
+            await dispatch(userActions.removeBooking(parent))
+        }
+    }
 
     return !isLoaded ? null : (
         <div id='booking__container'>
@@ -191,7 +193,6 @@ const EditBookingForm = ({ parent }) => {
                     <DatePicker
                         onChange={(e) => { setDate(e); console.log(e) }}
                         selected={date}
-                        // value={date}
                         minDate={new Date()}
                     />
                 </div>
@@ -244,7 +245,7 @@ const EditBookingForm = ({ parent }) => {
 
                 </div>
                 {bookingDuration &&
-                    <p>Total: {parent.rate * bookingDuration}</p>
+                    <p>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
                 }
 
                 {!showErrors ? null : (
@@ -254,11 +255,14 @@ const EditBookingForm = ({ parent }) => {
                         ))}
                     </div>
                 )}
-                <button id='booking__button'>Book Artist</button>
+                <button id='booking__button'>Update Booking</button>
             </form>
             {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
-            {parent.start_date_time && <button type='button' >Cancel</button>}
-        </div>
+            <div>
+                <button type='button' onClick={() => setShowModal(() => false)}>Back</button>
+                <button type='button' onClick={deleteBooking}>Cancel Booking</button>
+            </div>
+        </div >
     );
 }
 

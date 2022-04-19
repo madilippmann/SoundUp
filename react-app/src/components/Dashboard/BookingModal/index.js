@@ -21,7 +21,7 @@ const BookingModal = ({ booking, setShowModal }) => {
 
     return (
         <>
-            {!editBooking &&
+            {/* {!editBooking &&
                 <div>
                     <button type='button' onClick={() => setShowModal(() => false)}>
                         <FontAwesomeIcon icon={faXmark} />
@@ -41,9 +41,11 @@ const BookingModal = ({ booking, setShowModal }) => {
                         <p>{booking.description}</p>
                     </div>
                 </div>
-            }
+            } */}
 
-            {editBooking && <EditBookingForm parent={booking} />}
+            {/* {editBooking &&  */}
+
+            <EditBookingForm parent={booking} setShowModal={setShowModal} />
 
 
         </>

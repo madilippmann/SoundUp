@@ -216,14 +216,8 @@ export default function reducer(state = initialState, action) {
 		}
 
 		case DELETE_BOOKING: {
-			const bookings = state.user.bookings
-
-			console.log('Includes? ', bookings.find((booking) => booking.id === action.booking))
-			console.log('BOOKING TO DELETE: ', action.booking)
 			const bookingIndex = state.user.bookings.findIndex((booking) => booking.id === action.booking)
-			console.log('Booking Index: ', bookingIndex)
 			state.user.bookings.splice(bookingIndex, 1)
-			console.log('Bookings AFTER: ', state.user.bookings)
 
 			return {
 				...state,

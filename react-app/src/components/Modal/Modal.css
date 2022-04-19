@@ -1,5 +1,5 @@
 #modal {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -23,7 +23,7 @@
 	width: 500px;
 	color: black;
 	border-radius: 4px;
-	overflow: hidden;
+	overflow: scroll;
 
 	background-color: white;
     box-shadow: rgba(179, 179, 179, 0.411) 0px 5px 30px 15px;
