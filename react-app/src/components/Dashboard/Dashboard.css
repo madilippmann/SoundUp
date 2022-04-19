@@ -56,9 +56,24 @@
 
 #booking-confirmed__container {
     display: flex;
-    /* flex-direction: column; */
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     gap: 10px;
+    color:rgb(114, 114, 114);
+}
+
+#leave-review__message {
+    /* color:rgb(82, 82, 169); */
+    color: rgb(241, 23, 23);
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+}
+
+#leave-review__message::before {
+    margin: 0;
+
 }
 
 #booking-confirmed__icon {
@@ -97,4 +112,28 @@ div#artist__card div#booking___info-container {
 
 .less-margin {
     margin: 10px 0;
+}
+
+
+#review-preview {
+    height: 77px;
+    /* white-space: nowrap; */
+}
+
+.review-card__info {
+    padding: 5px 10px 10px 10px;
+}
+
+.review-card__info p#review-preview {
+    font-size: 13px;
+    color: rgb(74, 74, 74);
+    font-weight: 300;
+}
+
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+
 }

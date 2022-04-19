@@ -62,7 +62,7 @@ const Dashboard = () => {
                     <div className='card__flex'>
                         {sortedBookings?.upcoming.map(booking => (
                             <div>
-                                <BookingCard booking={booking} />
+                                <BookingCard booking={booking} type={'upcoming'} />
                             </div>
                         ))}
                     </div>
@@ -75,7 +75,7 @@ const Dashboard = () => {
                     <div className='card__flex'>
                         {sortedBookings?.past.map(booking => (
                             <div>
-                                <BookingCard booking={booking} type={'upcoming'} />
+                                <BookingCard booking={booking} type={'past'} />
                             </div>
                         ))}
                     </div>

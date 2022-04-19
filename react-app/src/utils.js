@@ -33,3 +33,17 @@ export const categorizeArtists = (artists) => {
     return sortedArtists
 
 }
+
+
+export const formatDate = (date) => {
+
+    let formatted = String(date).split(' ').slice(1, 4)
+    formatted[1] = `${formatted[1]},`
+    formatted = formatted.join(' ')
+    return formatted
+}
+
+export const formatTime = (time) => {
+    let formatted = time.toLocaleString().split(' ')
+    return `${formatted[1].split(':').slice(0, 2).join(':')} ${formatted[2]}`
+}
