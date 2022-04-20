@@ -15,10 +15,18 @@
 }
 
 .smaller-textarea {
-    height: 125px;
-    width: 200px;
+    height: 100px;
+    width: 100%;
+}
+.smaller-textarea#description__container {
+    border-top: 1px solid rgb(230, 230, 230);
+
 }
 
+.smaller-textarea textarea {
+    border-radius: 2px;
+    outline: 1px solid rgb(230, 230, 230);
+}
 
 .booking-form__time {
     display: flex;
@@ -76,7 +84,26 @@
 
 #edit-booking__title {
     border-top: 1px solid rgb(230, 230, 230);
-    border-bottom: 1px solid rgb(230, 230, 230);
     padding-top: 10px;
-    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding-bottom: 10px;
+}
+
+
+#edit-booking__total {
+    font-size: 14px;
+    font-weight: 700;
+    color:rgba(241, 23, 23, 0.757);
+}
+
+#edit-booking__times-container {
+    border-top: 1px solid rgb(230, 230, 230);
+    padding: 14px 0;
+}
+
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

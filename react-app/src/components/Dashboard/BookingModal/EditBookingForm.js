@@ -202,39 +202,41 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                     />
                 </div>
 
-                <div className='edit-booking__times'>
-                    <div className='booking-form__time'>
-                        <label htmlFor='startTime'>Start: </label>
-                        <div className='flex-row' id='time__search-input' >
-                            <FontAwesomeIcon icon={faClock} />
-                            <select
-                                className='input-no-style'
-                                type='select'
-                                onChange={(e) => setStartTime(() => e.target.value)}
+                <div id='edit-booking__times-container'>
+                    <div className='edit-booking__times'>
+                        <div className='booking-form__time'>
+                            <label htmlFor='startTime'>Start: </label>
+                            <div className='flex-row' id='time__search-input' >
+                                <FontAwesomeIcon icon={faClock} />
+                                <select
+                                    className='input-no-style'
+                                    type='select'
+                                    onChange={(e) => setStartTime(() => e.target.value)}
 
-                                value={startTime}
-                            >
-                                <option value='' disabled selected>select time</option>
-                                {times.map(time => <option value={time}>{time}</option>)}
-                            </select>
+                                    value={startTime}
+                                >
+                                    <option value='' disabled selected>select time</option>
+                                    {times.map(time => <option value={time}>{time}</option>)}
+                                </select>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div className='booking-form__time'>
+                            <label htmlFor='endTime'>End: </label>
+                            <div className='flex-row ' id='time__search-input' >
+                                <FontAwesomeIcon icon={faClock} />
+                                <select
+                                    className='input-no-style'
+                                    type='select'
+                                    onChange={(e) => setEndTime(() => e.target.value)}
 
-                    <div className='booking-form__time'>
-                        <label htmlFor='endTime'>End: </label>
-                        <div className='flex-row ' id='time__search-input' >
-                            <FontAwesomeIcon icon={faClock} />
-                            <select
-                                className='input-no-style'
-                                type='select'
-                                onChange={(e) => setEndTime(() => e.target.value)}
-
-                                value={endTime}
-                            >
-                                <option value='' disabled selected>select time</option>
-                                {times.map(time => <option value={time}>{time}</option>)}
-                            </select>
+                                    value={endTime}
+                                >
+                                    <option value='' disabled selected>select time</option>
+                                    {times.map(time => <option value={time}>{time}</option>)}
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -251,18 +253,20 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                     />
 
                 </div>
+                <div className='center'>
+                    {bookingDuration &&
+                        <p id='edit-booking__total'>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
+                    }
+                    {!showErrors ? null : (
+                        <div className='error-container booking'>
+                            {validationErrors.map(err => (
+                                <div key={err} className='error__list-item'>{err}</div>
+                            ))}
+                        </div>
+                    )}
+                    <button id='booking__button'>Update Booking</button>
 
-                {bookingDuration &&
-                    <p>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
-                }
-                {!showErrors ? null : (
-                    <div className='error-container booking'>
-                        {validationErrors.map(err => (
-                            <div key={err} className='error__list-item'>{err}</div>
-                        ))}
-                    </div>
-                )}
-                <button id='booking__button'>Update Booking</button>
+                </div>
             </form>
             {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
 
