@@ -182,9 +182,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
     }
 
     return !isLoaded ? null : (
-        // id='booking__container'
         <div id='edit-booking__container'>
-            {/* id='booking__title' */}
             <div className='space-between'>
                 <button id='edit-booking__back-button' type='button' onClick={() => setShowModal(() => false)}>
                     <FontAwesomeIcon icon={faAngleLeft} />
@@ -201,7 +199,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
 
                 <div id='booking-form__date'>
                     <DatePicker
-                        onChange={(e) => { setDate(e); console.log(e) }}
+                        onChange={(e) => { setDate(e) }}
                         selected={date}
                         minDate={new Date()}
                     />
@@ -277,7 +275,6 @@ const EditBookingForm = ({ parent, setShowModal }) => {
 
                 </div>
             </form>
-            {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
 
         </div >
     );

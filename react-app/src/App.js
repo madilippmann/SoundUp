@@ -59,13 +59,6 @@ function App() {
 					</div>
 				</ProtectedRoute>
 
-				{/* <ProtectedRoute path='/messages' exact={true}>
-					<div className='body'>
-						<p>Under construction</p>
-					</div>
-					<Messages />
-				</ProtectedRoute> */}
-
 			</Switch>
 			<Footer />
 		</BrowserRouter>

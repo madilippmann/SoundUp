@@ -9,12 +9,22 @@ import * as userActions from '../../store/session'
 import './Dashboard.css'
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false);
     const [sortedBookings, setSortedBookings] = useState();
     const [selectedTab, setSelectedTab] = useState('upcoming');
 
     useEffect(() => {
+        console.log('Session User updated: ', sessionUser)
+    }, [sessionUser])
+
+    useEffect(() => {
+        console.log('sorted bookings  ', sortedBookings)
+
+    }, [sortedBookings])
+    useEffect(() => {
+
         setSortedBookings(() => {
             return sessionUser.bookings.reduce((sorted, booking) => {
                 if (Date.parse(booking.end_date_time) < Date.parse(new Date())) {
