@@ -44,13 +44,18 @@
     border-right: 1px solid rgb(204, 204, 204);
 }
 
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
 .input__backdrop {
     /* TODO TODO TODO Remove after feature is implemented */
-    cursor: not-allowed;
     background-color: white;
     padding: 10px;
     border-radius: 4px;
 }
+
+.input__backdrop.edit__booking {}
 
 
 button.search__button {
@@ -80,7 +85,6 @@ button.search__button:hover {
     height: 100%;
     padding-left: 10px;
     /* TODO TODO TODO Remove after feature is implemented */
-    cursor: not-allowed;
 }
 
 

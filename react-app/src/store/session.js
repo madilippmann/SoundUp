@@ -152,6 +152,9 @@ export const editBooking = (booking) => async (dispatch) => {
 		const newBooking = await res.json();
 		dispatch(updateBooking(newBooking));
 		return newBooking
+	} else {
+		const errors = await res.json()
+		return errors
 	}
 };
 

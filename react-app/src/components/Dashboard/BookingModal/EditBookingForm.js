@@ -9,7 +9,11 @@ import * as userActions from '../../../store/session.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { formatDate, formatTime } from "../../../utils";
+
+
+import './EditBooking.css';
 
 const EditBookingForm = ({ parent, setShowModal }) => {
     const dispatch = useDispatch();
@@ -143,36 +147,25 @@ const EditBookingForm = ({ parent, setShowModal }) => {
             }
             console.log('NEW BOOKING INFO: ', booking)
             res = await dispatch(userActions.editBooking(booking))
-            console.log(res)
+
+            if (res.errors) {
+                res.errors.forEach(error => {
+                    setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
+                })
+
+                return setShowErrors(true)
+            } else {
+                setDate(() => undefined)
+                setStartTime(() => undefined)
+                setEndTime(() => undefined)
+                return history.push('/dashboard')
+            }
 
             // history.push('/dashboard')
             // FIX FIX FIX navigate to other modal page rather than refreshing
 
             // window.location.reload(false)
         }
-        // else {
-        //     const booking = {
-        //         artist_id: parent.id,
-        //         start_date_time: startDateTime,
-        //         end_date_time: endDateTime,
-        //         description,
-        //     }
-
-        //     res = await dispatch(userActions.createBooking(booking))
-        //     if (res.errors) {
-        //         res.errors.forEach(error => {
-        //             setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
-        //         })
-
-        //         return setShowErrors(true)
-        //     } else {
-        //         setDate(() => undefined)
-        //         setStartTime(() => undefined)
-        //         setEndTime(() => undefined)
-        //         return history.push('/dashboard')
-        //     }
-        // }
-
 
     }
 
@@ -184,12 +177,24 @@ const EditBookingForm = ({ parent, setShowModal }) => {
     }
 
     return !isLoaded ? null : (
-        <div id='booking__container'>
-            <h3 id='booking__title'>Book Artist</h3>
-            <form onSubmit={handleSubmit}>
+        // id='booking__container'
+        <div id='edit-booking__container'>
+            {/* id='booking__title' */}
+            <div className='space-between'>
+                <button id='edit-booking__back-button' type='button' onClick={() => setShowModal(() => false)}>
+                    <FontAwesomeIcon icon={faAngleLeft} />
+                    Back
+                </button>
+                <button id='edit-booking__cancel-button' type='button' onClick={deleteBooking}>Cancel Booking</button>
+            </div>
+            <h3 id='edit-booking__title'>Edit Booking</h3>
+            <form
+                id='edit-booking__form'
+                onSubmit={handleSubmit}
+            >
 
 
-                <div id='booking__date'>
+                <div id='booking-form__date'>
                     <DatePicker
                         onChange={(e) => { setDate(e); console.log(e) }}
                         selected={date}
@@ -197,43 +202,45 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                     />
                 </div>
 
+                <div className='edit-booking__times'>
+                    <div className='booking-form__time'>
+                        <label htmlFor='startTime'>Start: </label>
+                        <div className='flex-row' id='time__search-input' >
+                            <FontAwesomeIcon icon={faClock} />
+                            <select
+                                className='input-no-style'
+                                type='select'
+                                onChange={(e) => setStartTime(() => e.target.value)}
 
-                <div id='booking__start-time'>
-                    <label htmlFor='startTime'>Start Time: </label>
-                    <div className='flex-row' id='time__search-input' >
-                        <FontAwesomeIcon icon={faClock} />
-                        <select
-                            className='input-no-style'
-                            type='select'
-                            onChange={(e) => setStartTime(() => e.target.value)}
+                                value={startTime}
+                            >
+                                <option value='' disabled selected>select time</option>
+                                {times.map(time => <option value={time}>{time}</option>)}
+                            </select>
+                        </div>
 
-                            value={startTime}
-                        >
-                            <option value='' disabled selected>select time</option>
-                            {times.map(time => <option value={time}>{time}</option>)}
-                        </select>
+                    </div>
+
+                    <div className='booking-form__time'>
+                        <label htmlFor='endTime'>End: </label>
+                        <div className='flex-row ' id='time__search-input' >
+                            <FontAwesomeIcon icon={faClock} />
+                            <select
+                                className='input-no-style'
+                                type='select'
+                                onChange={(e) => setEndTime(() => e.target.value)}
+
+                                value={endTime}
+                            >
+                                <option value='' disabled selected>select time</option>
+                                {times.map(time => <option value={time}>{time}</option>)}
+                            </select>
+                        </div>
                     </div>
 
                 </div>
 
-                <div id='booking__end-time'>
-                    <label htmlFor='endTime'>End Time: </label>
-                    <div className='flex-row' id='time__search-input' >
-                        <FontAwesomeIcon icon={faClock} />
-                        <select
-                            className='input-no-style'
-                            type='select'
-                            onChange={(e) => setEndTime(() => e.target.value)}
-
-                            value={endTime}
-                        >
-                            <option value='' disabled selected>select time</option>
-                            {times.map(time => <option value={time}>{time}</option>)}
-                        </select>
-                    </div>
-                </div>
-
-                <div id='description__container'>
+                <div id='description__container' className='smaller-textarea'>
                     <label htmlFor='description'>Event Description</label>
                     <textarea
                         name='description'
@@ -244,10 +251,10 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                     />
 
                 </div>
+
                 {bookingDuration &&
                     <p>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
                 }
-
                 {!showErrors ? null : (
                     <div className='error-container booking'>
                         {validationErrors.map(err => (
@@ -258,10 +265,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                 <button id='booking__button'>Update Booking</button>
             </form>
             {/* TODO TODO TODO add onClick that refs backt to booking modal component */}
-            <div>
-                <button type='button' onClick={() => setShowModal(() => false)}>Back</button>
-                <button type='button' onClick={deleteBooking}>Cancel Booking</button>
-            </div>
+
         </div >
     );
 }

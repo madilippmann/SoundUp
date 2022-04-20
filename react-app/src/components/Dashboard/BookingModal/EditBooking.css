@@ -1,0 +1,82 @@
+#edit-booking__container {
+    margin: auto;
+    padding: 10px 25px 25px 25px;
+}
+
+#edit-booking__form {
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+
+#booking-form__date {
+   display: flex;
+   justify-content: center;
+   padding: 0 0 20px 0;
+}
+
+.smaller-textarea {
+    height: 125px;
+    width: 200px;
+}
+
+
+.booking-form__time {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+#edit-booking__back-button {
+    background-color: transparent;
+    border: none;
+    transition: color .15s ease-in-out;
+
+}
+
+#edit-booking__back-button:hover {
+    background-color: transparent;
+    border: none;
+    color: rgb(241, 23, 23);
+    color: rgb(69, 69, 206);
+
+}
+
+#edit-booking__back-button * {
+    padding-right: 10px;
+}
+
+
+#edit-booking__cancel-button {
+    background-color: transparent;
+    border: 2px solid rgb(241, 23, 23);
+    color:rgb(241, 23, 23);
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-weight: 500;
+
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+#edit-booking__cancel-button:hover {
+    background-color: rgb(241, 23, 23);
+    color:white;
+
+}
+
+
+.edit-booking__times {
+    display: flex;
+    justify-content: space-between;
+}
+
+#edit-booking__title {
+    border-top: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding-top: 10px;
+    padding-bottom: 5px;
+}

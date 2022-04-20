@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import BookingModalPopup from './BookingModal/BookingModalPopup.js'
+import BookingModalPopup from '../BookingModal/BookingModalPopup.js'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { formatDate, formatTime } from '../../utils.js';
+import { formatDate, formatTime } from '../../../utils.js';
 
 
 const BookingCard = ({ booking, type }) => {

@@ -21,7 +21,7 @@ const SearchArtistsContainer = () => {
                     <div className='flex-row' id='date__search-input' >
                         <FontAwesomeIcon icon={faCalendar} />
                         <input
-                            className='input-no-style add'
+                            className='input-no-style add cursor-not-allowed'
                             type='date'
                         />
                     </div>
@@ -30,7 +30,7 @@ const SearchArtistsContainer = () => {
                         <FontAwesomeIcon icon={faClock} />
                         <select
                             id='select-time'
-                            className='input-no-style'
+                            className='input-no-style cursor-not-allowed'
                             type='select'
                         >
                             {times.map(time => <option value={time}>{time}</option>)}
@@ -40,7 +40,7 @@ const SearchArtistsContainer = () => {
 
                 <div id='genre__search-input' className='input__backdrop'>
                     <FontAwesomeIcon icon={faSearch} />
-                    <input className='input-no-style' placeholder='Artist or Genre' />
+                    <input className='input-no-style cursor-not-allowed' placeholder='Artist or Genre' />
                 </div>
 
                 <button
