@@ -8,6 +8,7 @@ import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { formatDate, formatTime } from '../../utils.js';
 
+
 const BookingCard = ({ booking, type }) => {
     const sessionUser = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
@@ -38,7 +39,7 @@ const BookingCard = ({ booking, type }) => {
 
                             <div id='booking___info-container'>
                                 <div>
-                                    <h4 id='dashboard__booking__title'>{booking.artist.name}</h4>
+                                    <h4 id='dashboard__booking__title' className='upcoming'>{booking.artist.name}</h4>
 
                                     <div id='booking__date-and-time'>
                                         <p className='less-margin'><span id='booking__date'>Date:</span> {date}</p>
@@ -90,7 +91,7 @@ const BookingCard = ({ booking, type }) => {
 
                                     </div>
 
-                                    <div id='booking-confirmed__container'>
+                                    <div id='booking-passed__container'>
                                         <p id='leave-review__message' style={{ margin: '7px 0' }}>Leave {booking.artist.name} a review!</p>
                                         <p style={{ fontStyle: 'italic', marginTop: '0' }}>Event passed</p>
                                     </div>
@@ -113,7 +114,7 @@ const BookingCard = ({ booking, type }) => {
 
                                 </div>
 
-                                <div id='booking-confirmed__container'>
+                                <div id='booking-passed__container'>
                                     <p style={{ fontStyle: 'italic', marginTop: '40px' }}>Event passed</p>
                                 </div>
                             </div>
