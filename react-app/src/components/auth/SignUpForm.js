@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp, login } from '../../store/session';
 
+import './auth.css';
+
 const SignUpForm = ({ setShowModal }) => {
   const history = useHistory();
   const [errors, setErrors] = useState([]);
@@ -56,56 +58,67 @@ const SignUpForm = ({ setShowModal }) => {
   }
 
   return (
-    <div>
+    <div className='auth__outer-container'>
       <form onSubmit={onSignUp}>
+        <h2 className='auth__title' >New Account</h2>
+
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label>User Name</label>
+
+        <div className='auth__input-container'>
+          <label className='auth__label'>Username</label>
           <input
             type='text'
             name='username'
             onChange={updateUsername}
             value={username}
+            className='auth__input'
           ></input>
         </div>
-        <div>
-          <label>Email</label>
+
+        <div className='auth__input-container'>
+          <label className='auth__label'>Email</label>
           <input
             type='text'
             name='email'
             onChange={updateEmail}
             value={email}
+            className='auth__input'
           ></input>
         </div>
-        <div>
-          <label>Password</label>
+
+        <div className='auth__input-container'>
+          <label className='auth__label'>Password</label>
           <input
             type='password'
             name='password'
             onChange={updatePassword}
             value={password}
+            className='auth__input'
           ></input>
         </div>
-        <div>
-          <label>Repeat Password</label>
+
+        <div className='auth__input-container'>
+          <label className='auth__label'>Repeat Password</label>
           <input
             type='password'
             name='repeat_password'
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
+            className='auth__input'
           ></input>
         </div>
-        <button type='submit'>Sign Up</button>
+        <button id='auth__button' type='submit'>SIGNUP</button>
       </form>
-      <div>
-        <button type='button' onClick={demoLogin}>Sign in with demo</button>
+      <div id='demo__button__container'>
+        Don't want to make a account?
+        <button id='demo__button' type='button' onClick={demoLogin}>Sign in with demo</button>
       </div>
-    </div>
+    </div >
   );
 };
 

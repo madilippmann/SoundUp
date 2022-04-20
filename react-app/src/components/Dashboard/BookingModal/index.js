@@ -21,33 +21,7 @@ const BookingModal = ({ booking, setShowModal }) => {
 
     return (
         <>
-            {/* {!editBooking &&
-                <div>
-                    <button type='button' onClick={() => setShowModal(() => false)}>
-                        <FontAwesomeIcon icon={faXmark} />
-                    </button>
-                    <div>
-                        <button type='button' onClick={() => setEditBooking(true)}>
-                            <FontAwesomeIcon icon={faPenToSquare} />
-                        </button>
-                        <button type='button' onClick={deleteBooking}>
-                            <FontAwesomeIcon icon={faTrashCan} />
-                        </button>
-                    </div>
-                    <div key={booking.id}>
-                        <p>{booking.artist.name}</p>
-                        <p>{new Date(booking.start_date_time).toLocaleString()}</p>
-                        <p>{new Date(booking.end_date_time).toLocaleString()}</p>
-                        <p>{booking.description}</p>
-                    </div>
-                </div>
-            } */}
-
-            {/* {editBooking &&  */}
-
             <EditBookingForm parent={booking} setShowModal={setShowModal} />
-
-
         </>
     );
 }

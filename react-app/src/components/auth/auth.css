@@ -1,0 +1,80 @@
+.auth__outer-container {
+    width: 80%;
+    padding: 25px 0;
+    margin: auto;
+}
+
+.auth__title {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.auth__input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.5px solid rgb(103, 103, 194);
+    padding: 10px 0;
+    color: white;
+    font-weight: 300;
+
+}
+
+.auth__input:focus {
+    outline: none;
+}
+
+.auth__label {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgb(164, 164, 235);
+}
+
+
+.auth__input-container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+}
+
+
+#auth__button {
+    margin: 15px 0 25px 0;
+    background-color: rgb(103, 103, 194);
+    color: white;
+    padding: 13px 45px;
+    font-weight: 400;
+    border-radius: 25px;
+    border: none;
+    justify-self: center;
+    background: rgb(57,57,126);
+    cursor: pointer;
+
+    background: linear-gradient(126deg, rgba(57,57,126,1) 0%, rgba(85,85,173,1) 97%);
+    transition: background .15s ease-in-out;
+}
+
+
+#auth__button:hover {
+    background: linear-gradient(126deg, rgba(57,57,126,.7) 0%, rgba(85,85,173,.7) 97%);
+
+}
+
+#demo__button__container {
+    font-size: 13px;
+    color: rgb(180, 180, 244);
+}
+
+
+#demo__button {
+    color: rgb(200, 200, 250);
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    transition: color .15s ease-in-out;
+}
+
+#demo__button:hover {
+    color: rgb(227, 227, 255);
+    color: rgb(227,55,0);
+    cursor: pointer;
+}

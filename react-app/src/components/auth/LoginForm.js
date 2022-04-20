@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
+import './auth.css';
+
 const LoginForm = ({ setShowModal }) => {
   const history = useHistory();
 
@@ -38,6 +40,7 @@ const LoginForm = ({ setShowModal }) => {
   return (
     <div>
       <form onSubmit={onLogin}>
+        <h2>Log In</h2>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>

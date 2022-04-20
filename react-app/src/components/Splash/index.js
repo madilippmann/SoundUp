@@ -15,7 +15,7 @@ const Splash = () => {
                 if (prev + 1 === 4) return 1
                 else return prev + 1
             })
-        }, 5000)
+        }, 7000)
 
         return () => clearInterval(interval);
     }, [])

@@ -19,17 +19,36 @@
 }
 
 #modal_content {
-	height: 700px;
-	width: 500px;
+
 	color: black;
 	border-radius: 4px;
-	overflow: scroll;
+	/* overflow: scroll; */
 
 	background-color: white;
-    box-shadow: rgba(179, 179, 179, 0.411) 0px 5px 30px 15px;
 
 	position: relative;
 }
+
+#modal_content::-webkit-scrollbar {
+	color: transparent;
+}
+
+
+#modal_content.auth__modal{
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	height: 600px;
+	width: 400px;
+	background-color: rgb(39, 39, 39);
+	border: 2px solid rgb(33, 33, 33);
+	color: rgb(195, 195, 195);
+}
+
+#modal_content.booking__modal{
+	height: 700px;
+	width: 500px;
+}
+
 
 #post-image {
 	cursor: pointer;

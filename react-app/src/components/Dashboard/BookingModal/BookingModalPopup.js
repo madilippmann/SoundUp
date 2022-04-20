@@ -19,7 +19,7 @@ const BookingModalPopup = ({ booking, showModal, setShowModal }) => {
 
     return (
         <>
-            <Modal closeModal={() => setShowModal(false)}>
+            <Modal closeModal={() => setShowModal(false)} className='booking__modal'>
                 <BookingModal booking={booking} setShowModal={setShowModal} />
             </Modal>
         </>
