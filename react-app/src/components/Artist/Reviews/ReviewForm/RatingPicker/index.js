@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 import './RatingPicker.css'
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const RatingPicker = ({ rating, setRating }) => {
 
@@ -12,21 +12,36 @@ const RatingPicker = ({ rating, setRating }) => {
     const four = document.getElementById('four-stars')
     const five = document.getElementById('five-stars')
 
+
+
     const addRatingColor = (n) => {
-        one.style.color = 'grey'
-        two.style.color = 'grey'
-        three.style.color = 'grey'
-        four.style.color = 'grey'
-        five.style.color = 'grey'
+        one.style.color = 'grey';
+        two.style.color = 'grey';
+        three.style.color = 'grey';
+        four.style.color = 'grey';
+        five.style.color = 'grey';
 
         if (n > 4) { five.style.color = 'rgb(227,55,0)'; }
         if (n > 3) { four.style.color = 'rgb(227,55,0)'; }
         if (n > 2) { three.style.color = 'rgb(227,55,0)'; }
         if (n > 1) { two.style.color = 'rgb(227,55,0)'; }
         if (n > 0) { one.style.color = 'rgb(227,55,0)'; }
+        if (n === 0) {
+            one.style.color = 'grey';
+            two.style.color = 'grey';
+            three.style.color = 'grey';
+            four.style.color = 'grey';
+            five.style.color = 'grey';
+        }
 
         setRating(() => n)
     }
+
+    useEffect(() => { console.log(rating) }, [rating])
+
+    useEffect(() => {
+        if (one && rating === 0) addRatingColor(0)
+    }, [one, rating])
 
     return (
         <div>
