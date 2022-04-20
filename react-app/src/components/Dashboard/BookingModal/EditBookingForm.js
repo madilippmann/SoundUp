@@ -19,6 +19,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [isLoaded, setIsLoaded] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
 
     const [date, setDate] = useState(new Date());
     const [startTime, setStartTime] = useState();
@@ -45,6 +46,16 @@ const EditBookingForm = ({ parent, setShowModal }) => {
         }
 
     }, [])
+
+    useEffect(() => {
+        if (showConfirm) {
+            const duration = setTimeout(() => {
+                setShowConfirm(false)
+            }, [5000])
+
+            return () => { clearTimeout(duration) }
+        }
+    }, [showConfirm])
 
 
     useEffect(() => {
@@ -152,12 +163,10 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                 res.errors.forEach(error => {
                     setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
                 })
-
+                console.log('VALIDATION ERRORS: ', validationErrors)
                 return setShowErrors(true)
             } else {
-                setDate(() => undefined)
-                setStartTime(() => undefined)
-                setEndTime(() => undefined)
+                setShowConfirm(true)
                 return history.push('/dashboard')
             }
 
@@ -254,7 +263,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
 
                 </div>
                 <div className='center'>
-                    {bookingDuration &&
+                    {bookingDuration && parent.artist.rate * bookingDuration !== NaN && parent.artist.rate * bookingDuration > 0 &&
                         <p id='edit-booking__total'>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
                     }
                     {!showErrors ? null : (
@@ -264,6 +273,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                             ))}
                         </div>
                     )}
+                    {showConfirm && <p>Booking being processed</p>}
                     <button id='booking__button'>Update Booking</button>
 
                 </div>
