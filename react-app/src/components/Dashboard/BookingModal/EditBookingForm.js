@@ -9,7 +9,7 @@ import * as userActions from '../../../store/session.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { formatDate, formatTime } from "../../../utils";
 
 
@@ -151,12 +151,13 @@ const EditBookingForm = ({ parent, setShowModal }) => {
         if (parent.start_date_time) {
             const booking = {
                 id: parent.id,
+                booking_id: parent.id,
                 artist_id: parent.artist.id,
                 start_date_time: startDateTime,
                 end_date_time: endDateTime,
                 description,
             }
-            console.log('NEW BOOKING INFO: ', booking)
+
             res = await dispatch(userActions.editBooking(booking))
 
             if (res.errors) {
@@ -169,11 +170,6 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                 setShowConfirm(true)
                 return history.push('/dashboard')
             }
-
-            // history.push('/dashboard')
-            // FIX FIX FIX navigate to other modal page rather than refreshing
-
-            // window.location.reload(false)
         }
 
     }
@@ -267,14 +263,17 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                         <p id='edit-booking__total'>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
                     }
                     {!showErrors ? null : (
-                        <div className='error-container booking'>
+                        <div className='error-container booking' style={{ paddingBottom: '10px' }}>
                             {validationErrors.map(err => (
                                 <div key={err} className='error__list-item'>{err}</div>
                             ))}
                         </div>
                     )}
-                    {showConfirm && <p>Booking successfully made!</p>}
                     <button id='booking__button'>Update Booking</button>
+                    {showConfirm && <p style={{ color: 'green' }}>
+                        <FontAwesomeIcon icon={faCheck} style={{ paddingRight: '10px' }} />
+                        Booking request sent to {parent.artist.name}!
+                    </p>}
 
                 </div>
             </form>
