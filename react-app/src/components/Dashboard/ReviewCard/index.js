@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { formatDate, formatTime } from "../../../utils";
 const ReviewCard = ({ review }) => {
+
+
     return (
         <div>
             <Link to={`/artists/${review.artist.id}`} className='booking__card' type='button'>
@@ -11,7 +13,7 @@ const ReviewCard = ({ review }) => {
 
                     <div id='artist___info-container' className='review-card__info'>
                         <h4 id='artist__card-title'>{review.artist.name}</h4>
-                        <p>{formatDate(review.created_at)} {formatTime(new Date(review.created_at))}</p>
+                        <p id='review__date'><span style={{ color: 'black', fontWeight: '500', fontStyle: 'italic' }}>Reviewed: </span> {formatDate(new Date(review.created_at))} {formatTime(new Date(review.created_at))}</p>
                         <p id='review-preview' className='line-clamp'>{review.comment}</p>
                     </div>
                 </div>

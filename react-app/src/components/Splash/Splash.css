@@ -9,4 +9,21 @@
     width: 100%;
     object-fit: contain;
     height: inherit;
+    animation-name: fade;
+    animation-duration: 7s;
 }
+
+
+
+@keyframes fade {
+    0%   {opacity: 0}
+    2%  {opacity: .25}
+    4% {opacity: .5}
+    6% {opacity: .75}
+    8% {opacity: 1}
+    92% {opacity: 1}
+    94%  {opacity: .75}
+    96%  {opacity: .5}
+    98%  {opacity: .25}
+    100% {opacity: 0;}
+  }
