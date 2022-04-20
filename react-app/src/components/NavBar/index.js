@@ -90,7 +90,10 @@ const NavBar = () => {
 								<div className="nav__buttons">
 									<button
 										type='button'
-										onClick={() => setShowSignupModal(true)}
+										onClick={() => {
+											if (showLoginModal) setShowLoginModal(false)
+											setShowSignupModal(true)
+										}}
 										id='signup__button'
 									>
 										Signup
@@ -102,7 +105,10 @@ const NavBar = () => {
 
 									<button
 										type='button'
-										onClick={() => { setShowLoginModal(true) }}
+										onClick={() => {
+											if (showSignupModal) setShowSignupModal(false)
+											setShowLoginModal(true)
+										}}
 										id='login__button'
 									>
 										Login
