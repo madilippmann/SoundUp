@@ -151,7 +151,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
         if (parent.start_date_time) {
             const booking = {
                 id: parent.id,
-                artist_id: parent.id,
+                artist_id: parent.artist.id,
                 start_date_time: startDateTime,
                 end_date_time: endDateTime,
                 description,
@@ -273,7 +273,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                             ))}
                         </div>
                     )}
-                    {showConfirm && <p>Booking being processed</p>}
+                    {showConfirm && <p>Booking successfully made!</p>}
                     <button id='booking__button'>Update Booking</button>
 
                 </div>
