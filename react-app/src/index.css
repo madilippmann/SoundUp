@@ -20,7 +20,7 @@ body {
 
 .body {
     background-color: rgb(255, 255, 255);
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 250px);
     height: 100%;
     margin-top: 70px;
 

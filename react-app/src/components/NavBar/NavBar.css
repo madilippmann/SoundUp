@@ -125,7 +125,7 @@ a:visited {
 }
 
 #signup__button {
-    border: 1.5px solid rgb(82, 82, 169);
+    border: 2px solid rgb(82, 82, 169);
     color: rgb(82, 82, 169);
     background-color: transparent;
     transition: border .15s ease-in-out, color .15s ease-in-out;
@@ -134,7 +134,7 @@ a:visited {
 
 #signup__button:hover {
     color: rgb(227,55,0);
-    border: 1.5px solid rgb(227,55,0);
+    border: 2px solid rgb(227,55,0);
 }
 
 #login__button {
