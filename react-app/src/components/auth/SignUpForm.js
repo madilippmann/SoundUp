@@ -8,7 +8,7 @@ import './auth.css';
 const SignUpForm = ({ setShowModal }) => {
   const history = useHistory();
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -18,10 +18,13 @@ const SignUpForm = ({ setShowModal }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(name, email, password));
       if (data) {
         setErrors(data)
+        return
       }
+    } else {
+      return setErrors(['Passwords must match'])
     }
 
     setShowModal(() => false)
@@ -29,8 +32,8 @@ const SignUpForm = ({ setShowModal }) => {
 
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
+  const updateName = (e) => {
+    setName(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -69,12 +72,12 @@ const SignUpForm = ({ setShowModal }) => {
         </div>
 
         <div className='auth__input-container'>
-          <label className='auth__label'>Username</label>
+          <label className='auth__label'>Name</label>
           <input
             type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
+            name='name'
+            onChange={updateName}
+            value={name}
             className='auth__input'
           ></input>
         </div>

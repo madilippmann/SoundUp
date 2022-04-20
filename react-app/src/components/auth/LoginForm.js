@@ -19,7 +19,8 @@ const LoginForm = ({ setShowModal }) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors(['Invalid login credentials']);
+      return
     }
     setShowModal(() => false)
     return history.push('/')
@@ -38,34 +39,38 @@ const LoginForm = ({ setShowModal }) => {
   }
 
   return (
-    <div>
+    <div className='auth__outer-container'>
       <form onSubmit={onLogin}>
-        <h2>Log In</h2>
+        <h2 className='auth__title'>Log In</h2>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label htmlFor='email'>Email</label>
+        <div className='auth__input-container'>
+          <label className='auth__label' htmlFor='email'>Email</label>
           <input
             name='email'
             type='text'
             placeholder='Email'
             value={email}
             onChange={updateEmail}
+            className='auth__input'
+
           />
         </div>
-        <div>
-          <label htmlFor='password'>Password</label>
+        <div className='auth__input-container'>
+          <label className='auth__label' htmlFor='password'>Password</label>
           <input
             name='password'
             type='password'
             placeholder='Password'
             value={password}
             onChange={updatePassword}
+            className='auth__input'
+
           />
-          <button type='submit'>Login</button>
+          <button id='auth__button' className='extra-top-padding' type='submit'>Login</button>
         </div>
       </form>
     </div>

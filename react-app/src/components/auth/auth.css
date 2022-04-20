@@ -73,6 +73,10 @@
     transition: color .15s ease-in-out;
 }
 
+#auth__button.extra-top-padding {
+    margin-top: 40px;
+}
+
 #demo__button:hover {
     color: rgb(227, 227, 255);
     color: rgb(227,55,0);
