@@ -18,7 +18,18 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
         setScrollEnd(() => outerContainerRef.current.scrollWidth + 1 >= container.current.scrollWidth)
     }, [])
 
-    const scroll = (shift) => { container.current.scrollLeft += shift }
+    const scroll = (shift) => {
+        const delta = shift > 0 ? 25 : -25;
+        let currShift = shift;
+
+        const interval = setInterval(() => {
+            container.current.scrollLeft += delta
+            currShift -= delta;
+            if (currShift === 0) {
+                clearInterval(interval)
+            }
+        }, 15gi)
+    }
 
     const handleScroll = () => {
         setScrollPosition(() => container.current.scrollLeft);
