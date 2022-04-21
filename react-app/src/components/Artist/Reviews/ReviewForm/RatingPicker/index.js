@@ -38,7 +38,6 @@ const RatingPicker = ({ rating, setRating }) => {
         setRating(() => n)
     }
 
-    useEffect(() => { console.log(rating) }, [rating])
 
     useEffect(() => {
         if (one && rating === 0) addRatingColor(0)

@@ -16,7 +16,6 @@ const EditRatingPicker = ({ rating, setRating }) => {
 
     const addRatingColor = (n) => {
 
-        console.log('RATIBNG OSEB:KSJDBG', n);
         (n > 4) ? five.style.color = 'rgb(227,55,0)' : five.style.color = 'grey';
         (n > 3) ? four.style.color = 'rgb(227,55,0)' : four.style.color = 'grey';
         (n > 2) ? three.style.color = 'rgb(227,55,0)' : three.style.color = 'grey';

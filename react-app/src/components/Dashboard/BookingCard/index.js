@@ -19,13 +19,10 @@ const BookingCard = ({ sessionUser, booking, type }) => {
 
 
     useEffect(() => {
-        console.log('entered')
         setDate(() => formatDate(new Date(booking.start_date_time)))
         setStartTime(() => formatTime(new Date(booking.start_date_time)))
         setEndTime(() => formatTime(new Date(booking.end_date_time)))
-        // console.log('SessionUser REviews: ', sessionUser.reviews, booking.artist.id)
         setReviewedArtist(() => sessionUser.reviews.find(review => {
-            console.log('REIVEW: ', review)
             return review.artist_id === booking.artist.id
         }) ? true : false)
 

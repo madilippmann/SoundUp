@@ -18,7 +18,6 @@ const EditReviewForm = ({ artistId, review, setEditReview }) => {
     const [validationErrors, setValidationErrors] = useState([]);
 
     useEffect(() => {
-        console.log('INITIAL RATING ', review.rating)
         setRating(review.rating)
     }, [])
 

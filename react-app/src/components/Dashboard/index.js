@@ -20,13 +20,7 @@ const Dashboard = () => {
         dispatch(userActions.loadUser())
     }, [dispatch])
 
-    useEffect(() => {
-        console.log('Session User updated: ', sessionUser)
-    }, [sessionUser])
 
-    useEffect(() => {
-        console.log('sorted bookings  ', sortedBookings)
-    }, [sortedBookings])
 
     useEffect(() => {
 

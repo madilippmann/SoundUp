@@ -170,7 +170,6 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                 res.errors.forEach(error => {
                     setValidationErrors((prev) => [...prev, error.split(' : ')[1]])
                 })
-                console.log('VALIDATION ERRORS: ', validationErrors)
                 return setShowErrors(true)
             } else {
                 setShowConfirm(true)

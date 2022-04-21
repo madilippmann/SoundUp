@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { formatDate, formatTime } from "../../../utils";
 const ReviewCard = ({ review }) => {
 
-    console.log('REVIEW CARD      ', review)
     return !review ? null : (
         <div>
             <Link to={`/artists/${review.artist_id}`} className='booking__card' type='button'>
