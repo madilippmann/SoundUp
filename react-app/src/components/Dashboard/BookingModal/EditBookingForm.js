@@ -257,9 +257,10 @@ const EditBookingForm = ({ parent, setShowModal }) => {
 
                 </div>
                 <div className='center'>
-                    {bookingDuration && parent.artist.rate * bookingDuration !== NaN && parent.artist.rate * bookingDuration > 0 &&
+                    {/* TODO TODO TODO FIX the booking duration and add it back in */}
+                    {/* {bookingDuration && parent.artist.rate * bookingDuration !== NaN && parent.artist.rate * bookingDuration > 0 &&
                         <p id='edit-booking__total'>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
-                    }
+                    } */}
                     {!showErrors ? null : (
                         <div className='error-container booking' style={{ paddingBottom: '10px' }}>
                             {validationErrors.map(err => (
@@ -270,7 +271,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                     <button id='booking__button'>Update Booking</button>
                     {showConfirm && <p style={{ color: 'green' }}>
                         <FontAwesomeIcon icon={faCheck} style={{ paddingRight: '10px' }} />
-                        Booking request sent to {parent.artist.name}!
+                        Updated Booking request sent to {parent.artist.name}!
                     </p>}
 
                 </div>
