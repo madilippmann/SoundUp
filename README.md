@@ -72,5 +72,12 @@ To run SoundUp locally, please follow these steps:
     npm start
     
   
+## Demos
 
-  
+### Demo user login / create new booking
+![demo2](https://user-images.githubusercontent.com/66145354/164549832-b4e72a65-f74c-4164-8e79-63a68b7dedfd.gif)
+
+
+### Reviews
+![demo1](https://user-images.githubusercontent.com/66145354/164549822-93889dde-d98d-4dab-a2b6-cc19711e4c68.gif)
+
