@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import RatingPicker from './RatingPicker';
 
 import * as artistsActions from '../../../../store/artists'
+import * as usersActions from '../../../../store/session'
 
 const ReviewForm = ({ artistId, review }) => {
     const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const ReviewForm = ({ artistId, review }) => {
         }
 
         let res = await dispatch(artistsActions.createReview(review, artistId))
+        await dispatch(usersActions.loadUser())
 
         if (res.errors) {
             res.errors.forEach(error => {

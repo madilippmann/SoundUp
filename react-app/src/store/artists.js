@@ -1,5 +1,5 @@
 import { normalizeArtists, normalizeArr } from "./utils"
-
+import { sessionAddReview, sessionUpdateReview, sessionDeleteReview } from "./session";
 // ACTION VARIABLES ***************************************
 const LOAD_ARTISTS = 'artists/LOAD_ARTISTS'
 const LOAD_ARTIST = 'artists/LOAD_ARTIST'
@@ -79,6 +79,7 @@ export const createReview = (review, artistId) => async (dispatch) => {
     if (res.ok) {
         const review = await res.json();
         dispatch(addReview(review));
+        dispatch(sessionAddReview(review))
         return review;
     } else {
         const errors = await res.json()
@@ -99,6 +100,7 @@ export const editReview = (review) => async (dispatch) => {
     if (res.ok) {
         const review = await res.json();
         dispatch(updateReview(review));
+        dispatch(sessionUpdateReview(review));
         return review;
     } else {
         const errors = await res.json()
@@ -117,6 +119,7 @@ export const removeReview = (reviewId) => async (dispatch) => {
     if (res.ok) {
         const review = await res.json();
         dispatch(deleteReview(review));
+        dispatch(sessionDeleteReview(review));
         return review;
     }
 };

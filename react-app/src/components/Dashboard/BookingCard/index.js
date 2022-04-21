@@ -9,8 +9,7 @@ import { Link } from 'react-router-dom';
 import { formatDate, formatTime } from '../../../utils.js';
 
 
-const BookingCard = ({ booking, type }) => {
-    const sessionUser = useSelector(state => state.session.user)
+const BookingCard = ({ sessionUser, booking, type }) => {
     const [showModal, setShowModal] = useState(false);
     const [date, setDate] = useState()
     const [startTime, setStartTime] = useState()
@@ -18,12 +17,17 @@ const BookingCard = ({ booking, type }) => {
     const [reviewedArtist, setReviewedArtist] = useState()
 
 
+
     useEffect(() => {
         console.log('entered')
         setDate(() => formatDate(new Date(booking.start_date_time)))
         setStartTime(() => formatTime(new Date(booking.start_date_time)))
         setEndTime(() => formatTime(new Date(booking.end_date_time)))
-        setReviewedArtist(() => sessionUser.reviews.find(review => review.artist.id === booking.artist.id) ? true : false)
+        // console.log('SessionUser REviews: ', sessionUser.reviews, booking.artist.id)
+        setReviewedArtist(() => sessionUser.reviews.find(review => {
+            console.log('REIVEW: ', review)
+            return review.artist_id === booking.artist.id
+        }) ? true : false)
 
     }, [booking, sessionUser])
 

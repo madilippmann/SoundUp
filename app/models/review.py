@@ -22,6 +22,7 @@ class Review(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'artist_id': self.artist_id,
+            'artist': self.artist.to_dict_lite(),
             'rating': self.rating,
             'comment': self.comment,
             'user': self.user.to_dict_lite(),
@@ -34,6 +35,7 @@ class Review(db.Model):
         return {
             'id': self.id,
             'artist': self.artist.to_dict_lite(),
+            'artist_id': self.artist_id,
             'rating': self.rating,
             'comment': self.comment,
             'created_at': self.created_at,

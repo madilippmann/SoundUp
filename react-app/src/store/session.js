@@ -1,10 +1,15 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const LOAD_USER = 'session/LOAD_USER'
 
 const ADD_BOOKING = 'bookings/ADD_BOOKING'
 const DELETE_BOOKING = 'bookings/DELETE_BOOKING'
 const UPDATE_BOOKING = 'bookings/UPDATE_BOOKING'
+
+const ADD_REVIEW = 'session/ADD_REVIEW'
+const DELETE_REVIEW = 'session/DELETE_REVIEW'
+const UPDATE_REVIEW = 'session/UPDATE_REVIEW'
 
 /*******************/
 
@@ -13,10 +18,14 @@ const setUser = (user) => ({
 	user
 });
 
+export const loadUser = () => ({
+	type: LOAD_USER
+})
+
+
 const removeUser = () => ({
 	type: REMOVE_USER,
 })
-
 
 const addBooking = (booking) => ({
 	type: ADD_BOOKING,
@@ -32,6 +41,23 @@ const deleteBooking = (booking) => ({
 	type: DELETE_BOOKING,
 	booking
 })
+
+
+export const sessionAddReview = (review) => ({
+	type: ADD_REVIEW,
+	review
+})
+
+export const sessionUpdateReview = (review) => ({
+	type: UPDATE_REVIEW,
+	review
+})
+
+export const sessionDeleteReview = (review) => ({
+	type: DELETE_REVIEW,
+	review
+})
+
 
 
 /*** THUNKS ****************/
@@ -89,6 +115,8 @@ export const logout = () => async (dispatch) => {
 		dispatch(removeUser());
 	}
 };
+
+
 
 
 export const signUp = (name, email, password) => async (dispatch) => {
@@ -187,8 +215,10 @@ export default function reducer(state = initialState, action) {
 			sessionUser.bookings = [...action.user.bookings]
 			sessionUser.reviews = [...action.user.reviews]
 
+
 			return { user: sessionUser }
 		}
+
 
 		case REMOVE_USER: {
 			return { user: null }
@@ -196,6 +226,12 @@ export default function reducer(state = initialState, action) {
 
 		// BOOKINGS
 		case ADD_BOOKING: {
+			state[action.booking.artist_id].booking.forEach(booking => {
+				if (booking.user.id === action.booking.user.id) {
+					booking.artist = action.booking.artist
+				}
+			})
+
 			return {
 				...state,
 				user: {
@@ -233,7 +269,55 @@ export default function reducer(state = initialState, action) {
 				...state,
 				user: {
 					...state.user,
+					reviews: [...state.user.reviews],
 					bookings: [...state.user.bookings]
+				}
+			}
+		}
+
+
+		// REVIEWS
+		case ADD_REVIEW: {
+			// state.user.reviews.forEach(review => {
+			// 	if (review.user.id === action.review.user.id) {
+			// 		review.user = action.review.user
+			// 	}
+			// })
+
+			return {
+				...state,
+				user: {
+					...state.user,
+					bookings: [...state.user.bookings],
+					reviews: [action.review, ...state.user.reviews]
+				}
+			}
+		}
+
+		case UPDATE_REVIEW: {
+			const reviewIndex = state.user.reviews.findIndex((review) => review.id === action.review.id)
+			state.user.reviews[reviewIndex] = action.review
+
+			return {
+				...state,
+				user: {
+					...state.user,
+					bookings: [...state.user.bookings],
+					reviews: [...state.user.reviews]
+				}
+			}
+		}
+
+		case DELETE_REVIEW: {
+			const reviewIndex = state.user.reviews.findIndex((review) => review.id === action.review.id)
+			state.user.reviews.splice(reviewIndex, 1)
+
+			return {
+				...state,
+				user: {
+					...state.user,
+					bookings: [...state.user.bookings],
+					reviews: [...state.user.reviews]
 				}
 			}
 		}

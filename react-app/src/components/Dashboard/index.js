@@ -15,10 +15,10 @@ const Dashboard = () => {
     const [sortedBookings, setSortedBookings] = useState();
     const [selectedTab, setSelectedTab] = useState('upcoming');
 
-    useEffect(() => {
-        console.log('User re-render')
-    }, [sessionUser])
 
+    useEffect(() => {
+        dispatch(userActions.loadUser())
+    }, [dispatch])
 
     useEffect(() => {
         console.log('Session User updated: ', sessionUser)
@@ -26,8 +26,8 @@ const Dashboard = () => {
 
     useEffect(() => {
         console.log('sorted bookings  ', sortedBookings)
-
     }, [sortedBookings])
+
     useEffect(() => {
 
         setSortedBookings(() => {
@@ -77,7 +77,7 @@ const Dashboard = () => {
                     <div className='card__flex'>
                         {sortedBookings?.upcoming.map(booking => (
                             <div>
-                                <BookingCard booking={booking} type={'upcoming'} />
+                                <BookingCard sessionUser={sessionUser} booking={booking} type={'upcoming'} />
                             </div>
                         ))}
                     </div>
@@ -90,7 +90,7 @@ const Dashboard = () => {
                     <div className='card__flex'>
                         {sortedBookings?.past.map(booking => (
                             <div>
-                                <BookingCard booking={booking} type={'past'} />
+                                <BookingCard sessionUser={sessionUser} booking={booking} type={'past'} />
                             </div>
                         ))}
                     </div>
@@ -103,7 +103,7 @@ const Dashboard = () => {
                     <div className='card__flex'>
                         {sessionUser.reviews.map(review => (
                             <div>
-                                <ReviewCard review={review} type={'reviews'} />
+                                <ReviewCard sessionUser={sessionUser} review={review} type={'reviews'} />
                             </div>
                         ))}
                     </div>
