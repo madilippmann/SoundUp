@@ -262,7 +262,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                         <p id='edit-booking__total'>New Total: ${(parent.artist.rate * bookingDuration).toFixed(2)}</p>
                     } */}
                     {!showErrors ? null : (
-                        <div className='error-container booking' style={{ paddingBottom: '10px' }}>
+                        <div className='error-container booking edit-booking' style={{ paddingBottom: '10px' }}>
                             {validationErrors.map(err => (
                                 <div key={err} className='error__list-item'>{err}</div>
                             ))}

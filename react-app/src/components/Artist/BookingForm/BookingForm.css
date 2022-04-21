@@ -88,8 +88,12 @@
 .booking.error-container {
     font-style: italic;
     font-weight: 300;
+}
+
+.edit-booking.error-container {
     padding-top: 10px;
     color: red;
+
 }
 
 .error__list-item {
