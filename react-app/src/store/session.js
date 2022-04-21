@@ -226,11 +226,11 @@ export default function reducer(state = initialState, action) {
 
 		// BOOKINGS
 		case ADD_BOOKING: {
-			state[action.booking.artist_id].booking.forEach(booking => {
-				if (booking.user.id === action.booking.user.id) {
-					booking.artist = action.booking.artist
-				}
-			})
+			// state.user.bookings.forEach(booking => {
+			// 	if (booking.user.id === action.booking.user.id) {
+			// 		booking.artist = action.booking.artist
+			// 	}
+			// })
 
 			return {
 				...state,
