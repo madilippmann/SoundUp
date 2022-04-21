@@ -24,7 +24,7 @@ def seed_artists():
         name='King Pink',
         bio=bio1,
         rate=400.00,
-        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/colin-lloyd-vYC19vdQe00-unsplash.jpg',
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/king_pink.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy-abstract-beat-11254.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/sexy-fashion-beats-simulate-11176.mp3',
         audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/chill-abstract-intention-12099.mp3'
