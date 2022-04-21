@@ -2,31 +2,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 import './RatingPicker.css'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const RatingPicker = ({ rating, setRating }) => {
-    const [initialRender, setInitialRender] = useState(true);
+const EditRatingPicker = ({ rating, setRating }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    const one = document.getElementById('one-star')
-    const two = document.getElementById('two-stars')
-    const three = document.getElementById('three-stars')
-    const four = document.getElementById('four-stars')
-    const five = document.getElementById('five-stars')
-
+    const one = document.getElementById('one-star-edit')
+    const two = document.getElementById('two-stars-edit')
+    const three = document.getElementById('three-stars-edit')
+    const four = document.getElementById('four-stars-edit')
+    const five = document.getElementById('five-stars-edit')
 
 
     const addRatingColor = (n) => {
-        one.style.color = 'grey';
-        two.style.color = 'grey';
-        three.style.color = 'grey';
-        four.style.color = 'grey';
-        five.style.color = 'grey';
 
-        if (n > 4) { five.style.color = 'rgb(227,55,0)'; }
-        if (n > 3) { four.style.color = 'rgb(227,55,0)'; }
-        if (n > 2) { three.style.color = 'rgb(227,55,0)'; }
-        if (n > 1) { two.style.color = 'rgb(227,55,0)'; }
-        if (n > 0) { one.style.color = 'rgb(227,55,0)'; }
+        console.log('RATIBNG OSEB:KSJDBG', n);
+        (n > 4) ? five.style.color = 'rgb(227,55,0)' : five.style.color = 'grey';
+        (n > 3) ? four.style.color = 'rgb(227,55,0)' : four.style.color = 'grey';
+        (n > 2) ? three.style.color = 'rgb(227,55,0)' : three.style.color = 'grey';
+        (n > 1) ? two.style.color = 'rgb(227,55,0)' : two.style.color = 'grey';
+        (n > 0) ? one.style.color = 'rgb(227,55,0)' : one.style.color = 'grey';
         if (n === 0) {
             one.style.color = 'grey';
             two.style.color = 'grey';
@@ -36,59 +31,63 @@ const RatingPicker = ({ rating, setRating }) => {
         }
 
         setRating(() => n)
+
     }
 
-    useEffect(() => { console.log(rating) }, [rating])
 
     useEffect(() => {
-        if (one && rating === 0) addRatingColor(0)
+
+        if (one && !isLoaded) {
+            addRatingColor(rating)
+            setIsLoaded(true)
+        }
+
     }, [one, rating])
 
 
     return (
         <div>
             <FontAwesomeIcon
-                style={{ color: "grey" }}
+                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(1) }}
                 onMouseOver={() => { one.style.opacity = '.5' }}
                 onMouseLeave={() => { one.style.opacity = '1' }}
-                id='one-star'
+                id='one-star-edit'
                 icon={faStar}
             />
 
             <FontAwesomeIcon
-                style={{ color: "grey" }}
+                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(2) }}
                 onMouseOver={() => { two.style.opacity = '.5' }}
                 onMouseLeave={() => { two.style.opacity = '1' }}
-                id='two-stars'
+                id='two-stars-edit'
                 icon={faStar}
             />
 
             <FontAwesomeIcon
-                style={{ color: "grey" }}
+                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(3) }}
                 onMouseOver={() => { three.style.opacity = '.5' }}
                 onMouseLeave={() => { three.style.opacity = '1' }}
-                id='three-stars'
+                id='three-stars-edit'
                 icon={faStar}
             />
 
             <FontAwesomeIcon
-                style={{ color: "grey" }}
+                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(4) }}
                 onMouseOver={() => { four.style.opacity = '.5' }}
                 onMouseLeave={() => { four.style.opacity = '1' }}
-                id='four-stars'
+                id='four-stars-edit'
                 icon={faStar}
             />
 
             <FontAwesomeIcon
-                style={{ color: "grey" }}
                 onClick={() => { addRatingColor(5) }}
                 onMouseOver={() => { five.style.opacity = '.5' }}
                 onMouseLeave={() => { five.style.opacity = '1' }}
-                id='five-stars'
+                id='five-stars-edit'
                 icon={faStar}
             />
 
@@ -96,4 +95,4 @@ const RatingPicker = ({ rating, setRating }) => {
     )
 }
 
-export default RatingPicker;
+export default EditRatingPicker;

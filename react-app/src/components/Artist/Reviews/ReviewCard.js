@@ -6,7 +6,7 @@ import * as artistsActions from '../../../store/artists'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan, faEllipsis, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-import ReviewForm from './ReviewForm';
+import EditReviewForm from './ReviewForm/EditReviewForm';
 
 import fiveStars from '../../../static/ratings/5-stars.png'
 import fourHalfStars from '../../../static/ratings/4.5-stars.png';
@@ -128,7 +128,7 @@ const ReviewCard = ({ review }) => {
                     }
                 </div>
                 :
-                <ReviewForm review={review} type='edit' setEditReview={setEditReview} />
+                <EditReviewForm review={review} type='edit' setEditReview={setEditReview} />
             }
 
 
