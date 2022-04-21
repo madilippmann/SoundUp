@@ -28,7 +28,7 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
             if (currShift === 0) {
                 clearInterval(interval)
             }
-        }, 15gi)
+        }, 15)
     }
 
     const handleScroll = () => {

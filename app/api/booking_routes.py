@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required
 from app.models import db, Booking
-from app.forms import BookingForm
+from app.forms import BookingForm, EditBookingForm
 booking_routes = Blueprint('bookings', __name__)
 from datetime import datetime
+
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -41,6 +42,7 @@ def create_booking():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+
         data = {
             "user_id": session['_user_id'],
             "artist_id": form.data["artist_id"],
@@ -63,7 +65,7 @@ def create_booking():
 @login_required
 def update_booking(booking_id):
     booking = request.get_json()
-    form = BookingForm()
+    form = EditBookingForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -71,7 +73,7 @@ def update_booking(booking_id):
 
         booking = Booking.query.get(booking_id)
         booking.start_date_time = datetime.fromtimestamp(form['start_date_time'].data / 1000)
-        booking.end_date_time = datetime.fromtimestamp(form['end_date_time'].data / 1000)
+        booking.end_date_time = datetime.utcfromtimestamp(form['end_date_time'].data / 1000)
         booking.description = form['description'].data
 
         db.session.commit()
