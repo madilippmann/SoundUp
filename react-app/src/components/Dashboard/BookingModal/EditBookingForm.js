@@ -178,6 +178,7 @@ const EditBookingForm = ({ parent, setShowModal }) => {
     const deleteBooking = async () => {
         if (window.confirm('Are you sure you want to cancel this booking?')) {
             await dispatch(userActions.removeBooking(parent))
+            setShowModal(false);
         }
     }
 

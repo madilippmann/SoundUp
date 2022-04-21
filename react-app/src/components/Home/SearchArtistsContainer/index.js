@@ -15,7 +15,7 @@ const SearchArtistsContainer = () => {
     return (
         <div id='artists-search-container'>
             <h1 id='search-title'>Find your musician for any occasion</h1>
-
+            {/*
             <div className='search__input'>
                 <div id='date-time__search-input' className='input__backdrop'>
                     <div className='flex-row' id='date__search-input' >
@@ -47,8 +47,10 @@ const SearchArtistsContainer = () => {
                     type='button'
                     title='        ⚠️ feature under construction'
                     className='search-disabled search__button'
-                    id='search__button'>Let's go</button>
-            </div>
+                    id='search__button'>
+                        Let's go
+                </button>
+            </div> */}
         </div>
     );
 }
