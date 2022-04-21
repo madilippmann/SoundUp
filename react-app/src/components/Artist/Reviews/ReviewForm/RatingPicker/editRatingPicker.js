@@ -48,7 +48,6 @@ const EditRatingPicker = ({ rating, setRating }) => {
     return (
         <div>
             <FontAwesomeIcon
-                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(1) }}
                 onMouseOver={() => { one.style.opacity = '.5' }}
                 onMouseLeave={() => { one.style.opacity = '1' }}
@@ -57,7 +56,6 @@ const EditRatingPicker = ({ rating, setRating }) => {
             />
 
             <FontAwesomeIcon
-                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(2) }}
                 onMouseOver={() => { two.style.opacity = '.5' }}
                 onMouseLeave={() => { two.style.opacity = '1' }}
@@ -66,7 +64,6 @@ const EditRatingPicker = ({ rating, setRating }) => {
             />
 
             <FontAwesomeIcon
-                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(3) }}
                 onMouseOver={() => { three.style.opacity = '.5' }}
                 onMouseLeave={() => { three.style.opacity = '1' }}
@@ -75,7 +72,6 @@ const EditRatingPicker = ({ rating, setRating }) => {
             />
 
             <FontAwesomeIcon
-                // style={{ color: 'grey' }}
                 onClick={() => { addRatingColor(4) }}
                 onMouseOver={() => { four.style.opacity = '.5' }}
                 onMouseLeave={() => { four.style.opacity = '1' }}

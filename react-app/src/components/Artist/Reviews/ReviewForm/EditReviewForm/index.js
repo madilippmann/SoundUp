@@ -5,6 +5,11 @@ import { useDispatch } from 'react-redux';
 import * as artistsActions from '../../../../../store/artists'
 import EditRatingPicker from '../RatingPicker/editRatingPicker.js';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
+
+import './EditReview.css'
 const EditReviewForm = ({ artistId, review, type, setEditReview }) => {
     const dispatch = useDispatch();
     const [rating, setRating] = useState();
@@ -52,35 +57,48 @@ const EditReviewForm = ({ artistId, review, type, setEditReview }) => {
     }
 
     return (
-        <div id='new-review__container'>
+        <div id='edit-review__container'>
+            <div id='review__user'>
+                <FontAwesomeIcon icon={faUserCircle} style={{ color: 'grey', fontSize: '35px' }} />
+                <p className='margin-bottom'>{review.user.name}</p>
+                {review.user.reviews_count === 1 ?
+                    <p className='margin-bottom margin-top'>{review.user.reviews_count} review</p> :
+                    <p className='margin-bottom margin-top smaller-text'>{review.user.reviews_count} reviews</p>
+                }
+            </div>
 
-            {!showErrors ? null : (
-                <div className='error-container'>
-                    {validationErrors.map(err => (
-                        <div key={err}>{err}</div>
-                    ))}
-                </div>
-            )}
+            <form id='edit-review__form' onSubmit={handleSubmit}>
 
-            <form id='review__form' onSubmit={handleSubmit}>
-                <div id='rating__container'>
-                    <label htmlFor='rating'>Rating</label>
-                    <EditRatingPicker rating={rating} setRating={setRating} />
-                </div>
+                {!showErrors ? null : (
+                    <div className='error-container'>
+                        {validationErrors.map(err => (
+                            <div key={err}>{err}</div>
+                        ))}
+                    </div>
+                )}
+                <div id='edit-review__comment-and-rating'>
+                    <div id='rating__container'>
+                        <label htmlFor='rating'>Edit Rating</label>
+                        <EditRatingPicker rating={rating} setRating={setRating} />
+                    </div>
 
-                <div id='comment__container'>
-                    <label htmlFor='comment'>Comment</label>
-                    <input
-                        type='text'
-                        name='comment'
-                        id='comment'
-                        placeholder='Start writing comment...'
-                        onChange={(e) => setComment(() => e.target.value)}
-                        value={comment}
-                    />
+                    <div id='comment__container'>
+                        <label htmlFor='comment'>Comment</label>
+                        <input
+                            type='text'
+                            name='comment'
+                            id='comment'
+                            placeholder='Start writing comment...'
+                            onChange={(e) => setComment(() => e.target.value)}
+                            value={comment}
+                        />
+                    </div>
+
                 </div>
-                <button id='comment__button'>Submit</button>
-                {type === 'edit' && <button type='button' id='comment__button' onClick={() => setEditReview(() => false)}>Cancel</button>}
+                <div id='edit-review__buttons'>
+                    <button id='comment__button'>Submit</button>
+                    {type === 'edit' && <button type='button' id='comment__button' onClick={() => setEditReview(() => false)}>Cancel</button>}
+                </div>
             </form>
         </div>
     );

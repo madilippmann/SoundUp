@@ -1,0 +1,26 @@
+#edit-review__container {
+    display: flex;
+    border-bottom: 1px solid rgba(104, 104, 104, 0.15);
+    padding: 15px 0 10px 0;
+}
+
+
+#edit-review__form {
+    display: flex;
+    width: 100%;
+
+
+}
+
+
+#edit-review__comment-and-rating {
+    width: 100%;
+}
+
+
+#edit-review__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
