@@ -84,9 +84,15 @@ const BookingForm = ({ parent }) => {
                     adjustedStartTime = `0${adjustedStartTime[0]}`
                 }
             } else {
+                // if (Number(adjustedStartTime[0].split(':')[0]) === 12) {
+                //     let [hours, minutes] = adjustedStartTime[0].split(':')
+                //     adjustedStartTime = `00:${minutes}`
+
+                // } else {
                 let [hours, minutes] = adjustedStartTime[0].split(':')
                 hours = Number(hours) + 12
                 adjustedStartTime = `${hours}:${minutes}`
+                // }
             }
 
         }

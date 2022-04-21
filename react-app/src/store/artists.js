@@ -135,6 +135,13 @@ const artistsReducer = (state = {}, action) => {
         };
 
         case ADD_REVIEW: {
+            state[action.review.artist_id].reviews.forEach(review => {
+                if (review.user.id === action.review.user.id) {
+                    review.user = action.review.user
+                }
+            })
+
+
             return {
                 ...state,
                 [action.review.artist_id]: {

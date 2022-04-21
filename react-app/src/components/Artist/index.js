@@ -27,6 +27,10 @@ function Artist() {
 	}, [dispatch]);
 
 
+	useEffect(() => {
+		console.log('RERENDER: ', artist)
+	}, [artist])
+
 	return !isLoaded ? null : (
 		<div id='artist-page__container'>
 			<div id='artist-page__left'>

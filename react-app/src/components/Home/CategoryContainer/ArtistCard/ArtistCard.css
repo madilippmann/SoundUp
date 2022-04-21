@@ -3,8 +3,8 @@
     height: 306px;
     border: 1px solid rgb(218, 218, 218);
     border-radius: 4px;
-    /* transition: box-shadow .15s ease-in-out, transform .15s ease-in-out; */
-    transition: box-shadow .25s cubic-bezier(.77, 0, .175, 1), transform .25s cubic-bezier(.77, 0, .175, 1);
+    transition: box-shadow .15s ease-in-out, transform .15s ease-in-out;
+    /* transition: box-shadow .25s cubic-bezier(.77, 0, .175, 1), transform .25s cubic-bezier(.77, 0, .175, 1); */
 }
 
 #artist__card:hover:not(.no-hover) {
