@@ -168,6 +168,12 @@ const artistsReducer = (state = {}, action) => {
         }
 
         case DELETE_REVIEW: {
+            state[action.review.artist_id].reviews.forEach(review => {
+                if (review.user.id === action.review.user.id) {
+                    review.user = action.review.user
+                }
+            })
+
             const reviewIndex = state[action.review.artist_id].reviews.findIndex((review) => review.id === action.review.id)
             state[action.review.artist_id].reviews.splice(reviewIndex, 1)
 

@@ -16,6 +16,11 @@ const Dashboard = () => {
     const [selectedTab, setSelectedTab] = useState('upcoming');
 
     useEffect(() => {
+        console.log('User re-render')
+    }, [sessionUser])
+
+
+    useEffect(() => {
         console.log('Session User updated: ', sessionUser)
     }, [sessionUser])
 

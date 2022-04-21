@@ -206,14 +206,21 @@ export default function reducer(state = initialState, action) {
 		}
 
 		case UPDATE_BOOKING: {
+			// state.user.bookings[bookingIndex] = action.booking
 			const bookingIndex = state.user.bookings.findIndex((booking) => booking.id === action.booking.id)
-			state.user.bookings[bookingIndex] = action.booking
+
 
 			return {
 				...state,
 				user: {
 					...state.user,
-					bookings: [...state.user.bookings]
+					bookings: state.user.bookings.map((booking, i) => {
+						if (i === bookingIndex) {
+							return { ...action.booking }
+						} else {
+							return { ...booking }
+						}
+					})
 				}
 			}
 		}
