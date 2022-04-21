@@ -10,7 +10,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 import './EditReview.css'
-const EditReviewForm = ({ artistId, review, type, setEditReview }) => {
+const EditReviewForm = ({ artistId, review, setEditReview }) => {
     const dispatch = useDispatch();
     const [rating, setRating] = useState();
     const [comment, setComment] = useState(review ? review.comment : '');
@@ -24,36 +24,30 @@ const EditReviewForm = ({ artistId, review, type, setEditReview }) => {
 
     useEffect(() => {
         const errors = [];
-        if (comment.length > 255) errors.push('Review must be less than 255 characters');
+        if (comment.length > 255 || comment.length === 0) errors.push('Comment must be between 1 and 255 characters');
         if (rating < 1 || rating > 5) errors.push('Rating must be between 1 and 5')
         setValidationErrors(errors);
     }, [rating, comment]);
 
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         if (validationErrors.length) return setShowErrors(true);
 
+        review.rating = rating
+        review.comment = comment
 
-        if (type === 'edit') {
-            review.rating = rating
-            review.comment = comment
-
-            dispatch(artistsActions.editReview(review))
-            setEditReview(() => false)
-
+        let res = await dispatch(artistsActions.editReview(review))
+        if (res.errors) {
+            res.errors.forEach(error => {
+                setValidationErrors((prev) => [...prev, error])
+            })
+            return setShowErrors(true)
         } else {
-            const review = {
-                rating,
-                comment
-            }
-
-            dispatch(artistsActions.createReview(review, artistId))
-            setRating(0)
-            setComment('')
+            setEditReview(() => false)
         }
+
     }
 
     return (
@@ -69,21 +63,21 @@ const EditReviewForm = ({ artistId, review, type, setEditReview }) => {
 
             <form id='edit-review__form' onSubmit={handleSubmit}>
 
-                {!showErrors ? null : (
-                    <div className='error-container'>
-                        {validationErrors.map(err => (
-                            <div key={err}>{err}</div>
-                        ))}
-                    </div>
-                )}
                 <div id='edit-review__comment-and-rating'>
+                    {!showErrors ? null : (
+                        <div className='error-container edit-review'>
+                            {validationErrors.map(err => (
+                                <div key={err}>{err}</div>
+                            ))}
+                        </div>
+                    )}
                     <div id='rating__container'>
-                        <label htmlFor='rating'>Edit Rating</label>
+                        <label className='edit-review__label' htmlFor='rating'>Edit Rating</label>
                         <EditRatingPicker rating={rating} setRating={setRating} />
                     </div>
 
                     <div id='comment__container'>
-                        <label htmlFor='comment'>Comment</label>
+                        <label className='edit-review__label' htmlFor='comment'>Edit Comment</label>
                         <input
                             type='text'
                             name='comment'
@@ -97,7 +91,7 @@ const EditReviewForm = ({ artistId, review, type, setEditReview }) => {
                 </div>
                 <div id='edit-review__buttons'>
                     <button id='comment__button'>Submit</button>
-                    {type === 'edit' && <button type='button' id='comment__button' onClick={() => setEditReview(() => false)}>Cancel</button>}
+                    <button type='button' id='comment__button' onClick={() => setEditReview(() => false)}>Cancel</button>
                 </div>
             </form>
         </div>

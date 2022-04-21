@@ -13,8 +13,18 @@
 }
 
 
+.edit-review__label {
+    font-size: 13px;
+}
+
 #edit-review__comment-and-rating {
     width: 100%;
+}
+
+.error-container.edit-review, .error-container.review{
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: red
 }
 
 

@@ -5,7 +5,7 @@ import RatingPicker from './RatingPicker';
 
 import * as artistsActions from '../../../../store/artists'
 
-const ReviewForm = ({ artistId, review, type, setEditReview }) => {
+const ReviewForm = ({ artistId, review }) => {
     const dispatch = useDispatch();
     const [rating, setRating] = useState(review ? review.rating : 0);
     const [comment, setComment] = useState(review ? review.comment : '');
@@ -14,46 +14,47 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
 
     useEffect(() => {
         const errors = [];
-        if (comment.length > 255) errors.push('Review must be less than 255 characters');
+        if (comment.length > 255 || comment.length === 0) errors.push('Review must be between 1 and 255 characters');
         if (rating < 1 || rating > 5) errors.push('Rating must be between 1 and 5')
         setValidationErrors(errors);
     }, [rating, comment]);
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         if (validationErrors.length) return setShowErrors(true);
 
 
-        if (type === 'edit') {
-            review.rating = rating
-            review.comment = comment
+        const review = {
+            rating,
+            comment
+        }
 
-            dispatch(artistsActions.editReview(review))
-            setEditReview(() => false)
+        let res = await dispatch(artistsActions.createReview(review, artistId))
 
+        if (res.errors) {
+            res.errors.forEach(error => {
+                setValidationErrors((prev) => [...prev, error])
+            })
+            return setShowErrors(true)
         } else {
-            const review = {
-                rating,
-                comment
-            }
-
-            dispatch(artistsActions.createReview(review, artistId))
+            setShowErrors(false)
             setRating(0)
             setComment('')
         }
+
     }
 
     return (
         <div id='new-review__container'>
-            {type !== 'edit' &&
-                <h3 id='reviews__title'>Add New Review</h3>
-            }
+
+            <h3 id='reviews__title'>Add New Review</h3>
+
 
             {!showErrors ? null : (
-                <div className='error-container'>
+                <div className='error-container review'>
                     {validationErrors.map(err => (
                         <div key={err}>{err}</div>
                     ))}
@@ -87,7 +88,6 @@ const ReviewForm = ({ artistId, review, type, setEditReview }) => {
                     />
                 </div>
                 <button id='comment__button'>Submit</button>
-                {type === 'edit' && <button type='button' id='comment__button' onClick={() => setEditReview(() => false)}>Cancel</button>}
             </form>
         </div>
     );

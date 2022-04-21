@@ -80,6 +80,9 @@ export const createReview = (review, artistId) => async (dispatch) => {
         const review = await res.json();
         dispatch(addReview(review));
         return review;
+    } else {
+        const errors = await res.json()
+        return errors
     }
 };
 
@@ -92,10 +95,14 @@ export const editReview = (review) => async (dispatch) => {
         body: JSON.stringify(review)
     });
 
+
     if (res.ok) {
         const review = await res.json();
         dispatch(updateReview(review));
         return review;
+    } else {
+        const errors = await res.json()
+        return errors
     }
 };
 
