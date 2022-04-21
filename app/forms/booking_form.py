@@ -30,8 +30,8 @@ def edit_check_time_availability(form, field):
             or (booking.start_date_time <= start <= booking.end_date_time))):
             raise ValidationError('Selected times conflict with another booking')
 
-        elif (booking.id == form.data['booking_id'] and start == booking.start_date_time and end == booking.end_date_time):
-            raise ValidationError('Please select new date and/or times to update booking.')
+        elif (booking.id == form.data['booking_id'] and start == booking.start_date_time and end == booking.end_date_time and booking.description == form['description'].data):
+            raise ValidationError('Please make change to update booking.')
 
 
 def past_date(form, field):
