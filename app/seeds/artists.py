@@ -27,7 +27,10 @@ def seed_artists():
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/king_pink.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy-abstract-beat-11254.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/sexy-fashion-beats-simulate-11176.mp3',
-        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/chill-abstract-intention-12099.mp3'
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/chill-abstract-intention-12099.mp3',
+        audio_track_name_1='90s Motion',
+        audio_track_name_2='Unexpected Resistance',
+        audio_track_name_3='Chill Ends'
     )
 
     artist_2 = Artist(
@@ -38,7 +41,10 @@ def seed_artists():
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/abstral-official-fnYHoNUJUNQ-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Sitting+In+Your+Head.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Little+Shoes.mp3',
-        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Harmony.mp3'
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Le+Volume+Courbe+-+Harmony.mp3',
+        audio_track_name_1='Sitting In Your Head',
+        audio_track_name_2='Little Shoes',
+        audio_track_name_3='Harmony'
     )
     # Electronic, Alternative, Rock, Experimental
     artist_3 = Artist(
@@ -48,7 +54,10 @@ def seed_artists():
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/marco-mons-DIXT8Z9p-Sg-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+Post+Yes.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+Saint+Wave.mp3',
-        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+The+Army+Of+You.mp3'
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Soft+and+Furious+-+The+Army+Of+You.mp3',
+        audio_track_name_1='Post Yes',
+        audio_track_name_2='Saint Wave',
+        audio_track_name_3='This Army of You'
     )
 
     artist_4 = Artist(
@@ -59,7 +68,10 @@ def seed_artists():
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/james-zwadlo-nj0vGyFB2nY-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Nocturne+in+B+flat+minor%2C+Op.+9+no.+1.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Arabesque+No.+1.+Andantino+con+moto.mp3',
-        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Ballade+no.+1+in+G+minor%2C+Op.+23.mp3'
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Ballade+no.+1+in+G+minor%2C+Op.+23.mp3',
+        audio_track_name_1='Nocturne in B-flat minor Op. 9',
+        audio_track_name_2='Arabesque No. 1 Andantino con moto',
+        audio_track_name_3='Ballade No. 1 in G minor'
     )
 
     artist_5 = Artist(
@@ -69,6 +81,7 @@ def seed_artists():
         rate=105.00,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jakayla-toney-_SUo0bFBMRc-unsplash.jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/Jenna+Jay+-+Someone+Real+-+Jenna+Jay.mp3',
+        audio_track_name_1='Someone Real',
     )
 
     artist_6 = Artist(
@@ -80,6 +93,9 @@ def seed_artists():
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Astronaut.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+Highway+Fever.mp3',
         audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/HoliznaCC0+-+A+Small+Town+on+Pluto+(Family+Vacation).mp3',
+        audio_track_name_1='Astronaut',
+        audio_track_name_2='Highway Fever',
+        audio_track_name_3='A Small Town on Pluto'
     )
 
 
@@ -91,6 +107,9 @@ def seed_artists():
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/johanna-vogt-H7kVzJgum3M-unsplash+(1).jpg',
         audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/I.+Allegro+ma+non+troppo.mp3',
         audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/String+Quartet+no.+2+in+D+Major+-+I.+Allegro+moderato.mp3',
+        audio_track_name_1='Movement I - Allegro ma non troppo',
+        audio_track_name_2='String Quartet No. 2 in D Major',
+
     )
 
     db.session.add(artist_1)

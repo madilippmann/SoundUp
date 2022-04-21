@@ -1,8 +1,8 @@
-"""empty message
+"""the great migration
 
-Revision ID: cc826c7ca18c
-Revises: 
-Create Date: 2022-04-13 14:05:13.470553
+Revision ID: 89be52cd28fb
+Revises:
+Create Date: 2022-04-21 23:46:56.599695
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'cc826c7ca18c'
+revision = '89be52cd28fb'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,6 +27,9 @@ def upgrade():
     sa.Column('audio_url_1', sa.String(length=255), nullable=True),
     sa.Column('audio_url_2', sa.String(length=255), nullable=True),
     sa.Column('audio_url_3', sa.String(length=255), nullable=True),
+    sa.Column('audio_track_name_1', sa.String(length=50), nullable=True),
+    sa.Column('audio_track_name_2', sa.String(length=50), nullable=True),
+    sa.Column('audio_track_name_3', sa.String(length=50), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.PrimaryKeyConstraint('id')
@@ -60,7 +63,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('artist_id', sa.Integer(), nullable=False),
-    sa.Column('date', sa.Date(), nullable=False),
+    sa.Column('start_date_time', sa.DateTime(), nullable=False),
+    sa.Column('end_date_time', sa.DateTime(), nullable=False),
     sa.Column('description', sa.Text(), nullable=True),
     sa.Column('confirmed', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
