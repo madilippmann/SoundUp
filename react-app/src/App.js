@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import NavBar from './components/NavBar';
@@ -60,6 +60,10 @@ function App() {
 						<Artist />
 					</div>
 				</ProtectedRoute>
+
+				<UnprotectedRoute path='/' >
+					<Redirect to='/auth' />
+				</UnprotectedRoute>
 
 			</Switch>
 			<Footer />
