@@ -261,8 +261,8 @@ const BookingForm = ({ parent }) => {
 
                             value={endTime}
                         >
-                            <option value='' disabled selected>select time</option>
-                            {times.map(time => <option value={time}>{time}</option>)}
+                            <option value='' disabled selected style={{ color: 'black' }}>select time</option>
+                            {times.map(time => <option style={{ color: 'black' }} value={time}>{time}</option>)}
                         </select>
                     </div>
                 </div>

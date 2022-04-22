@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import UnprotectedRoute from './components/auth/UnprotectedRoute';
 import { authenticate } from './store/session';
 
 // import Messages from './components/Messages';
@@ -36,11 +37,11 @@ function App() {
 		<BrowserRouter>
 			<NavBar />
 			<Switch>
-				<Route path='/auth' exact={true}>
+				<UnprotectedRoute path='/auth' exact={true}>
 					<div className='splash body'>
 						<Splash />
 					</div>
-				</Route>
+				</UnprotectedRoute>
 				<ProtectedRoute path='/' exact={true}>
 					<div className='home body'>
 						<Home />
