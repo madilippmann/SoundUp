@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as artistsActions from '../../store/artists.js'
@@ -12,6 +12,7 @@ import ArtistInfo from './ArtistInfo/index.js';
 
 function Artist() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const { artistId } = useParams();
 	const artist = useSelector(state => state.artists[artistId])
 	// const reviews = useSelector(state => state.artists[artistId].reviews)
@@ -20,7 +21,11 @@ function Artist() {
 
 	useEffect(() => {
 		(async () => {
-			await dispatch(artistsActions.fetchArtist(artistId))
+			const loadedArtist = await dispatch(artistsActions.fetchArtist(artistId))
+			if (!loadedArtist) {
+				history.push('/')
+				return <Redirect to='/' />
+			}
 			setIsLoaded(() => true)
 		})();
 

@@ -61,7 +61,11 @@ function App() {
 					</div>
 				</ProtectedRoute>
 
+				{/* TODO TODO TODO add page not found */}
+
+				{/* Handles nonexistent routes for both protected and unprotected routes */}
 				<UnprotectedRoute path='/' >
+					{console.log('ENTERED')}
 					<Redirect to='/auth' />
 				</UnprotectedRoute>
 
