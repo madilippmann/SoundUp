@@ -117,6 +117,7 @@ const SignUpForm = ({ setShowModal }) => {
         </div>
         <button id='auth__button' type='submit'>SIGNUP</button>
       </form>
+
       <div id='demo__button__container'>
         Don't want to make an account?
         <button id='demo__button' type='button' onClick={demoLogin}>Sign in with demo</button>

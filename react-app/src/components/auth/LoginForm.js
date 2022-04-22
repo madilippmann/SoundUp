@@ -38,6 +38,13 @@ const LoginForm = ({ setShowModal }) => {
     return <Redirect to='/' />;
   }
 
+  const demoLogin = async () => {
+    await dispatch(login('demo@aa.io', 'password'));
+
+    setShowModal(() => false)
+    return history.push('/')
+  }
+
   return (
     <div className='auth__outer-container'>
       <form onSubmit={onLogin}>
@@ -73,6 +80,11 @@ const LoginForm = ({ setShowModal }) => {
           <button id='auth__button' className='extra-top-padding' type='submit'>Login</button>
         </div>
       </form>
+
+      <div id='demo__button__container'>
+        Don't want to make an account?
+        <button id='demo__button' type='button' onClick={demoLogin}>Sign in with demo</button>
+      </div>
     </div>
   );
 };

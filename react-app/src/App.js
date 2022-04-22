@@ -42,6 +42,7 @@ function App() {
 						<Splash />
 					</div>
 				</UnprotectedRoute>
+
 				<ProtectedRoute path='/' exact={true}>
 					<div className='home body'>
 						<Home />
