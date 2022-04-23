@@ -84,6 +84,10 @@
 }
 
 
+#booking__end-time select option, #booking__start-time select option{
+    color: black;
+}
+
 
 
 
