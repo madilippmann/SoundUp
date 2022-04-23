@@ -143,7 +143,7 @@ def seed_artists():
 
     artist_10 = Artist(
         # Classical, clarinet
-        name='Kaitlyn Livingston',
+        name='Elias Cooper',
         bio=bio3,
         rate=120,
         profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/clarinet_2.jpg',
@@ -355,7 +355,7 @@ def seed_artists():
 
     artist_27 = Artist(
         # GENRES classical, piano
-        name='Lilian Madison',
+        name='Mack George',
         bio=bio6,
         rate=185,
         profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_2.jpg",
@@ -369,7 +369,7 @@ def seed_artists():
 
     artist_28 = Artist(
         # GENRES classical, piano
-        name='Addison Parrish',
+        name='Glenn James',
         bio=bio7,
         rate=90,
         profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_3.jpg",
@@ -381,7 +381,7 @@ def seed_artists():
 
     artist_29 = Artist(
         # GENRES classical, piano
-        name='Mack George',
+        name='Charlie Bishop',
         bio=bio1,
         rate=100,
         profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_6.jpg",
@@ -395,7 +395,7 @@ def seed_artists():
 
     artist_30 = Artist(
         # GENRES classical, piano
-        name='Glenn James',
+        name='Addison Parrish',
         bio=bio2,
         rate=200,
         profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_5.jpg",
@@ -407,7 +407,7 @@ def seed_artists():
 
     artist_31 = Artist(
         # GENRES classical, piano
-        name='Charlie Bishop',
+        name='Lilian Madison',
         bio=bio3,
         rate=115,
         profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_6+(1).jpg",

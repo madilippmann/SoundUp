@@ -16,17 +16,20 @@ export const categorizeArtists = (artists) => {
     const sortedArtists = {
         all: [...Object.values(artists)],
         electronic: [],
-        folk: [],
-        classical: []
+        classical: [],
+        jazz: [],
+        singerSongwriter: []
     }
 
     Object.values(artists).forEach(artist => {
         if (artist.genres.find(artistGenre => artistGenre.name === 'Electronic')) {
             sortedArtists.electronic.push(artist)
-        } else if (artist.genres.find(artistGenre => artistGenre.name === 'Folk')) {
-            sortedArtists.folk.push(artist)
+        } else if (artist.genres.find(artistGenre => artistGenre.name === 'Singer/Songwriter')) {
+            sortedArtists.singerSongwriter.push(artist)
         } else if (artist.genres.find(artistGenre => artistGenre.name === 'Classical')) {
             sortedArtists.classical.push(artist)
+        } else if (artist.genres.find(artistGenre => artistGenre.name === 'Jazz')) {
+            sortedArtists.jazz.push(artist)
         }
     })
 

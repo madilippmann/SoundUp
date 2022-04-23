@@ -17,8 +17,8 @@ const Home = () => {
     const artists = useSelector(state => state.artists)
     const [isLoaded, setIsLoaded] = useState(false)
 
-    const categories = ['Trending Artists', 'Folk', 'Electronic / DJ', 'Classical']
-    const genres = ['all', 'folk', 'electronic', 'classical']
+    const categories = ['Trending Artists', 'Electronic / DJ', 'Classical', 'Jazz', 'Singer/Songwriter']
+    const genres = ['all', 'electronic', 'classical', 'jazz', 'singerSongwriter']
 
     const [categorizedArtists, setCategorizedArtists] = useState()
 
