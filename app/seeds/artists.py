@@ -18,6 +18,8 @@ bio6 = 'Phasellus malesuada, eros et gravida fermentum, sem sem consectetur tort
 
 bio7 = 'Integer cursus dui nec turpis varius, nec aliquam justo venenatis. Curabitur semper eget ipsum nec eleifend. Etiam sollicitudin risus vel augue maximus, vitae congue sem faucibus. Sed sit amet felis at mi fermentum commodo non sed sapien. Cras venenatis consectetur neque viverra ornare.'
 
+
+
 def seed_artists():
     artist_1 = Artist(
         # Electronic, DJ, Funk
@@ -112,6 +114,371 @@ def seed_artists():
 
     )
 
+    artist_8 = Artist(
+        # BRASS BAND
+        # GENRES Jazz, Big Band
+        name="Elliot's Midnight Preachers",
+        bio=bio1,
+        rate=750,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/brass_band.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/U.S.+Army+Blues+-+Barbara.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/U.S.+Army+Blues+-+Walk+That+Dog.mp3',
+        audio_track_name_1='Barbara',
+        audio_track_name_2='Walk that Dog',
+    )
+
+
+    artist_9 = Artist(
+        # CELLIST
+        # Classical, Cello
+        name='Avery Lynn',
+        bio=bio2,
+        rate=180,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/cellist_1.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/cellist_1/IMSLP718221-PMLP164351-01.02._Suite_No._3_In_C_Major%2C_BWV.1008_For_'Cello_Unaccompanied-_2nd_Movement-_Allemande.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/cellist_1/IMSLP718225-PMLP164351-01.06._Suite_No._3_In_C_Major%2C_BWV.1008_For_'Cello_Unaccompanied-_6th_Movement-_Gigue+(1).mp3",
+        audio_track_name_1='Suite No. 3 in C Major - 2nd Movement - Allemande',
+        audio_track_name_2='Suite No. 3 in C Major - 6th Movement - Gigue',
+    )
+
+    artist_10 = Artist(
+        # Classical, clarinet
+        name='Kaitlyn Livingston',
+        bio=bio3,
+        rate=120,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/clarinet_2.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/clarinetist/IMSLP717118-PMLP52918-01.04._Sonata_In_F_Minor_For_Clarinet_And_Piano%2C_Op._120%2C_No._1-_Vivace.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/clarinetist/IMSLP717116-PMLP52918-01.02._Sonata_In_F_Minor_For_Clarinet_And_Piano%2C_Op._120%2C_No._1-_Andante_Un_Poco_Adagio.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/clarinetist/IMSLP717115-PMLP52918-01.01._Sonata_In_F_Minor_For_Clarinet_And_Piano%2C_Op._120%2C_No._1-_Allegro_Appassionato.mp3",
+        audio_track_name_1="Op. 120 No.1 - Vivace",
+        audio_track_name_2="Op. 120 No.1 - Andante Un Poco Adagio",
+        audio_track_name_3="Op. 120 No.1 - Allegro Appassionato",
+    )
+
+
+
+    artist_11 = Artist(
+        # GENRES classical, guitar
+        name='Carol Clay',
+        bio=bio4,
+        rate=150,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/guitarist_1.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/guitar/Monplaisir+-+H%C3%A9lice.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/guitar/Monplaisir+-+Juillet.mp3",
+        audio_track_name_1='Hélice',
+        audio_track_name_2='Juillet',
+    )
+
+    artist_12 = Artist(
+        # GENRES classical, guitar
+        name='Roscoe Colt',
+        bio=bio5,
+        rate=220,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/guitarist_2.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/guitar/Monplaisir+-+Dormir+rien+de+plus.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/guitar/Monplaisir+-+La+m%C3%AAme+journ%C3%A9e+qu'hier.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/guitar/Monplaisir+-+Se+recourber.mp3",
+        audio_track_name_1='Dormir rien de plus',
+        audio_track_name_2='La meme journée qu\'hier',
+        audio_track_name_3='Se recourber',
+    )
+
+    artist_13 = Artist(
+        # GENRES country, singer/songwriter, folk
+        name='Austin Park',
+        bio=bio6,
+        rate=85,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/country_singer.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/country_singer/HoliznaCC0+-+Dear+Old+Dad.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/country_singer/HoliznaCC0+-+Bad+Bad+Barn+Yard.mp3',
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/country_singer/HoliznaCC0+-+A+Yankees+Southern+Blues.mp3',
+        audio_track_name_1='Dear Old Dad',
+        audio_track_name_2='Bad Bad Barn Yard',
+        audio_track_name_3='A Yankees Southern Blues',
+    )
+
+    artist_14 = Artist(
+        # GENRES electronic funk
+        name='Deaf Monkeys',
+        bio=bio7,
+        rate=75,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/electro_funk_1.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/electro_funk/Malaventura+-+Agora.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/electro_funk/Malaventura+-+El+Burrito.mp3',
+        audio_track_name_1='Agora',
+        audio_track_name_2='El Burrito',
+    )
+
+    artist_15 = Artist(
+        # GENRES electronic, funk
+        name='Unspeakable Kid',
+        bio=bio1,
+        rate=125,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/electro_funk_2.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/electro_funk/Malaventura+-+Let's+the+kids+play.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/electro_funk/Malaventura+-+Polinesia.mp3",
+        audio_track_name_1='Let the kids play',
+        audio_track_name_2='Polinesia',
+    )
+
+    artist_16 = Artist(
+        # GENRES classical, flute
+        name='Sydney Ford',
+        bio=bio2,
+        rate=60,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/flutist_1.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/flute/Flute+Sonata+in+A+minor%2C+H.+562+-++I.+Poco+Adagio.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/flute/Flute+Sonata+in+E+minor%2C+HWV+359b+-II.+Allegro.mp3",
+        audio_track_name_1='Flute Sonata in A minor - I. Poco Adagio',
+        audio_track_name_2='Flute Sonata in E minor - II. Allegro',
+    )
+
+    artist_17 = Artist(
+        # GENRES classical, flute
+        name='Jordyn Tanner',
+        bio=bio3,
+        rate=90,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/flutist_2.jpg',
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/flute/24+Etudes+for+Flute%2C+Op.+15+-+III.+Allegro+con+brio+in+G+major.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/flute/30+Caprices+for+Flute+Solo%2C+Op.+107+-+30.+Chaconne.mp3",
+        audio_track_name_1='24 Etude for Flute - III. Allegro con brio',
+        audio_track_name_2='30 Caprices for Flute - Op. 107 Chaconne',
+    )
+
+    artist_18 = Artist(
+        # GENRES hip-hop, rap
+        name='Muse Flux',
+        bio=bio4,
+        rate=250,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/rapper.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/hip-hop/HoliznaRAPS+-+When+You+See+Me+Now.mp3',
+        audio_track_name_1='When You See Me Now',
+    )
+
+    artist_19 = Artist(
+        # GENRES jazz
+        name='Taking Back November',
+        bio=bio5,
+        rate=750,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jazz_ensemble_1.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/U.S.+Army+Blues+-+BugaBlue.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/U.S.+Army+Blues+-+Not+On+The+Bus.mp3',
+        audio_track_name_1='BugaBlue',
+        audio_track_name_2='Not On The Bus',
+    )
+
+    artist_20 = Artist(
+        # GENRES jazz
+        name='Tesco\'s Revival',
+        bio=bio6,
+        rate=550,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jazz_ensemble_2.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/U.S.+Army+Blues+-+Stardust.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/U.S.+Army+Blues+-+Bayou+Farewell.mp3',
+        audio_track_name_1='Stardust',
+        audio_track_name_2='Bayou Farewell',
+    )
+
+    artist_21 = Artist(
+        # GENRES jazz
+        name='Twenty Inch Ants',
+        bio=bio7,
+        rate=900,
+        profile_image_url='https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/quintet.jpg',
+        audio_url_1='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/Breuss+Arrizabalaga+Quintet+-+Zubaida.mp3',
+        audio_url_2='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/Breuss+Arrizabalaga+Quintet+-+Tsurugi.mp3',
+        audio_url_3='https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazz/Breuss+Arrizabalaga+Quintet+-+Mount+Fuji.mp3',
+        audio_track_name_1='Zubaida',
+        audio_track_name_2='Tsurugi',
+        audio_track_name_3='Mount Fuji',
+    )
+
+    artist_22 = Artist(
+        # GENRES jazz, electronic, DJ
+        name='Head Attack',
+        bio=bio1,
+        rate=150,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/electro_jazz_1.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/HoliznaCC0+-+Get+Evil.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/HoliznaCC0+-+Swingin'+Richards.mp3",
+        audio_track_name_1='Get Evil',
+        audio_track_name_2='Swingin\' Richards',
+    )
+
+    artist_23 = Artist(
+        # GENRES jazz, electronic, DJ
+        name='Crazy Kid Charlie',
+        bio=bio2,
+        rate=175,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jazz_electronic_3.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/Malaventura+-+Breeze+Funk.mp3",
+        audio_track_name_1="Breeze Funk"
+    )
+
+    artist_24 = Artist(
+        # GENRES jazz, electronic, DJ
+        name='Heart for the Vandals',
+        bio=bio3,
+        rate=325,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jazzy_lofi.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/HoliznaCC0+-+Busking+In+the+SunLight.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/HoliznaCC0+-+Busted+AC+Unit.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/HoliznaCC0+-+There+Will+Come+A+Time.mp3",
+        audio_track_name_1='Busking In The Sunglight',
+        audio_track_name_2='Busted AC Unit',
+        audio_track_name_3='There Will Come A Time',
+    )
+
+    artist_25 = Artist(
+        # GENRES R&B
+        name='St. Eddie Joy',
+        bio=bio4,
+        rate=175,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/jazzy_r%26b.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/jazzy/22+-+Windy+Dazed+Days+(ALIENBOYYYMUSIC).mp3",
+        audio_track_name_1='Windy Dazed Days',
+    )
+
+    artist_26 = Artist(
+        # GENRES classical, piano
+        name='Noah Keith',
+        bio=bio5,
+        rate=100,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_1.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Kimiko+Ishizaka+-+Variatio+3+a+1+Clav.+Canone+all'Unisuono.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Kimiko+Ishizaka+-+Variatio+24+a+1+Clav.+Canone+all'Ottava.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Kimiko+Ishizaka+-+Variatio+29+a+1+ovvero+2+Clav..mp3",
+        audio_track_name_1='Variation 3',
+        audio_track_name_2='Variation 24',
+        audio_track_name_3='Varation 29',
+    )
+
+    artist_27 = Artist(
+        # GENRES classical, piano
+        name='Lilian Madison',
+        bio=bio6,
+        rate=185,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_2.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Daniel+Veesey+-+Sonata+No.+19+in+G+Minor%2C+Op.+49+No.+1+-+I.+Andante.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Daniel+Veesey+-+Sonata+No.+22+in+F+Major%2C+Op.+54+-+I.+In+tempo+dun+Menuetto.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Daniel+Veesey+-+Sonata+No.+22+in+F+Major%2C+Op.+54+-+II.+Allegretto.mp3",
+        audio_track_name_1='Sonata No. 19 in G Minor - I. Andante',
+        audio_track_name_2='Sonata No. 22 - I. In tempo dun Menuetto',
+        audio_track_name_3='Sonata No. 22 - II. Allegretto',
+    )
+
+    artist_28 = Artist(
+        # GENRES classical, piano
+        name='Addison Parrish',
+        bio=bio7,
+        rate=90,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_3.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Nathan+Eckel+-+Sonata+in+G+Minor%2C+_Didone+Abbandonata_+op.50+no.3+-+II.+Adagio+dolente.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Nathan+Eckel+-+Sonata+in+G+Minor%2C+_Didone+Abbandonata_+op.50+no.3+-+III.+Allegro+agitato%2C+e+con+disperazione.mp3",
+        audio_track_name_1='Sonata in G Minor - II. Adagio dolente',
+        audio_track_name_2='Sonata in G Minor - III. Allegro',
+    )
+
+    artist_29 = Artist(
+        # GENRES classical, piano
+        name='Mack George',
+        bio=bio1,
+        rate=100,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_6.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Paul+Pitman+-+Preludes%2C+Book+2+-+.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Brendan+Kinsella+-+Mozart+-+Sonata+No.+13+In+B+Flat+Major%2C+K.333+-+II.+Andante+Cantabile.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Brendan+Kinsella+-+Bach+-+Aria+Variata%2C+BVW.+989+-+Variation+No.+3.mp3",
+        audio_track_name_1='Preludes Book 2',
+        audio_track_name_2='Mozart - Sonata No. 13 in B-flat Major K.333',
+        audio_track_name_3='Bach - Aria Variata BVW. 989',
+    )
+
+    artist_30 = Artist(
+        # GENRES classical, piano
+        name='Glenn James',
+        bio=bio2,
+        rate=200,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_5.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Daniel+Veesey+-+Sonata+No.+13+in+E+Flat+Major%2C+Op.+27+No.+1+-+I.+Andante+-+Allegro+-+Tempo+I.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Daniel+Veesey+-+Sonata+No.+13+in+E+Flat+Major%2C+Op.+27+No.+1+-+III.+Adagio+con+espressione.mp3",
+        audio_track_name_1='Sonata No. 13 - I. Andante Allegro',
+        audio_track_name_2='Sonata No. 13 - III. Adagio con espressione',
+    )
+
+    artist_31 = Artist(
+        # GENRES classical, piano
+        name='Charlie Bishop',
+        bio=bio3,
+        rate=115,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pianist_6+(1).jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Carlos+Gardels+-+Bach+-+Book+I_+Prelude+and+Fugue+No.+8+in+E+Flat+Minor%2C+BWV+853%2C+Prelude.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/piano/Daniel+Veesey+-+Sonata+No.+19+in+G+Minor%2C+Op.+49+No.+1+-+II.+Rondo++Allegro.mp3",
+        audio_track_name_1='Prelude and Fugue No. 8 in E-flat Minor',
+        audio_track_name_2='Sonata No. 19 - II. Rondo Allegro',
+    )
+
+
+
+    artist_32 = Artist(
+        # GENRES pop, electronic, dance
+        name='Ghost Rose',
+        bio=bio4,
+        rate=600,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/pop_electronica.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/pop/Is+Enough.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/pop/Dance.mp3",
+        audio_url_3="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/pop/Starring.mp3",
+        audio_track_name_1='Is Enough',
+        audio_track_name_2='Dance',
+        audio_track_name_3='Starring',
+    )
+
+    artist_33 = Artist(
+        # GENRES classical, violin
+        name='Jennifer Seymour',
+        bio=bio5,
+        rate=150,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/violinist_1.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/violin/IMSLP724765-PMLP244085-04.J.S.Bach-SarabandefromPartitaNo.1InBMinor.mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/violin/Violin+Partita+no.+2%2C+BWV+1004.mp3",
+        audio_track_name_1='Bach - Sarabande from Partita No. I in B minor',
+        audio_track_name_2='Partita No. 2',
+    )
+
+    artist_34 = Artist(
+        # GENRES classical, violin
+        name='Lee Brooks',
+        bio=bio6,
+        rate=75,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/violinist_2.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/violin/IMSLP720634-PMLP10225-01.03._Sonata_No._1_In_G_Major%2C__Rain__Op._78-_Allegro_Molto_Moderato.mp3",
+        audio_track_name_1='Op. 78 Allegro Molto Moderato',
+    )
+
+    artist_35 = Artist(
+        # GENRES classical, violin
+        name='Dwayne Gordon',
+        bio=bio7,
+        rate=175,
+        profile_image_url="https://soundup-app-seed.s3.us-west-1.amazonaws.com/images/violinist_3.jpg",
+        audio_url_1="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/violin/IMSLP720615-PMLP10227-01.03._Third_Movement-_Allegretto_Grazioso_(Quasi_Andante).mp3",
+        audio_url_2="https://soundup-app-seed.s3.us-west-1.amazonaws.com/audio/violin/IMSLP720633-PMLP10225-01.02._Sonata_No._1_In_G_Major%2C__Rain__Op._78-_Adagio.mp3",
+        audio_track_name_1='Third Movement - Allegretto Grazioso',
+        audio_track_name_2='Sonata No. 1 in G Major - Op. 78 Adagio',
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
     db.session.add(artist_1)
     db.session.add(artist_2)
     db.session.add(artist_3)
@@ -119,6 +486,35 @@ def seed_artists():
     db.session.add(artist_5)
     db.session.add(artist_6)
     db.session.add(artist_7)
+    db.session.add(artist_8)
+    db.session.add(artist_9)
+    db.session.add(artist_10)
+    db.session.add(artist_11)
+    db.session.add(artist_12)
+    db.session.add(artist_13)
+    db.session.add(artist_14)
+    db.session.add(artist_15)
+    db.session.add(artist_16)
+    db.session.add(artist_17)
+    db.session.add(artist_18)
+    db.session.add(artist_19)
+    db.session.add(artist_20)
+    db.session.add(artist_21)
+    db.session.add(artist_22)
+    db.session.add(artist_23)
+    db.session.add(artist_24)
+    db.session.add(artist_25)
+    db.session.add(artist_26)
+    db.session.add(artist_27)
+    db.session.add(artist_28)
+    db.session.add(artist_29)
+    db.session.add(artist_30)
+    db.session.add(artist_31)
+    db.session.add(artist_32)
+    db.session.add(artist_33)
+    db.session.add(artist_34)
+    db.session.add(artist_35)
+
 
     db.session.commit()
 

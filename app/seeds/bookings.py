@@ -52,6 +52,14 @@ def seed_bookings():
         end_date_time=datetime(2021, 12, 10, 15, 45),
         confirmed=True
     )
+    booking_7 = Booking(
+        user_id=1,
+        artist_id=22,
+        description='Nisi vitae suscipit tellus mauris a. Mauris a diam maecenas sed enim.',
+        start_date_time=datetime(2021, 11, 2, 13, 0),
+        end_date_time=datetime(2021, 11, 2, 14, 0),
+        confirmed=True
+    )
 
     db.session.add(booking_1)
     db.session.add(booking_2)
@@ -59,6 +67,7 @@ def seed_bookings():
     db.session.add(booking_4)
     db.session.add(booking_5)
     db.session.add(booking_6)
+    db.session.add(booking_7)
 
     db.session.commit()
 
