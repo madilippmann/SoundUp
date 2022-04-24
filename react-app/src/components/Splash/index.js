@@ -22,15 +22,18 @@ const Splash = () => {
 
     return (
         <div id='splash__container'>
+            {/* <div id='carousel'> */}
+            {n === 3 &&
+                <img id='splash__image' src={image_3} alt='splash' />
+            }
             {n === 1 &&
                 <img id='splash__image' src={image_1} alt='splash' />
             }
             {n === 2 &&
                 <img id='splash__image' src={image_2} alt='splash' />
             }
-            {n === 3 &&
-                <img id='splash__image' src={image_3} alt='splash' />
-            }
+
+            {/* </div> */}
         </div>
     )
 }
