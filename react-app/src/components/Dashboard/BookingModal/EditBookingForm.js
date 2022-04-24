@@ -260,6 +260,15 @@ const EditBookingForm = ({ parent, setShowModal }) => {
                         onChange={(e) => setDescription(() => e.target.value)}
                         value={description}
                     />
+                    <div
+                        style={{
+                            fontWeight: '300',
+                            fontSize: '12px',
+                            alignSelf: 'flex-end'
+                        }}
+                    >
+                        {description.length} / 2000
+                    </div>
 
                 </div>
                 <div className='center'>

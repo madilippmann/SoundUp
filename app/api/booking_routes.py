@@ -75,6 +75,7 @@ def update_booking(booking_id):
         booking.start_date_time = datetime.fromtimestamp(form['start_date_time'].data / 1000)
         booking.end_date_time = datetime.utcfromtimestamp(form['end_date_time'].data / 1000)
         booking.description = form['description'].data
+        booking.updated_at = datetime.now()
 
         db.session.commit()
         return jsonify(booking.to_dict())

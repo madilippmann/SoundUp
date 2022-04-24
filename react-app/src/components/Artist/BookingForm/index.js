@@ -26,7 +26,7 @@ const BookingForm = ({ parent }) => {
     const [endDateTime, setEndDateTime] = useState();
 
     const [description, setDescription] = useState('');
-    const [bookingDuration, setBookingDuration] = useState(null);
+    // const [bookingDuration, setBookingDuration] = useState(null);
 
     const [showErrors, setShowErrors] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
@@ -235,9 +235,9 @@ const BookingForm = ({ parent }) => {
                     </div>
 
                 </div>
-                {bookingDuration &&
+                {/* {bookingDuration &&
                     <p>Total: {parent.rate * bookingDuration}</p>
-                }
+                } */}
 
                 {!showErrors ? null : (
                     <div className='error-container booking'>
