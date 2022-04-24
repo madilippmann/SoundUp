@@ -20,8 +20,6 @@ const BookingForm = ({ parent }) => {
     const [startTime, setStartTime] = useState();
     const [endTime, setEndTime] = useState();
 
-    const [parsedStartTime, setParsedStartTime] = useState();
-    const [parsedEndTime, setParsedEndTime] = useState();
     const [parsedDate, setParsedDate] = useState();
 
     const [startDateTime, setStartDateTime] = useState();
@@ -32,37 +30,6 @@ const BookingForm = ({ parent }) => {
 
     const [showErrors, setShowErrors] = useState(false);
     const [validationErrors, setValidationErrors] = useState([]);
-
-
-
-    // const extractDate = (dateTime) => {
-    //     let date = new Date(dateTime)
-
-    //     const year = date.getFullYear()
-    //     const month = date.getMonth() > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
-    //     const day = dateTime.split(' ')[1]
-
-    //     return `${year}-${month}-${day}`
-    // }
-
-    // const extractTime = (dateTime) => {
-    //     const date = new Date(dateTime);
-    //     const hours = date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`;
-    //     const minutes = date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`
-
-    //     console.log('HOURS: ', hours, ' MINUTES: ', minutes, ' DATE: ', date)
-
-    //     return `${hours}:${minutes}`
-
-    // }
-
-    // useEffect(() => {
-    //     if (parent.start_date_time) {
-    //         setDate(() => extractDate(parent.start_date_time))
-    //         setStartTime(() => extractTime(parent.start_date_time))
-    //         setEndTime(() => extractTime(parent.end_date_time))
-    //     }
-    // }, [])
 
 
     useEffect(() => {
@@ -180,6 +147,7 @@ const BookingForm = ({ parent }) => {
             end_date_time: endDateTime,
             description,
         }
+        console.log('Description length: ', description.length)
 
         res = await dispatch(userActions.createBooking(booking))
         if (res.errors) {
@@ -256,6 +224,15 @@ const BookingForm = ({ parent }) => {
                         onChange={(e) => setDescription(() => e.target.value)}
                         value={description}
                     />
+                    <div
+                        style={{
+                            fontWeight: '300',
+                            fontSize: '12px',
+                            alignSelf: 'flex-end'
+                        }}
+                    >
+                        {description.length} / 2000
+                    </div>
 
                 </div>
                 {bookingDuration &&

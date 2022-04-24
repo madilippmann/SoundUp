@@ -3,7 +3,7 @@ from wtforms import StringField, DateTimeField, IntegerField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Booking
 from datetime import datetime, date
-
+from .utils import length
 
 def check_time_availability(form, field):
     artist_bookings = Booking.query.filter(Booking.artist_id == form.data['artist_id']).all()
@@ -43,16 +43,15 @@ def past_date(form, field):
         raise ValidationError('Please select a future date.')
 
 
-# today = datetime.today()
 class BookingForm(FlaskForm):
     artist_id = IntegerField('artist_id', validators=[DataRequired()])
     start_date_time = IntegerField('start_date_time', validators=[DataRequired(), check_time_availability, past_date])
     end_date_time = IntegerField('end_date_time', validators=[DataRequired()])
-    description = StringField('description')
+    description = StringField('description',validators=[length('Event description', 2000)])
 
 class EditBookingForm(FlaskForm):
     booking_id = IntegerField('artist_id', validators=[DataRequired()])
     artist_id = IntegerField('artist_id', validators=[DataRequired()])
     start_date_time = IntegerField('start_date_time', validators=[DataRequired(), edit_check_time_availability, past_date])
     end_date_time = IntegerField('end_date_time', validators=[DataRequired()])
-    description = StringField('description')
+    description = StringField('description', validators=[length('Event description', 2000)])
