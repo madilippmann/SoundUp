@@ -51,13 +51,11 @@ export const fetchArtists = () => async (dispatch) => {
     const res = await fetch(`/api/artists/`);
 
     if (res.ok) {
-        console.log('res: ', res)
         const artists = await res.json();
         dispatch(loadArtists(artists));
         return artists;
     }
 
-    console.log('SKIPPED res.ok')
 };
 
 export const fetchArtist = (artistId) => async (dispatch) => {

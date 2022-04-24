@@ -51,8 +51,6 @@ const BookingCard = ({ sessionUser, booking, type }) => {
                                 </div>
 
                                 <div id='booking-confirmed__container'>
-                                    {console.log('Updated At: ', booking.updated_at)}
-                                    {console.log('Created At: ', booking.created_at)}
                                     {Date.parse(booking.updated_at) < Date.parse(new Date()) - (1000 * (60 * 5)) ?
                                         <>
                                             <FontAwesomeIcon icon={faCircleCheck} id='booking-confirmed__icon' />

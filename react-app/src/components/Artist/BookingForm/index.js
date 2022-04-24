@@ -35,7 +35,6 @@ const BookingForm = ({ parent }) => {
     useEffect(() => {
         // DATE
         const adjustedDate = String(date).split(' ').slice(0, 4).join(' ');
-        console.log('START TIME / END TIME: ', startTime, endTime)
         setParsedDate(() => adjustedDate);
 
 
@@ -57,7 +56,6 @@ const BookingForm = ({ parent }) => {
             } else {
                 if (Number(adjustedStartTime[0].split(':')[0]) === 12) {
                     let [hours, minutes] = adjustedStartTime[0].split(':')
-                    console.log('start minutes ', minutes)
                     adjustedStartTime = `12:${minutes}`
 
                 } else {
@@ -84,10 +82,8 @@ const BookingForm = ({ parent }) => {
                     adjustedEndTime = `0${adjustedEndTime[0]}`
                 }
             } else {
-                console.log(adjustedEndTime[0].split(':'), ' ADJUSTED')
                 if (Number(adjustedEndTime[0].split(':')[0]) === 12) {
                     let [hours, minutes] = adjustedEndTime[0].split(':')
-                    console.log('end minutes ', minutes)
                     adjustedEndTime = `12:${minutes}`
 
                 } else {
@@ -106,11 +102,8 @@ const BookingForm = ({ parent }) => {
 
 
     useEffect(() => {
-        console.log('START DATE TIME: ', startDateTime)
-        console.log('END DATE TIME: ', endDateTime)
 
         const errors = [];
-        // TODO TODO TODO TODO TODO
 
         if (!startDateTime) {
             errors.push('Please enter a valid start time.')
@@ -147,7 +140,6 @@ const BookingForm = ({ parent }) => {
             end_date_time: endDateTime,
             description,
         }
-        console.log('Description length: ', description.length)
 
         res = await dispatch(userActions.createBooking(booking))
         if (res.errors) {
