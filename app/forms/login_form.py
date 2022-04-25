@@ -23,5 +23,5 @@ def password_matches(form, field):
         raise ValidationError('Password was incorrect.')
 
 class LoginForm(FlaskForm):
-    email = StringField('email', validators=[DataRequired(), user_exists, length('Email', 255)])
-    password = StringField('password', validators=[DataRequired(), password_matches, length('Password', 40)])
+    email = StringField('email', validators=[DataRequired(message='Email field is required'), user_exists, length('Email', 255)])
+    password = StringField('password', validators=[DataRequired(message='Password field is required'g), password_matches, length('Password', 40)])
