@@ -130,3 +130,23 @@ input[type='date']::-webkit-calendar-picker-indicator {
     gap: 10px;
     align-items: center;
 }
+
+
+#select-genre {
+    border: none;
+}
+#select-genre:focus {
+    outline: none;
+}
+
+#genre__search-input {
+    display: flex;
+    align-items: center;
+}
+
+#genre__search-input select {
+    display: flex;
+    align-items: center;
+
+    padding-left: 5px;
+}
