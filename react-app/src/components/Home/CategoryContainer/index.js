@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 // import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons';
@@ -44,7 +46,17 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
 
     return (
         <div>
-            <h2 className='category__title'>{category}</h2>
+            {category === 'Trending Artists' ?
+                <h2 className='category__title'>{category}</h2> :
+                <div className='category__title view-all__link' >
+                    <h2 >{category}</h2>
+                    <div>
+                        <Link to={`/search/${category}`}>
+                            View all
+                        </Link>
+                    </div>
+                </div>
+            }
             <div id='category__outer-container'>
                 {scrollPosition !== 0 &&
                     // <div  id='scroll-left__button-container'>

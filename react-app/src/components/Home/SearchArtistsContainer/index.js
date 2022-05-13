@@ -26,57 +26,64 @@ const SearchArtistsContainer = () => {
     useEffect(() => {
         console.log('Genres: ', genres)
     }, [genres])
-    // const onChange = (date) => {
-    //     // TODO
-    // };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+
+
+    };
 
     return !isLoaded ? null : (
         <div id='artists-search-container'>
             <h1 id='search-title'>Find your musician for any occasion</h1>
 
-            <div className='search__input'>
-                <div id='date-time__search-input' className='input__backdrop'>
-                    <div className='flex-row' id='date__search-input' >
-                        <FontAwesomeIcon icon={faCalendar} />
-                        <input
-                            className='input-no-style add cursor-not-allowed'
-                            type='date'
-                        />
+            <form onSubmit={(e) => onSubmit(e)}>
+                <div className='search__input'>
+                    <div id='date-time__search-input' className='input__backdrop'>
+                        <div className='flex-row' id='date__search-input' >
+                            <FontAwesomeIcon icon={faCalendar} />
+                            <input
+                                className='input-no-style add cursor-not-allowed'
+                                type='date'
+                            />
+                        </div>
+
+                        <div className='flex-row' id='time__search-input' >
+                            <FontAwesomeIcon icon={faClock} />
+                            <select
+                                id='select-time'
+                                className='input-no-style cursor-not-allowed'
+                                type='select'
+                            >
+                                {times.map(time => <option value={time}>{time}</option>)}
+                            </select>
+                        </div>
                     </div>
 
-                    <div className='flex-row' id='time__search-input' >
-                        <FontAwesomeIcon icon={faClock} />
+                    <div id='genre__search-input' className='input__backdrop'>
+                        <FontAwesomeIcon icon={faSearch} />
                         <select
-                            id='select-time'
-                            className='input-no-style cursor-not-allowed'
+                            id='select-genre'
                             type='select'
                         >
-                            {times.map(time => <option value={time}>{time}</option>)}
+                            <option value='' selected hidden >Select Genre...</option>
+                            <option value='any' >Any Genre</option>
+                            {genres.map(genre => <option value={genre.id}>{genre.name}</option>)}
                         </select>
+                        {/* <input className='input-no-style cursor-not-allowed' placeholder='Artist or Genre' /> */}
                     </div>
-                </div>
 
-                <div id='genre__search-input' className='input__backdrop'>
-                    <FontAwesomeIcon icon={faSearch} />
-                    <select
-                        id='select-genre'
-                        type='select'
-                    >
-                        <option value='' selected hidden >Select Genre...</option>
-                        <option value='any' >Any Genre</option>
-                        {genres.map(genre => <option value={genre.id}>{genre.name}</option>)}
-                    </select>
-                    {/* <input className='input-no-style cursor-not-allowed' placeholder='Artist or Genre' /> */}
-                </div>
+                    <button
+                        type='button'
+                        // title='        ⚠️ feature under construction'
+                        className='search-disabled search__button'
+                        id='search__button'>
+                        Let's go
+                    </button>
 
-                <button
-                    type='button'
-                    title='        ⚠️ feature under construction'
-                    className='search-disabled search__button'
-                    id='search__button'>
-                    Let's go
-                </button>
-            </div>
+                </div >
+            </form>
         </div>
     );
 }
