@@ -11,7 +11,7 @@ import ArtistCard from './ArtistCard';
 
 import './CategoryContainer.css'
 
-const CategoryContainer = ({ category, artists, outerContainerRef }) => {
+const CategoryContainer = ({ genre, category, artists, outerContainerRef }) => {
     const container = useRef()
     const [scrollPosition, setScrollPosition] = useState(0);
     const [scrollEnd, setScrollEnd] = useState(false)
@@ -48,10 +48,10 @@ const CategoryContainer = ({ category, artists, outerContainerRef }) => {
         <div>
             {category === 'Trending Artists' ?
                 <h2 className='category__title'>{category}</h2> :
-                <div className='category__title view-all__link' >
+                <div className='category__title view-all' >
                     <h2 >{category}</h2>
-                    <div>
-                        <Link to={`/search/${category}`}>
+                    <div id='view-all__link'>
+                        <Link to={`/genres/${genre}`}>
                             View all
                         </Link>
                     </div>

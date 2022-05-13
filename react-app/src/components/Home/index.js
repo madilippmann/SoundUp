@@ -43,7 +43,7 @@ const Home = () => {
             <div className='category__outer-container' ref={outerContainer}>
                 {categories.map((category, i) => (
                     <div key={i}>
-                        <CategoryContainer category={category} artists={categorizedArtists[genres[i]]} outerContainerRef={outerContainer} />
+                        <CategoryContainer genre={genres[i]} category={category} artists={categorizedArtists[genres[i]]} outerContainerRef={outerContainer} />
                     </div>
                 ))}
             </div>

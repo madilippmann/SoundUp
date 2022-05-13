@@ -12,13 +12,13 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Splash from './components/Splash';
 import Artist from './components/Artist';
+import Search from './components/Search';
 import Footer from './components/Footer';
 
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
 	const dispatch = useDispatch();
-	// const sessionUser = useSelector(state => state.session.user)
 
 	useEffect(() => {
 		(async () => {
@@ -58,6 +58,12 @@ function App() {
 				<ProtectedRoute path='/artists/:artistId' exact={true}>
 					<div className='artist body'>
 						<Artist />
+					</div>
+				</ProtectedRoute>
+
+				<ProtectedRoute path='/genres/:genre' exact={true}>
+					<div className='search body'>
+						<Search />
 					</div>
 				</ProtectedRoute>
 

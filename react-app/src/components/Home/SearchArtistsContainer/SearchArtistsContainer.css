@@ -59,10 +59,7 @@
 
 
 button.search__button {
-    /* cursor: pointer; */
-    /* cursor: url(../../static/cursor.png), pointer; */
-    /* cursor: url(https://soundup-app-seed.s3.us-west-1.amazonaws.com/cursor.png), not-allowed; */
-    cursor: not-allowed;
+
     color: white;
     font-size: 18px;
     border-radius: 4px;

@@ -90,7 +90,7 @@
 }
 
 
-.view-all__link {
+.view-all {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -105,4 +105,18 @@
 .view-all__link h2 {
     padding: 20px 0;
     margin: 0;
+}
+
+
+div #view-all__link *{
+    color: rgb(82, 82, 169);
+    border-bottom: 0px solid transparent;
+    transition: color .20s ease-in-out, border-bottom .20s ease-in-out;
+}
+
+div #view-all__link:hover * {
+    color: rgb(71, 71, 163);
+    border-bottom: 1px solid rgb(227,55,0);
+    color: rgb(227,55,0);
+    /* text-decoration: underline; */
 }
