@@ -1,16 +1,23 @@
 #splash__container {
     width: 100%;
     height:100%;
-    padding: none;
-    margin: none;
+    /* padding: none;
+    margin: none; */
 }
 
-#splash__image {
+div#splash__container * {
+    background-color: rgba(227, 57, 0, 0.042);
+    background-color: rgb(71, 71, 163);
+    background-color: rgba(75, 84, 101, 0.083);
+
+}
+
+div#splash__container div#splash__image img{
     width: 100%;
     object-fit: contain;
     height: inherit;
     animation-name: fade;
-    animation-duration: 7s;
+    animation-duration: 2s;
 }
 
 
