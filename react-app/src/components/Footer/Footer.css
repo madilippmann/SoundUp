@@ -3,7 +3,8 @@
     background-color: rgb(98, 98, 98);
     background-color: rgb(75, 84, 101);
     color: rgb(237, 237, 237);
-    height: 120px;
+    height: 20%;
+    min-height: 120px;
     padding: 15px;
     display: flex;
     gap: 50px;
