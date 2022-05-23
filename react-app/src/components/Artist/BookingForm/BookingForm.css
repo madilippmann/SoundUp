@@ -88,7 +88,9 @@
     color: black;
 }
 
-
+select.input-no-style {
+    cursor: pointer;
+}
 
 
 

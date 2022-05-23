@@ -25,6 +25,10 @@ body {
 
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .blur {
     /* filter: blur(4px); */
 }
