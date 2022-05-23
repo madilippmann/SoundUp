@@ -59,7 +59,6 @@ const LoginForm = ({ setShowModal }) => {
           <input
             name='email'
             type='text'
-            placeholder='Email'
             value={email}
             onChange={updateEmail}
             className='auth__input'
@@ -71,7 +70,6 @@ const LoginForm = ({ setShowModal }) => {
           <input
             name='password'
             type='password'
-            placeholder='Password'
             value={password}
             onChange={updatePassword}
             className='auth__input'
