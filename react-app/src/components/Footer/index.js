@@ -10,11 +10,10 @@ const Footer = () => {
         <div id='footer__container'>
             <div>
                 <h4>TECHNOLOGIES</h4>
-                <div id='tech'>
+                {/* <div id='tech'>
                     <div className='tech__list'>
                         <p>Python</p>
                         <p>Flask</p>
-
                     </div>
                     <div className='tech__list'>
                         <p>React</p>
@@ -23,19 +22,28 @@ const Footer = () => {
                     <div className='tech__list'>
                         <p>PostgreSQL</p>
                         <p>SQLAlchemy</p>
-
                     </div>
                     <div className='tech__list'>
-
                         <p>CSS3</p>
                         <p>HTML5</p>
                     </div>
                     <div className='tech__list'>
                         <p>Heroku</p>
                         <p>Docker</p>
-
                     </div>
+                </div> */}
 
+                <div id='tech'>
+                    <p>Python</p>
+                    <p>Flask</p>
+                    <p>React</p>
+                    <p>Redux</p>
+                    <p>PostgreSQL</p>
+                    <p>SQLAlchemy</p>
+                    <p>CSS3</p>
+                    <p>HTML5</p>
+                    <p>Heroku</p>
+                    <p>Docker</p>
                 </div>
             </div>
 

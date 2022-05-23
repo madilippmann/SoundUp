@@ -3,8 +3,8 @@
     background-color: rgb(98, 98, 98);
     background-color: rgb(75, 84, 101);
     color: rgb(237, 237, 237);
-    height: 180px;
-    padding: 25px;
+    height: 120px;
+    padding: 15px;
     display: flex;
     gap: 50px;
     justify-content: space-around;
@@ -15,7 +15,8 @@
 
 #tech  {
     display: flex;
-    gap: 40px;
+    gap: 15px;
+    margin: 0;
 }
 
 
@@ -25,14 +26,14 @@
 
 #tech p {
     margin: 0;
-    padding: 10px 0;
+    padding: 7px 0;
     font-weight: 300;
 
 }
 
 
 .social__icon {
-    font-size: 40px;
+    font-size: 25px;
     transition: color .15s ease-in-out;
 }
 
@@ -45,4 +46,10 @@
     justify-content: center;
     align-items: center;
     gap: 25px;
+}
+
+
+#footer__container div h4 {
+    font-size: 13px;
+    margin: 15px 0;
 }
